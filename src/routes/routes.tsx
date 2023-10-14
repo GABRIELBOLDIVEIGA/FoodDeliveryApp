@@ -4,7 +4,7 @@ import Login from "src/pages/login/Login";
 import RequireAuth from "src/context/auth/RequireAuth";
 import PrivateRoutes from "./PriviteRoutes";
 import Home from "src/pages/home/Home";
-import BasePage from "src/pages/paginaBase/basePage";
+import BasePage from "src/pages/paginaBase/BasePage";
 
 export const routes = createBrowserRouter([
   {
