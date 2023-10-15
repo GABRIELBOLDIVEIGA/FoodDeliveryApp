@@ -1,16 +1,19 @@
+import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
+import { AuthContext } from "src/context/auth/AuthContext";
 
 const PrivateRoutes = () => {
-  const login = localStorage.getItem("access_token");
+  const { user, singout } = useContext(AuthContext)
 
-  return login ? (
-    <Outlet />
-  ) : (
-    <div>
-      <Navigate to="/login" /> Usuario nao tem premissao para acessar essa
-      pagina
-    </div>
-  );
+  switch (user?.role) {
+    case "adm":
+      return <div>AREA DO ADM</div>
+    case "user":
+      return <Outlet />
+    default:
+      singout()
+      return < Navigate to="/login" />
+  }
 };
 
 export default PrivateRoutes;

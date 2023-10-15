@@ -9,8 +9,11 @@ import { Loader2 } from "lucide-react"
 import { AuthContext } from "src/context/auth/AuthContext"
 import { useNavigate } from "react-router-dom"
 import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "src/components/ui/AlertDialog/AlertDialog"
+import Configs from "src/components/Configs/Configs"
+import { LanguageContext } from "src/context/language/LanguageContenxt"
 
 const Login = () => {
+  const { t } = useContext(LanguageContext)
   const { handleSubmit, handleLogin, register, loading, error, errors } = useLogin()
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -27,24 +30,28 @@ const Login = () => {
     }
   }, [user, navigate]);
 
-
   return (
     <div className="h-full w-full px-4 flex flex-col ">
       <div className="border-[10px] border-primary rounded-full w-[100px] h-[100px] fixed self-end translate-x-12 -translate-y-7"></div>
 
-      <h1 className="font-bold text-center text-2xl py-10 text-primary">BEM VINDO</h1>
+      <div className="pt-2">
+        <Configs />
+      </div>
 
-      <Card className="bg-secondary-foreground p-4">
+      <h1 className="font-bold text-center text-2xl py-10 text-primary">{t("login.welcome")}</h1>
+
+      <Card className="bg-background p-4 ">
+        <p className="text-center text-lg text-primary font-semibold">{t("login.header")}</p>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div>
-            <Label className="text-primary font-semibold">E-mail</Label>
-            <Input placeholder="insira seu email" className="text-secondary" {...register("email")} />
+            <Label className="text-primary font-semibold">{t("login.email")}</Label>
+            <Input placeholder={t("login.emailPlaceholder")} {...register("email")} />
             {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
           </div>
 
           <div>
-            <Label className="text-primary font-semibold">Senha</Label>
-            <Input type="password" placeholder="insira sua senha" className="text-secondary" {...register("password")} />
+            <Label className="text-primary font-semibold">{t("login.password")}</Label>
+            <Input type="password" placeholder={t("login.passwordPlaceholder")} {...register("password")} />
             {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
           </div>
 
@@ -55,10 +62,28 @@ const Login = () => {
         </form>
       </Card>
 
-      <div className="flex justify-between pt-20">
-        <Button >Criar conta</Button>
-        <Button variant="link">Esqueceu sua senha?</Button>
+      <div className="flex justify-between pt-10">
+        <Button>{t("login.singup")}</Button>
+        <Button variant="link">{t("login.forgot")}</Button>
       </div>
+
+
+      <Card className="bg-background p-4 mt-20">
+        <h2 className="text-primary font-bold text-center text-xl">{t("login.mock")}</h2>
+
+        <div className="border-b-2 pt-4">
+          <h3 className="text-lg font-bold">{t("login.adm")}</h3>
+          <p>E-mail: adm@email.com</p>
+          <p>Senha: 123456</p>
+        </div>
+
+        <div className="border-b-2 pt-4">
+          <h3 className="text-lg font-bold">{t("login.client")}</h3>
+          <p>Email: cliente@email.com</p>
+          <p>Senha: 123456</p>
+        </div>
+      </Card>
+
 
       <div className="fixed bottom-0 translate-y-10 -translate-x-12 border-[10px] border-primary rounded-full w-[100px] h-[100px]"></div>
 

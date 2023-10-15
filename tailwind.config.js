@@ -11,9 +11,6 @@ module.exports = {
             },
         },
         extend: {
-            backgroundImage: {
-                doodles: "url('src/assets/bg-doodles-food.png')",
-            },
             colors: {
                 border: "hsl(var(--border))",
                 input: "hsl(var(--input))",
