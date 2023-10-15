@@ -1,17 +1,23 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
-const enTranslations = {};
-
-const ptTranslations = {};
+import themePT from "src/components/ToggleTheme/locale/pt.json"
+import themeEN from "src/components/ToggleTheme/locale/en.json"
+import loginEN from "src/pages/login/locale/en.json"
+import loginPT from "src/pages/login/locale/pt.json"
 
 i18n.use(initReactI18next).init({
   resources: {
     en: {
-      ...enTranslations
+      "translation": {
+        ...loginEN,
+        ...themeEN,
+      }
     },
     pt: {
-      ...ptTranslations
+      "translation": {
+        ...loginPT,
+        ...themePT,
+      }
     },
   },
   lng: 'pt',
