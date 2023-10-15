@@ -1,0 +1,15 @@
+{
+  "login": {
+    "welcome": "Welcome",
+    "header": "Enter your credentials",
+    "email": "Email",
+    "emailPlaceholder": "user@email.com",
+    "password": "Password",
+    "passwordPlaceholder": "***********",
+    "singup": "Sing up",
+    "forgot": "Forgot password",
+    "mock": "Fake Credentials",
+    "adm": "Admin",
+    "client": "Client"
+  }
+}

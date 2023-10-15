@@ -1,0 +1,15 @@
+{
+  "login": {
+    "welcome": "Bem-vindo",
+    "header": "Insira suas credenciais",
+    "email": "E-mail",
+    "emailPlaceholder": "usuario@email.com",
+    "password": "Senha",
+    "passwordPlaceholder": "***********",
+    "singup": "Criar conta",
+    "forgot": "Esqueceu sua senha?",
+    "mock": "Credenciais para teste",
+    "adm": "Administrador",
+    "client": "Cliente"
+  }
+}
