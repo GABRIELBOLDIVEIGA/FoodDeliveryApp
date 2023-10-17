@@ -1,4 +1,4 @@
-import defaultAvatar from "src/assets/avatarDefault.jpg";
+import defaultAvatar from "src/assets/avatarDefault2.jpg";
 import { cn } from "src/lib/utils";
 
 type AvatarProps = {

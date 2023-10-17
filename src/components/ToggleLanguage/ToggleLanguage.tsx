@@ -37,7 +37,7 @@ const ToggleLanguage = () => {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="end" className="border-[1px] grid gap-1 rounded-lg p-1 w-[120px] bg-background  mt-2">
+      <DropdownMenuContent align="start" className="border-[1px] border-border grid gap-1 rounded-lg p-1 w-[120px] bg-background  mt-2 mb-2">
         {options.map((item, index) => {
           return (
             <DropdownMenuItem

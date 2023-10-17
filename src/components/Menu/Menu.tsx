@@ -65,7 +65,7 @@ const Menu = ({ className }: MenuProps) => {
               <MenuIcon className="h-[1.2rem] w-[1.2rem]" />
             </div>
           </SheetTrigger>
-          <SheetContent side="left">
+          <SheetContent side="left" className="border-border">
             <SheetHeader className="h-full justify-between">
               <div>
                 <SheetTitle>Menu</SheetTitle>
