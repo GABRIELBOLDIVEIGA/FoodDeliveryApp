@@ -1,32 +1,37 @@
 import { ClipboardList, Heart, Home, ShoppingCart, User2 } from "lucide-react";
 import { cn } from "./../../lib/utils";
-import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const barOption = [
   {
     id: "orders",
     icon: <ClipboardList size={24} />,
+    link: "/restricted/#"
   },
   {
     id: "favorite",
     icon: <Heart size={24} />,
+    link: "/restricted/#"
   },
   {
     id: "home",
     icon: <Home size={24} />,
+    link: "/restricted/home"
   },
   {
     id: "cart",
     icon: <ShoppingCart size={24} />,
+    link: "/restricted/#"
   },
   {
     id: "user",
     icon: <User2 size={24} />,
+    link: "/restricted/#"
   },
 ];
 
 const NavBar = () => {
-  const [active, setActive] = useState(barOption[2].id);
+  const location = useLocation();
 
   return (
     <div
@@ -37,19 +42,18 @@ const NavBar = () => {
     >
       {barOption.map((option) => {
         return (
-          <div
+          <Link
+            to={option.link}
             key={option.id}
-            id={option.id}
-            onClick={(ev) => setActive(ev.currentTarget.id)}
             className={cn(
               `p-3 rounded-full bg-transparent transition ease-in-out duration-300 `,
-              active === option.id
+              location.pathname === option.link
                 ? `bg-primary -translate-y-6 text-primary-foreground`
                 : ``,
             )}
           >
             {option.icon}
-          </div>
+          </Link>
         );
       })}
     </div>
