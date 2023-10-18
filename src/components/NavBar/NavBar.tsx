@@ -29,7 +29,12 @@ const NavBar = () => {
   const [active, setActive] = useState(barOption[2].id)
 
   return (
-    <div className="fixed bottom-0 flex justify-between items-center gap-2 px-8 bg-muted w-full h-[50px]">
+    <div
+      className="
+        fixed -bottom-1 flex justify-between items-center gap-2 w-full h-[50px] px-8 
+        bg-muted shadow-[0px_-4px_6px_-1px_rgba(0,0,0,0.1)]
+      "
+    >
       {barOption.map((option) => {
         return (
           <div

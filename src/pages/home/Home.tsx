@@ -12,14 +12,14 @@ const Home = () => {
   const { t } = useContext(LanguageContext)
 
   return (
-    <div>
-      <div className="fixed top-0 w-full flex justify-between items-center bg-background shadow-md p-2 dark:border-b-[1px] dark:border-secondary">
+    <div className="bg-background">
+      <div className="fixed top-0 z-20 w-full flex justify-between items-center bg-background shadow-md p-2 dark:border-b-[1px] dark:border-secondary">
         <Menu />
         <div className="text-2xl font-semibold">{t('home.title')}</div>
         <Avatar urlImg="" />
       </div>
 
-      <div className="px-4 pt-24">
+      <div className="px-4 py-24">
         <Banner />
 
         <Categories />
