@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import { Product, productSchema } from "./schemas/productSchema";
+import { Product, productSchema } from "src/validator/productSchema";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 
 const DailyDeal = () => {

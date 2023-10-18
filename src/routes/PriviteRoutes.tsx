@@ -1,6 +1,5 @@
 import { useContext } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import Header from "src/components/Header/Header";
 import NavBar from "src/components/NavBar/NavBar";
 import { AuthContext } from "src/context/auth/AuthContext";
 
@@ -23,7 +22,6 @@ export default PrivateRoutes;
 const OutletUser = () => {
   return (
     <div>
-      <Header />
       <Outlet />
       <NavBar />
     </div>

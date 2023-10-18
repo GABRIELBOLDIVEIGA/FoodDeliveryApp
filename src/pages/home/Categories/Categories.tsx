@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import { Button } from "src/components/ui/Button/Button";
 import { deliveryInstance } from "src/services/deliveryInstance";
-
 import { LanguageContext } from "src/context/language/LanguageContenxt";
-import { CategoriesSchema, Category } from "./schemas/CategorySchema";
+import { Link } from "react-router-dom";
+import { Category, categoriesSchema } from "src/validator/categorySchema";
 
 const Categories = () => {
   const { t } = useContext(LanguageContext);
@@ -14,7 +14,7 @@ const Categories = () => {
     deliveryInstance
       .get("/category/category/query?page=1&limit=3")
       .then((res) => {
-        const categories = CategoriesSchema.safeParse(res.data);
+        const categories = categoriesSchema.safeParse(res.data);
         setCategories(categories.success ? categories.data : undefined);
       })
       .catch((err) => console.log(err))
@@ -27,9 +27,11 @@ const Categories = () => {
     <section className="pt-6">
       <div className="flex justify-between items-center tracking-wider pb-4">
         <p className="font-bold">{t("categoriesHome.title")}</p>
-        <Button variant="link" className="font-semibold">
-          {t("categoriesHome.link")}
-        </Button>
+        <Link to="/restricted/categories">
+          <Button variant="link" className="font-semibold">
+            {t("categoriesHome.link")}
+          </Button>
+        </Link>
       </div>
 
       <div className="flex w-full gap-2 ">

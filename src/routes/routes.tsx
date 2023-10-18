@@ -5,6 +5,7 @@ import RequireAuth from "src/context/auth/RequireAuth";
 import PrivateRoutes from "./PriviteRoutes";
 import Home from "src/pages/home/Home";
 import BasePage from "src/pages/paginaBase/BasePage";
+import Categories from "src/pages/Categories/Categories";
 
 export const routes = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const routes = createBrowserRouter([
           {
             path: "/restricted/home",
             element: <Home />,
+          },
+          {
+            path: "/restricted/categories",
+            element: <Categories />,
           },
         ],
       },
