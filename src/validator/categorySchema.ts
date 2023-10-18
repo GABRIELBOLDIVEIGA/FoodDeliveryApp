@@ -1,14 +1,14 @@
 import { z } from "zod";
 
-export const categoriesSchema = z.array(
-  z.object({
+export const categorySchema = z.object(
+  {
     _id: z.string(),
     name: z.string(),
     description: z.string(),
     img: z.string(),
-  }),
+  }
 );
 
-export type Categories = z.infer<typeof categoriesSchema>;
+export const categoriesSchema = z.array(categorySchema);
 
-export type Category = Categories[0];
+export type Category = z.infer<typeof categorySchema>;
