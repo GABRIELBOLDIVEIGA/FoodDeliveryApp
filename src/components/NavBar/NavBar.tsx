@@ -6,27 +6,27 @@ const barOption = [
   {
     id: "orders",
     icon: <ClipboardList size={24} />,
-    link: "/restricted/#"
+    link: "/restricted/#",
   },
   {
     id: "favorite",
     icon: <Heart size={24} />,
-    link: "/restricted/#"
+    link: "/restricted/#",
   },
   {
     id: "home",
     icon: <Home size={24} />,
-    link: "/restricted/home"
+    link: "/restricted/home",
   },
   {
     id: "cart",
     icon: <ShoppingCart size={24} />,
-    link: "/restricted/#"
+    link: "/restricted/#",
   },
   {
     id: "user",
     icon: <User2 size={24} />,
-    link: "/restricted/#"
+    link: "/restricted/#",
   },
 ];
 

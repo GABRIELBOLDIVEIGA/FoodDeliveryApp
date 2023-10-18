@@ -31,7 +31,7 @@ i18n.use(initReactI18next).init({
         ...categoriesHomeEN,
         ...dailyDealHomeEN,
         ...homeEN,
-        ...categoriesEN
+        ...categoriesEN,
       },
     },
     pt: {
