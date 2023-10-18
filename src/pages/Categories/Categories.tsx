@@ -4,14 +4,10 @@ import { Link } from "react-router-dom";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { cn } from "src/lib/utils";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import {
-  Categories,
-  Category,
-  categoriesSchema,
-} from "src/validator/categorySchema";
+import { Category, categoriesSchema } from "src/validator/categorySchema";
 
 const Categories = () => {
-  const [categories, setCategories] = useState<Categories>();
+  const [categories, setCategories] = useState<Array<Category>>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
