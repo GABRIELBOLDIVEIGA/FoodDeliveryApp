@@ -18,6 +18,9 @@ import dailyDealHomeEN from "src/pages/home/DailyDeal/locale/en.json";
 import homePT from "src/pages/home/locale/pt.json";
 import homeEN from "src/pages/home/locale/en.json";
 
+import categoriesPT from "src/pages/Categories/locale/pt.json";
+import categoriesEN from "src/pages/Categories/locale/en.json";
+
 i18n.use(initReactI18next).init({
   resources: {
     en: {
@@ -28,6 +31,7 @@ i18n.use(initReactI18next).init({
         ...categoriesHomeEN,
         ...dailyDealHomeEN,
         ...homeEN,
+        ...categoriesEN
       },
     },
     pt: {
@@ -38,6 +42,7 @@ i18n.use(initReactI18next).init({
         ...categoriesHomePT,
         ...dailyDealHomePT,
         ...homePT,
+        ...categoriesPT,
       },
     },
   },
