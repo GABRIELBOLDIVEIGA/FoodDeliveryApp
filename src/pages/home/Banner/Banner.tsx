@@ -12,10 +12,10 @@ const Banner = () => {
   return (
     <Card className="flex bg-primary p-2 py-4 dark:border-none">
       <div className="flex flex-col gap-2 w-2/3">
-        <h3 className="text-xl px-2 font-bold text-secondary tracking-wider">
+        <h3 className="text-xl px-2 font-bold  tracking-wider">
           {t("bannerHome.title")}
         </h3>
-        <p className="leading-4 font-semibold tracking-wider px-2 text-sm">
+        <p className="leading-4 font-semibold text-secondary tracking-wider px-2 text-sm">
           {t("bannerHome.subTitle")}
         </p>
         <Button className="w-4/5  bg-white font-bold text-secondary-foreground dark:text-secondary tracking-wider">
