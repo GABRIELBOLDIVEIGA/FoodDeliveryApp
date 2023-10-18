@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const CategoriesSchema = z.array(
+export const categoriesSchema = z.array(
   z.object({
     _id: z.string(),
     name: z.string(),
@@ -9,6 +9,6 @@ export const CategoriesSchema = z.array(
   }),
 );
 
-export type Categories = z.infer<typeof CategoriesSchema>;
+export type Categories = z.infer<typeof categoriesSchema>;
 
 export type Category = Categories[0];
