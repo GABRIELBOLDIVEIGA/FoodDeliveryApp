@@ -4,7 +4,7 @@ import { cn } from "src/lib/utils";
 
 type ConfigsProps = {
   className?: string;
-}
+};
 
 const Configs = ({ className }: ConfigsProps, rest) => {
   return (
@@ -12,7 +12,7 @@ const Configs = ({ className }: ConfigsProps, rest) => {
       <ToggleTheme />
       <ToggleLanguage />
     </div>
-  )
-}
+  );
+};
 
 export default Configs;

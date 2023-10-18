@@ -1,32 +1,35 @@
-
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { LanguagesIcon } from "lucide-react"
-import { useContext } from 'react';
-import br_flag from "../../assets/br.png"
-import us_flag from "../../assets/us.png"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
+import { LanguagesIcon } from "lucide-react";
+import { useContext } from "react";
+import br_flag from "../../assets/br.png";
+import us_flag from "../../assets/us.png";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { Button } from "../ui/Button/Button";
 
-const options: Array<{ icon: string, code: string, value: "en" | "pt" }> = [
+const options: Array<{ icon: string; code: string; value: "en" | "pt" }> = [
   {
     icon: us_flag,
     code: "EN-US",
-    value: "en"
+    value: "en",
   },
   {
     icon: br_flag,
     code: "PT-BR",
-    value: "pt"
+    value: "pt",
   },
-]
+];
 
 const ToggleLanguage = () => {
   const translate = useContext(LanguageContext);
 
   const handleChangeLanguage = (value: string) => {
-    if (translate.currentlanguage != value)
-      translate.handleChangeLanguage();
-  }
+    if (translate.currentlanguage != value) translate.handleChangeLanguage();
+  };
 
   return (
     <DropdownMenu>
@@ -37,7 +40,10 @@ const ToggleLanguage = () => {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="border-[1px] border-border grid gap-1 rounded-lg p-1 w-[120px] bg-background  mt-2 mb-2">
+      <DropdownMenuContent
+        align="start"
+        className="border-[1px] border-border grid gap-1 rounded-lg p-1 w-[120px] bg-background  mt-2 mb-2"
+      >
         {options.map((item, index) => {
           return (
             <DropdownMenuItem
@@ -52,11 +58,11 @@ const ToggleLanguage = () => {
                 {item.code}
               </button>
             </DropdownMenuItem>
-          )
+          );
         })}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};
 
-export default ToggleLanguage
+export default ToggleLanguage;

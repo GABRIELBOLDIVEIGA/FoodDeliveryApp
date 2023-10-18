@@ -1,4 +1,3 @@
-
 import { z } from "zod";
 
 export const productSchema = z.object({
@@ -7,7 +6,7 @@ export const productSchema = z.object({
   price: z.number(),
   activePromotion: z.boolean(),
   promotionalPrice: z.number(),
-  img: z.string()
-})
+  img: z.string(),
+});
 
-export type Product = z.infer<typeof productSchema>
+export type Product = z.infer<typeof productSchema>;

@@ -5,9 +5,10 @@ export const CategoriesSchema = z.array(
     _id: z.string(),
     name: z.string(),
     description: z.string(),
-    img: z.string()
-  }))
+    img: z.string(),
+  }),
+);
 
-export type Categories = z.infer<typeof CategoriesSchema> 
+export type Categories = z.infer<typeof CategoriesSchema>;
 
-export type Category = Categories[0]
+export type Category = Categories[0];

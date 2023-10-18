@@ -5,16 +5,16 @@ import NavBar from "src/components/NavBar/NavBar";
 import { AuthContext } from "src/context/auth/AuthContext";
 
 const PrivateRoutes = () => {
-  const { user, singout } = useContext(AuthContext)
+  const { user, singout } = useContext(AuthContext);
 
   switch (user?.role) {
     case "adm":
-      return <div>AREA DO ADM</div>
+      return <div>AREA DO ADM</div>;
     case "user":
-      return <OutletUser />
+      return <OutletUser />;
     default:
-      singout()
-      return < Navigate to="/login" />
+      singout();
+      return <Navigate to="/login" />;
   }
 };
 
@@ -27,5 +27,5 @@ const OutletUser = () => {
       <Outlet />
       <NavBar />
     </div>
-  )
-}
+  );
+};

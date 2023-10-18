@@ -1,32 +1,40 @@
-
-import { Button } from "src/components/ui/Button/Button"
-import { Card } from "src/components/ui/Card/Card"
-import { Input } from "src/components/ui/Input/Input"
-import { Label } from "src/components/ui/Label/Label"
-import useLogin from "./form/useLogin"
-import { useContext, useEffect, useState } from 'react';
-import { Loader2 } from "lucide-react"
-import { AuthContext } from "src/context/auth/AuthContext"
-import { useNavigate } from "react-router-dom"
-import { AlertDialog, AlertDialogAction, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "src/components/ui/AlertDialog/AlertDialog"
-import Configs from "src/components/Configs/Configs"
-import { LanguageContext } from "src/context/language/LanguageContenxt"
+import { Button } from "src/components/ui/Button/Button";
+import { Card } from "src/components/ui/Card/Card";
+import { Input } from "src/components/ui/Input/Input";
+import { Label } from "src/components/ui/Label/Label";
+import useLogin from "./form/useLogin";
+import { useContext, useEffect, useState } from "react";
+import { Loader2 } from "lucide-react";
+import { AuthContext } from "src/context/auth/AuthContext";
+import { useNavigate } from "react-router-dom";
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "src/components/ui/AlertDialog/AlertDialog";
+import Configs from "src/components/Configs/Configs";
+import { LanguageContext } from "src/context/language/LanguageContenxt";
 
 const Login = () => {
-  const { t } = useContext(LanguageContext)
-  const { handleSubmit, handleLogin, register, loading, error, errors } = useLogin()
+  const { t } = useContext(LanguageContext);
+  const { handleSubmit, handleLogin, register, loading, error, errors } =
+    useLogin();
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
   const [alert, setAlert] = useState(false);
 
   useEffect(() => {
-    if (error)
-      setAlert(true)
-  }, [error])
+    if (error) setAlert(true);
+  }, [error]);
 
   useEffect(() => {
     if (user) {
-      navigate("/restricted/home")
+      navigate("/restricted/home");
     }
   }, [user, navigate]);
 
@@ -38,24 +46,44 @@ const Login = () => {
         <Configs />
       </div>
 
-      <h1 className="font-bold text-center text-2xl py-10 text-primary">{t("login.welcome")}</h1>
+      <h1 className="font-bold text-center text-2xl py-10 text-primary">
+        {t("login.welcome")}
+      </h1>
 
       <Card className="bg-background p-4 border-border">
         <p className="text-center text-lg font-semibold">{t("login.header")}</p>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div>
             <Label className="font-semibold">{t("login.email")}</Label>
-            <Input placeholder={t("login.emailPlaceholder")} {...register("email")} />
-            {errors.email && <span className="text-red-600 text-sm">{errors.email.message}</span>}
+            <Input
+              placeholder={t("login.emailPlaceholder")}
+              {...register("email")}
+            />
+            {errors.email && (
+              <span className="text-red-600 text-sm">
+                {errors.email.message}
+              </span>
+            )}
           </div>
 
           <div>
             <Label className="font-semibold">{t("login.password")}</Label>
-            <Input type="password" placeholder={t("login.passwordPlaceholder")} {...register("password")} />
-            {errors.password && <span className="text-red-600 text-sm">{errors.password.message}</span>}
+            <Input
+              type="password"
+              placeholder={t("login.passwordPlaceholder")}
+              {...register("password")}
+            />
+            {errors.password && (
+              <span className="text-red-600 text-sm">
+                {errors.password.message}
+              </span>
+            )}
           </div>
 
-          <Button type="submit" className="w-full font-semibold mt-6 gap-2 tracking-wider">
+          <Button
+            type="submit"
+            className="w-full font-semibold mt-6 gap-2 tracking-wider"
+          >
             {loading && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
             Login
             {loading && <div className="ml-2 h-4 w-4 "></div>}
@@ -64,10 +92,11 @@ const Login = () => {
       </Card>
 
       <div className="flex justify-between pt-10">
-        <Button className="font-semibold tracking-wider">{t("login.singup")}</Button>
+        <Button className="font-semibold tracking-wider">
+          {t("login.singup")}
+        </Button>
         <Button variant="link">{t("login.forgot")}</Button>
       </div>
-
 
       <Card className="bg-background p-4 mt-20 border-border">
         <h2 className=" font-bold text-center text-xl">{t("login.mock")}</h2>
@@ -85,7 +114,6 @@ const Login = () => {
         </div>
       </Card>
 
-
       <div className="fixed bottom-0 translate-y-10 -translate-x-12 border-[10px] border-primary rounded-full w-[100px] h-[100px]"></div>
 
       <AlertDialog open={alert}>
@@ -93,18 +121,17 @@ const Login = () => {
         <AlertDialogContent>
           <AlertDialogHeader>
             <AlertDialogTitle>{error?.message}</AlertDialogTitle>
-            <AlertDialogDescription>
-              {error?.message}
-            </AlertDialogDescription>
+            <AlertDialogDescription>{error?.message}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
-            <AlertDialogAction onClick={() => setAlert(!alert)}>OK</AlertDialogAction>
+            <AlertDialogAction onClick={() => setAlert(!alert)}>
+              OK
+            </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
-
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

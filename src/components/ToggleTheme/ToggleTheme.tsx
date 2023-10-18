@@ -1,32 +1,36 @@
-
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
-import { Cpu, Moon, Sun } from "lucide-react"
-import { useContext } from "react"
-import { Theme, useTheme } from "src/context/theme/ThemeContext"
-import { LanguageContext } from "src/context/language/LanguageContenxt"
-import { Button } from "../ui/Button/Button"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@radix-ui/react-dropdown-menu";
+import { Cpu, Moon, Sun } from "lucide-react";
+import { useContext } from "react";
+import { Theme, useTheme } from "src/context/theme/ThemeContext";
+import { LanguageContext } from "src/context/language/LanguageContenxt";
+import { Button } from "../ui/Button/Button";
 
 const ToggleTheme = () => {
-  const { setTheme } = useTheme()
+  const { setTheme } = useTheme();
   const { t } = useContext(LanguageContext);
 
-  const options: Array<{ icon: JSX.Element, text: string, theme: Theme }> = [
+  const options: Array<{ icon: JSX.Element; text: string; theme: Theme }> = [
     {
       icon: <Sun className="h-[1.2rem] w-[1.2rem]" />,
-      text: t('theme.light'),
-      theme: "light"
+      text: t("theme.light"),
+      theme: "light",
     },
     {
       icon: <Moon className="h-[1.2rem] w-[1.2rem]" />,
-      text: t('theme.dark'),
-      theme: "dark"
+      text: t("theme.dark"),
+      theme: "dark",
     },
     {
       icon: <Cpu className="h-[1.2rem] w-[1.2rem]" />,
-      text: t('theme.system'),
-      theme: "system"
-    }
-  ]
+      text: t("theme.system"),
+      theme: "system",
+    },
+  ];
 
   return (
     <DropdownMenu>
@@ -38,7 +42,10 @@ const ToggleTheme = () => {
         </Button>
       </DropdownMenuTrigger>
 
-      <DropdownMenuContent align="start" className="border-[1px] border-border grid gap-1 rounded-lg p-1 w-[120px] bg-background mt-2 mb-2">
+      <DropdownMenuContent
+        align="start"
+        className="border-[1px] border-border grid gap-1 rounded-lg p-1 w-[120px] bg-background mt-2 mb-2"
+      >
         {options.map((item, index) => {
           return (
             <DropdownMenuItem
@@ -51,11 +58,11 @@ const ToggleTheme = () => {
                 <p>{item.text}</p>
               </div>
             </DropdownMenuItem>
-          )
+          );
         })}
       </DropdownMenuContent>
     </DropdownMenu>
-  )
-}
+  );
+};
 
-export default ToggleTheme
+export default ToggleTheme;

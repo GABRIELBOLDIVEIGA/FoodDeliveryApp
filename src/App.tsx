@@ -1,14 +1,12 @@
-import { Button } from "./components/shadcn/Button/Button"
+import { Button } from "./components/shadcn/Button/Button";
 
 function App() {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">
-        Hello world!
-      </h1>
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
       <Button>123</Button>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,5 +1,4 @@
-
-import { Outlet } from 'react-router-dom';
+import { Outlet } from "react-router-dom";
 
 const BasePage = () => {
   return (
@@ -11,7 +10,7 @@ const BasePage = () => {
         <Outlet />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default BasePage
+export default BasePage;
