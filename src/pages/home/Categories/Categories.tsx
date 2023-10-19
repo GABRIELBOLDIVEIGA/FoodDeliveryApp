@@ -54,7 +54,7 @@ const Categories = () => {
         {!loading &&
           categories?.map((category, index) => {
             return (
-              <div key={index} className=" w-1/3">
+              <Link to={`/restricted/category/${category._id}`} key={index} className=" w-1/3">
                 <div className="flex justify-center items-center rounded-md ">
                   <img
                     src={category?.img}
@@ -64,7 +64,7 @@ const Categories = () => {
                 <p className="text-center font-semibold pt-2">
                   {category.name}
                 </p>
-              </div>
+              </Link>
             );
           })}
       </div>

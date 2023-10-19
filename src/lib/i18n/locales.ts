@@ -1,5 +1,3 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
 import themePT from "src/components/ToggleTheme/locale/pt.json";
 import themeEN from "src/components/ToggleTheme/locale/en.json";
 
@@ -24,32 +22,24 @@ import categoriesEN from "src/pages/Categories/locale/en.json";
 import productsAddPT from "src/pages/Products/locale/pt.json";
 import productsAddEN from "src/pages/Products/locale/en.json";
 
-i18n.use(initReactI18next).init({
-  resources: {
-    en: {
-      translation: {
-        ...themeEN,
-        ...loginEN,
-        ...bannerHomeEN,
-        ...categoriesHomeEN,
-        ...dailyDealHomeEN,
-        ...homeEN,
-        ...categoriesEN,
-        ...productsAddEN,
-      },
-    },
-    pt: {
-      translation: {
-        ...themePT,
-        ...loginPT,
-        ...bannerHomePT,
-        ...categoriesHomePT,
-        ...dailyDealHomePT,
-        ...homePT,
-        ...categoriesPT,
-        ...productsAddPT,
-      },
-    },
-  },
-  lng: "pt",
-});
+export const localeEN = {
+  ...themeEN,
+  ...loginEN,
+  ...bannerHomeEN,
+  ...categoriesHomeEN,
+  ...dailyDealHomeEN,
+  ...homeEN,
+  ...categoriesEN,
+  ...productsAddEN,
+};
+
+export const localePT = {
+  ...themePT,
+  ...loginPT,
+  ...bannerHomePT,
+  ...categoriesHomePT,
+  ...dailyDealHomePT,
+  ...homePT,
+  ...categoriesPT,
+  ...productsAddPT,
+}

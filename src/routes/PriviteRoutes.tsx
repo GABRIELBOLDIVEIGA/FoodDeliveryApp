@@ -21,9 +21,9 @@ export default PrivateRoutes;
 
 const OutletUser = () => {
   return (
-    <div>
+    <>
       <Outlet />
       <NavBar />
-    </div>
+    </>
   );
 };

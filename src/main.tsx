@@ -6,7 +6,7 @@ import { LanguageProvider } from "./context/language/LanguageProvider.tsx";
 import { AuthProvider } from "./context/auth/AuthProvider.tsx";
 import { RouterProvider } from "react-router-dom";
 import routes from "./routes/routes.tsx";
-import "./lib/i18n.ts";
+import "./lib/i18n/i18n.ts";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
