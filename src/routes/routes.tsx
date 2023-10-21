@@ -7,6 +7,7 @@ import Home from "src/pages/home/Home";
 import BasePage from "src/pages/paginaBase/BasePage";
 import Categories from "src/pages/Categories/Categories";
 import Products from "src/pages/Products/Products";
+import Cart from "src/pages/Cart/Cart";
 
 export const routes = createBrowserRouter([
   {
@@ -55,6 +56,10 @@ export const routes = createBrowserRouter([
           {
             path: "/restricted/category/:id",
             element: <Products />,
+          },
+          {
+            path: "/restricted/cart",
+            element: <Cart />,
           },
         ],
       },

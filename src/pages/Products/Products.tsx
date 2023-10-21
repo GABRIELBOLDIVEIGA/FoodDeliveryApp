@@ -7,6 +7,7 @@ import _404_img from "src/assets/404FullHD.jpg"
 import { Button } from "src/components/ui/Button/Button"
 import { cn } from './../../lib/utils';
 import { LanguageContext } from "src/context/language/LanguageContenxt"
+import { CartContext } from "src/context/cart/CartContext"
 
 const Products = () => {
   const params = useParams<{ id: string }>()
@@ -16,7 +17,6 @@ const Products = () => {
   useEffect(() => {
     deliveryInstance.get(`/product/productsByCategory/${params.id}`)
       .then((res) => {
-        console.log(res.data)
         const parse = productsSchema.safeParse(res.data)
         setProducts(parse.success ? parse.data : undefined)
       })
@@ -55,8 +55,15 @@ const Header = () => {
   );
 };
 
-
 const CardProduct = (product: Product) => {
+  const { products, addProduct, subitractProduct } = useContext(CartContext);
+  
+  const productCart = {
+    productID: product._id,
+    name: product.name,
+    price: product.activePromotion ? product.promotionalPrice : product.price,
+    amount: 0
+  }
 
   return (
     <div className="flex gap-2 rounded-xl p-2 shadow-md bg-primary">
@@ -76,9 +83,13 @@ const CardProduct = (product: Product) => {
         </div>
 
         <div className="w-full flex justify-between items-center rounded-md bg-muted">
-          <Button size="icon" className="bg-transparent text-secondary-foreground"><Minus /></Button>
-          <p className=" font-semibold">32</p>
-          <Button size="icon" className="bg-transparent text-secondary-foreground"><Plus /></Button>
+          <Button onClick={() => { subitractProduct(productCart) }} size="icon" className="bg-transparent text-secondary-foreground"><Minus /></Button>
+          <p className=" font-semibold">
+            {products.map((product) => {
+              if (product.productID === productCart.productID) return product.amount
+            })}
+          </p>
+          <Button onClick={() => { addProduct(productCart) }} size="icon" className="bg-transparent text-secondary-foreground"><Plus /></Button>
         </div>
       </div>
 

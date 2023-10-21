@@ -21,7 +21,7 @@ const barOption = [
   {
     id: "cart",
     icon: <ShoppingCart size={24} />,
-    link: "/restricted/#",
+    link: "/restricted/cart",
   },
   {
     id: "user",
