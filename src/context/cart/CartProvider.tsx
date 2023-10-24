@@ -1,9 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { CartContext } from "./CartContext"
 import { ProductCart } from "./schema/cartSchema"
 
 export const CartProvider = ({ children }: { children: JSX.Element }) => {
   const [products, setProducts] = useState<ProductCart[] | []>([]);
+  const [total, setTotal] = useState(0);
+
+  useEffect(() => {
+    const productPrice_X_productAmount: Array<number> = products.map((product) => product.amount * product.price)
+
+    const tt = productPrice_X_productAmount.reduce((accumulator, currentValue) => accumulator + currentValue, 0)
+    setTotal(tt);
+
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [products])
 
   const addProduct = (product: ProductCart) => {
     const existe = products?.find((prod) => prod.productID === product.productID);
@@ -29,7 +39,7 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
   const subitractProduct = (product: ProductCart) => {
     const existe = products?.find((prod) => prod.productID === product.productID);
 
-    if(existe?.amount === 1 ) {
+    if (existe?.amount === 1) {
       removeProduct(product);
       return
     }
@@ -55,5 +65,10 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
     setProducts(newList)
   }
 
-  return <CartContext.Provider value={{ products, addProduct, subitractProduct }}>{children}</CartContext.Provider>
+  const resetCart = () => {
+    setTotal(0);
+    setProducts([])
+  }
+
+  return <CartContext.Provider value={{ products, total, addProduct, subitractProduct, resetCart }}>{children}</CartContext.Provider>
 }

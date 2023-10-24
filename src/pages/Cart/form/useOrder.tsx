@@ -3,9 +3,12 @@ import { Order } from "./type"
 import { zodResolver } from "@hookform/resolvers/zod"
 import { orderSchema } from "./schema"
 import { deliveryInstance } from "src/services/deliveryInstance"
+import { useEffect } from "react"
 
 export const useOrder = () => {
   const form = useForm<Order>({ criteriaMode: 'all', mode: 'onBlur', resolver: zodResolver(orderSchema) })
+
+  useEffect(() => {},[])
 
   const handleSubmitOrder = (data: Order) => {
     deliveryInstance.post('/order', data)

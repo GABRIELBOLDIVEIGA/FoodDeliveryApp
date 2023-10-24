@@ -6,7 +6,7 @@ const barOption = [
   {
     id: "orders",
     icon: <ClipboardList size={24} />,
-    link: "/restricted/#",
+    link: "/restricted/categories",
   },
   {
     id: "favorite",

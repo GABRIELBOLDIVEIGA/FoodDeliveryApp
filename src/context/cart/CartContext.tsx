@@ -4,6 +4,8 @@ import { ProductCart } from "./schema/cartSchema";
 
 export type CartContextType = {
   products: ProductCart[] | [];
+  total: number;
+  resetCart: () => void;
   addProduct: (product: ProductCart) => void;
   subitractProduct: (product: ProductCart) => void;
 };

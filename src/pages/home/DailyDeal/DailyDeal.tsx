@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { deliveryInstance } from "src/services/deliveryInstance";
 import { Product, productSchema } from "src/validator/productSchema";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
+import imgError from "src/assets/404FullHD.jpg"
 
 const DailyDeal = () => {
   const { t } = useContext(LanguageContext);
@@ -38,6 +39,7 @@ const DailyDeal = () => {
             title={product.name}
             src={product.img}
             className="w-full rounded-lg shadow-md"
+            onError={(ev) => ev.currentTarget.src = imgError}
             onLoad={() => setLoading(false)}
           />
         </div>

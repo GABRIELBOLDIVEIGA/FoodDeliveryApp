@@ -22,6 +22,9 @@ import categoriesEN from "src/pages/Categories/locale/en.json";
 import productsAddPT from "src/pages/Products/locale/pt.json";
 import productsAddEN from "src/pages/Products/locale/en.json";
 
+import cartEN from "src/pages/Cart/locale/en.json";
+import cartPT from "src/pages/Cart/locale/pt.json";
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -31,6 +34,7 @@ export const localeEN = {
   ...homeEN,
   ...categoriesEN,
   ...productsAddEN,
+  ...cartEN,
 };
 
 export const localePT = {
@@ -42,4 +46,5 @@ export const localePT = {
   ...homePT,
   ...categoriesPT,
   ...productsAddPT,
+  ...cartPT,
 }
