@@ -1,5 +1,12 @@
 {
   "cart": {
-    "title": "MY ORDER"
+    "title": "MY ORDER",
+    "deliveryAddress": "Delivery Address",
+    "street": "Street: ",
+    "neighborhood": "Neighborhood: ",
+    "number": "Number: ",
+    "phoneNumber": "Phone: ",
+    "confirm": "Confirm",
+    "buttonAlert": "Confirm"
   }
 }

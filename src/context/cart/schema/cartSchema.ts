@@ -5,5 +5,5 @@ export const productCartSchema = z.object({
   name: z.string(),
   price: z.coerce.number(),
   amount: z.coerce.number(),
-})
-export type ProductCart = z.infer<typeof productCartSchema>
+});
+export type ProductCart = z.infer<typeof productCartSchema>;

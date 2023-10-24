@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
       <LanguageProvider>
         <AuthProvider>
           <CartProvider>
-          <RouterProvider router={routes} />
+            <RouterProvider router={routes} />
           </CartProvider>
         </AuthProvider>
       </LanguageProvider>

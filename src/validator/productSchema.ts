@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { categorySchema } from 'src/validator/categorySchema';
+import { categorySchema } from "src/validator/categorySchema";
 
 export const productSchema = z.object({
   _id: z.string(),
@@ -16,4 +16,3 @@ export const productSchema = z.object({
 export const productsSchema = z.array(productSchema);
 
 export type Product = z.infer<typeof productSchema>;
-
