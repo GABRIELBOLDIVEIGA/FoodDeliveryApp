@@ -8,7 +8,7 @@ import { Loader } from "lucide-react"
 import { cn } from "src/lib/utils"
 
 const Perfil = () => {
-  const { form, submitForm, loadingSubmit } = usePerfil();
+  const { form, submitForm, loadingSubmit, loadingZipCode } = usePerfil();
 
   return (
     <section>
@@ -84,6 +84,10 @@ const Perfil = () => {
               <p className="min-w-max bg-primary rounded-full px-2 text-muted dark:text-secondary-foreground font-semibold shadow-md ">Delivery Address</p>
             </div>
 
+            <div className='w-full flex justify-center'>
+              <Loader className={cn("animate-spin ", !loadingZipCode && 'sr-only')} />
+            </div>
+
             <FormField
               control={form.control}
               name="zipCode"
@@ -91,7 +95,7 @@ const Perfil = () => {
                 <FormItem>
                   <FormLabel>ZipCode</FormLabel>
                   <FormControl>
-                    <Input placeholder="ZipCode" {...field} />
+                    <Input placeholder="ZipCode" disabled={loadingZipCode} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -105,7 +109,7 @@ const Perfil = () => {
                 <FormItem>
                   <FormLabel>City</FormLabel>
                   <FormControl>
-                    <Input placeholder="City" {...field} />
+                    <Input placeholder="City" disabled={loadingZipCode} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -119,7 +123,7 @@ const Perfil = () => {
                 <FormItem>
                   <FormLabel>Neighborhood</FormLabel>
                   <FormControl>
-                    <Input placeholder="Neighborhood" {...field} />
+                    <Input placeholder="Neighborhood" disabled={loadingZipCode} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -133,7 +137,7 @@ const Perfil = () => {
                 <FormItem>
                   <FormLabel>Street</FormLabel>
                   <FormControl>
-                    <Input placeholder="Street" {...field} />
+                    <Input placeholder="Street" disabled={loadingZipCode} {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>

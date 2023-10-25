@@ -1,6 +1,6 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import axios from "axios";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "src/context/auth/AuthContext";
 import { deliveryInstance } from "src/services/deliveryInstance";
@@ -11,6 +11,7 @@ export const usePerfil = () => {
   const form = useForm<Perfil>({ mode: 'onBlur', criteriaMode: 'all', resolver: zodResolver(perfilSchema) });
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [loadingZipCode, setLoadingZipCode] = useState(false);
+  const ref = useRef(false);
 
   const watchZipCode = form.watch(["zipCode"]);
 
@@ -37,7 +38,12 @@ export const usePerfil = () => {
   }, [])
 
   useEffect(() => {
-    if (watchZipCode.toString().length >= 8) {
+    if (watchZipCode.toString().length < 8) {
+      ref.current = true
+    }
+
+    if (watchZipCode.toString().length >= 8 && ref.current === true) {
+      ref.current = false
       setLoadingZipCode(true)
       axios
         .get(`https://viacep.com.br/ws/${watchZipCode.toString()}/json/`)
@@ -50,7 +56,7 @@ export const usePerfil = () => {
         .finally(() => { setLoadingZipCode(false) });
     }
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchZipCode]);
 
 
