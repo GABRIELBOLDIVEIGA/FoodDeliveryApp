@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import { Product, productSchema } from "src/validator/productSchema";
+import { Product, productSchema } from "src/validator/product/productSchema";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import imgError from "src/assets/404FullHD.jpg";
 

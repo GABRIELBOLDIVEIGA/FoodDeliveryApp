@@ -3,7 +3,7 @@ import { Button } from "src/components/ui/Button/Button";
 import { deliveryInstance } from "src/services/deliveryInstance";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { Link } from "react-router-dom";
-import { Category, categoriesSchema } from "src/validator/categorySchema";
+import { Category, categoriesSchema } from "src/validator/category/categorySchema";
 
 const Categories = () => {
   const { t } = useContext(LanguageContext);

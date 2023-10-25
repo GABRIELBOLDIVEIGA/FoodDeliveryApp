@@ -8,6 +8,7 @@ import BasePage from "src/pages/paginaBase/BasePage";
 import Categories from "src/pages/Categories/Categories";
 import Products from "src/pages/Products/Products";
 import Cart from "src/pages/Cart/Cart";
+import Perfil from "src/pages/Perfil/Perfil";
 
 export const routes = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const routes = createBrowserRouter([
           {
             path: "/restricted/cart",
             element: <Cart />,
+          },
+          {
+            path: "/restricted/perfil",
+            element: <Perfil />,
           },
         ],
       },

@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { CartContext } from "src/context/cart/CartContext";
 import { cn } from "src/lib/utils";
-import { Product } from "src/validator/productSchema";
+import { Product } from "src/validator/product/productSchema";
 import { Button } from "../ui/Button/Button";
 import { Minus, Plus } from "lucide-react";
 import _404_img from "src/assets/404FullHD.jpg";
@@ -57,8 +57,9 @@ const CardProduct = (product: Product) => {
           </Button>
           <p className=" font-semibold">
             {products.map((product) => {
-              if (product.productID === productCart.productID)
+              if (product.productID === productCart.productID) {
                 return product.amount;
+              }
             })}
           </p>
           <Button

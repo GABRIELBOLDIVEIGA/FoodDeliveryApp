@@ -26,7 +26,7 @@ const barOption = [
   {
     id: "user",
     icon: <User2 size={24} />,
-    link: "/restricted/#",
+    link: "/restricted/perfil",
   },
 ];
 

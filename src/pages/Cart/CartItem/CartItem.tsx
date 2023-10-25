@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import CardProduct from "src/components/CardProduct/CardProduct";
 import { ProductCart } from "src/context/cart/schema/cartSchema";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import { Product } from "src/validator/productSchema";
+import { Product } from "src/validator/product/productSchema";
 
 const CartItem = (product: ProductCart) => {
   const [prod, setProd] = useState<Product>();
