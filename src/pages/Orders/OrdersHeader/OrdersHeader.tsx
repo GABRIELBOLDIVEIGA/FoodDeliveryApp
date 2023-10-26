@@ -10,7 +10,7 @@ const Header = () => {
       <Link to="/restricted/home">
         <ChevronLeftCircle className="text-primary" />
       </Link>
-      <h3 className="font-bold tracking-wider">{t("perfil.title")}</h3>
+      <h3 className="font-bold tracking-wider">{t("orders.title")}</h3>
       <div className="w-[24px]"></div>
     </div>
   );

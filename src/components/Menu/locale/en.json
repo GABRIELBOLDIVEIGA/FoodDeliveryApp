@@ -1,0 +1,9 @@
+{
+  "menu": {
+    "home": "Home",
+    "categories": "Categories",
+    "cart": "Cart",
+    "orders": "My Orders",
+    "profile": "Profile"
+  }
+}

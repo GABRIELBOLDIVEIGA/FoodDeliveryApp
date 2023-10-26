@@ -1,0 +1,9 @@
+{
+  "menu": {
+    "home": "Home",
+    "categories": "Categorias",
+    "cart": "Carrinho",
+    "orders": "Minhas Comprars",
+    "profile": "Perfil"
+  }
+}

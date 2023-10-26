@@ -3,6 +3,7 @@ import Avatar from "../Avatar/Avatar";
 import Menu from "../Menu/Menu";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { cn } from "src/lib/utils";
+import { Link } from "react-router-dom";
 
 const HeaderHome = () => {
   const { t } = useContext(LanguageContext);
@@ -15,7 +16,9 @@ const HeaderHome = () => {
     >
       <Menu />
       <div className="text-2xl font-semibold">{t("home.title")}</div>
-      <Avatar urlImg="" />
+      <Link to="/restricted/profile">
+        <Avatar urlImg="" className="w-[35px] h-[35px]" />
+      </Link>
     </div>
   );
 };

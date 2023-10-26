@@ -20,9 +20,11 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
     deliveryInstance
       .post("http://localhost:3000/auth/login", { ...data })
       .then((res) => {
+        console.log(res.data)
         if (res.data.access_token) {
           localStorage.setItem("access_token", res.data.access_token);
           const user: User = jwt_decode(res.data.access_token);
+          console.log(user)
           setUser(user);
         }
       })
@@ -37,12 +39,13 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
 
   const singout = () => {
     setUser(null);
-    removeAccessToken("");
+    localStorage.removeItem("access_token")
+    // removeAccessToken();
   };
 
-  const removeAccessToken = (token: string) => {
-    localStorage.setItem("access_token", token);
-  };
+  // const removeAccessToken = () => {
+  //   localStorage.removeItem("access_token")
+  // };
 
   const loadUser = () => {
     const access_token = localStorage.getItem("access_token");

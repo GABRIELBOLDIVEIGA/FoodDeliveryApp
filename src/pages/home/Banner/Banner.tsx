@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { Card } from "src/components/ui/Card/Card";
 import burger from "src/assets/burger.jpg";
 import { cn } from "src/lib/utils";
-import { Button } from "src/components/ui/Button/Button";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 
 const Banner = () => {
@@ -18,9 +17,6 @@ const Banner = () => {
         <p className="leading-4 font-semibold text-secondary tracking-wider px-2 text-sm">
           {t("bannerHome.subTitle")}
         </p>
-        <Button className="w-4/5  bg-white font-bold text-secondary-foreground dark:text-secondary tracking-wider">
-          {t("bannerHome.button")}
-        </Button>
       </div>
 
       <div className="flex">

@@ -1,17 +1,17 @@
-import { ClipboardList, Heart, Home, ShoppingCart, User2 } from "lucide-react";
+import { ClipboardList, Home, ScrollText, ShoppingCart, User2 } from "lucide-react";
 import { cn } from "./../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
 
 const barOption = [
   {
     id: "orders",
-    icon: <ClipboardList size={24} />,
-    link: "/restricted/categories",
+    icon: <ScrollText size={24} />,
+    link: "/restricted/orders",
   },
   {
-    id: "favorite",
-    icon: <Heart size={24} />,
-    link: "/restricted/#",
+    id: "categories",
+    icon: <ClipboardList size={24} />,
+    link: "/restricted/categories",
   },
   {
     id: "home",
@@ -26,7 +26,7 @@ const barOption = [
   {
     id: "user",
     icon: <User2 size={24} />,
-    link: "/restricted/perfil",
+    link: "/restricted/profile",
   },
 ];
 

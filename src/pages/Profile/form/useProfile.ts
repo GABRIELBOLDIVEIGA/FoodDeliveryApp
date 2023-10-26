@@ -4,11 +4,11 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { useForm } from "react-hook-form";
 import { AuthContext } from "src/context/auth/AuthContext";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import { Perfil, perfilSchema } from "src/validator/perfil/perfilSchema";
+import { Profile, profileSchema } from "src/validator/perfil/perfilSchema";
 
-export const usePerfil = () => {
+export const useProfile = () => {
   const { user } = useContext(AuthContext);
-  const form = useForm<Perfil>({ mode: 'onBlur', criteriaMode: 'all', resolver: zodResolver(perfilSchema) });
+  const form = useForm<Profile>({ mode: 'onBlur', criteriaMode: 'all', resolver: zodResolver(profileSchema) });
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [loadingZipCode, setLoadingZipCode] = useState(false);
   const ref = useRef(false);
@@ -18,7 +18,7 @@ export const usePerfil = () => {
   useEffect(() => {
     deliveryInstance.get(`/user/${user?.userId}`)
       .then((res) => {
-        const parse = perfilSchema.safeParse(res.data);
+        const parse = profileSchema.safeParse(res.data);
         if (parse.success) {
           form.setValue('zipCode', parse.data.zipCode)
           form.setValue('city', parse.data.city)
@@ -60,7 +60,7 @@ export const usePerfil = () => {
   }, [watchZipCode]);
 
 
-  const submitForm = (data: Perfil) => {
+  const submitForm = (data: Profile) => {
     setLoadingSubmit(true)
 
     deliveryInstance.put(`/user/${user?.userId}`, data)

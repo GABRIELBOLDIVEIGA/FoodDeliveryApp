@@ -6,7 +6,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "src/components/ui/Sheet/Sheet";
-import { Menu as MenuIcon } from "lucide-react";
+import { ClipboardList, Home, Menu as MenuIcon, ScrollText, ShoppingCart, User2 } from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
 import ToggleTheme from "../ToggleTheme/ToggleTheme";
@@ -16,27 +16,52 @@ import { AuthContext } from "src/context/auth/AuthContext";
 
 const menuADM = [
   {
-    to: "/home",
-    translateKey: "header.home",
+    to: "/restricted/home",
+    icon: <Home size={24} />,
+    translateKey: "menu.home",
   },
   {
-    to: "/products",
-    translateKey: "header.about-me",
+    to: "/restricted/products",
+    icon: <Home size={24} />,
+    translateKey: "menu.about-me",
   },
   {
-    to: "/categories",
-    translateKey: "header.projects",
+    to: "/restricted/categories",
+    icon: <Home size={24} />,
+    translateKey: "menu.projects",
   },
   {
-    to: "/users",
-    translateKey: "header.skills",
+    to: "/restricted/users",
+    icon: <Home size={24} />,
+    translateKey: "menu.skills",
   },
 ];
 
 const menuUser = [
   {
-    to: "/home",
-    translateKey: "header.home",
+    to: "/restricted/home",
+    icon: <Home size={24} />,
+    translateKey: "menu.home",
+  },
+  {
+    to: "/restricted/categories",
+    icon: <ClipboardList size={24} />,
+    translateKey: "menu.categories",
+  },
+  {
+    to: "/restricted/cart",
+    icon: <ShoppingCart size={24} />,
+    translateKey: "menu.cart",
+  },
+  {
+    to: "/restricted/orders",
+    icon: <ScrollText size={24}/>,
+    translateKey: "menu.orders",
+  },
+  {
+    to: "/restricted/profile",
+    icon: <User2 size={24} />,
+    translateKey: "menu.profile",
   },
 ];
 
@@ -75,13 +100,14 @@ const Menu = ({ className }: MenuProps) => {
             <SheetHeader className="h-full justify-between">
               <div>
                 <SheetTitle>Menu</SheetTitle>
-                <nav className="flex flex-col justify-end gap-4 pt-10">
+                <nav className="flex flex-col justify-end gap-4 pt-10 text-secondary-foreground">
                   {menu?.map((item, index) => (
                     <NavLink
-                      className="hover:border-b-2 hover:border-border border-b-2 border-transparent font-semibold text-left text-xl"
+                      className="hover:border-b-2 hover:border-border border-b-2 border-transparent font-semibold text-left text-xl flex gap-2 items-center py-1"
                       key={index}
                       to={`${item.to}`}
                     >
+                      {item.icon}
                       {t(`${item.translateKey}`)}
                     </NavLink>
                   ))}

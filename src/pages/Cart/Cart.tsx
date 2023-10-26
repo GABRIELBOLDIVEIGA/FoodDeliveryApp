@@ -26,7 +26,7 @@ const Cart = () => {
   const navigate = useNavigate();
 
   return (
-    <section className="pb-[100px]">
+    <section className="pb-[100px] bg-background">
       <Header />
 
       <div className="flex flex-col gap-2 pt-16 px-2">

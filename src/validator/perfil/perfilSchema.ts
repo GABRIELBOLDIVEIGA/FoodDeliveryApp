@@ -1,6 +1,6 @@
 import { z } from "zod"
 
-export const perfilSchema = z.object({
+export const profileSchema = z.object({
   name: z.string().max(30, "Nome muito grande."),
   email: z.string().email("Informe um Email valido"),
   document: z.string().min(3, "Informe o documento").max(15, "Documento muito grande."),
@@ -12,4 +12,4 @@ export const perfilSchema = z.object({
   phoneNumber: z.string().min(8, "Informe Telefone").max(10, "Numero de telefone muito grande.")
 })
 
-export type Perfil = z.infer<typeof perfilSchema>
+export type Profile = z.infer<typeof profileSchema>

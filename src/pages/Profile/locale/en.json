@@ -1,0 +1,50 @@
+{
+  "profile": {
+    "title": "Profile",
+    "cardUserInfo": {
+      "title": "User Info",
+      "name": {
+        "label": "Name",
+        "placeholder": "Name"
+      },
+      "document": {
+        "label": "Document",
+        "placeholder": "Document"
+      },
+      "phoneNumber": {
+        "label": "Phone Number",
+        "placeholder": "Phone Number"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "email@email.com"
+      }
+    },
+
+    "cardDeliveryAdrress": {
+      "title": "Delivery Adrress",
+      "zipCode": {
+        "label": "Zip Code",
+        "placeholder": "xxxxx-xxx"
+      },
+      "city": {
+        "label": "City",
+        "placeholder": "City"
+      },
+      "neighbourhood": {
+        "label": "Neighbourhood",
+        "placeholder": "Neighbourhood"
+      },
+      "street": {
+        "label": "Street",
+        "placeholder": "Street"
+      },
+      "number": {
+        "label": "Number",
+        "placeholder": "xxxx-xxxx"
+      }
+    },
+
+    "buttonSubmit": "Submit"
+  }
+}

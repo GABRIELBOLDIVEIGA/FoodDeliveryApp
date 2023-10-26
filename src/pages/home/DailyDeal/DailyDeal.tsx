@@ -17,7 +17,7 @@ const DailyDeal = () => {
         setProduct(parse.success ? parse.data : undefined);
       })
       .catch((err) => console.log(err))
-      .finally(() => {});
+      .finally(() => { });
   }, []);
 
   return (
@@ -25,7 +25,7 @@ const DailyDeal = () => {
       <p className="font-bold pb-4">{t("dailyDealHome.title")}</p>
 
       {loading && (
-        <div className="w-[380px] h-[300px] animate-pulse rounded-lg bg-secondary-foreground"></div>
+        <div className="w-[360px] h-[200px] animate-pulse rounded-lg bg-secondary-foreground"></div>
       )}
 
       {product && (
@@ -35,6 +35,7 @@ const DailyDeal = () => {
               {t("dailyDealHome.tag")} R$ {product.price.toFixed(2)}
             </div>
           )}
+
           <img
             title={product.name}
             src={product.img}
@@ -43,6 +44,7 @@ const DailyDeal = () => {
             onLoad={() => setLoading(false)}
           />
         </div>
+
       )}
     </section>
   );

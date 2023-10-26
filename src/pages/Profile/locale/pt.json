@@ -1,0 +1,50 @@
+{
+  "profile": {
+    "title": "Perfil",
+    "cardUserInfo": {
+      "title": "Dados do Usuario",
+      "name": {
+        "label": "Nome",
+        "placeholder": "Nome"
+      },
+      "document": {
+        "label": "Documento",
+        "placeholder": "Documento"
+      },
+      "phoneNumber": {
+        "label": "Numero de telefone",
+        "placeholder": "Numero de telefone"
+      },
+      "email": {
+        "label": "E-mail",
+        "placeholder": "email@email.com"
+      }
+    },
+
+    "cardDeliveryAdrress": {
+      "title": "Endereço de Entrega",
+      "zipCode": {
+        "label": "CEP",
+        "placeholder": "xxxxx-xxx"
+      },
+      "city": {
+        "label": "Cidade",
+        "placeholder": "City"
+      },
+      "neighbourhood": {
+        "label": "Bairro",
+        "placeholder": "Bairro"
+      },
+      "street": {
+        "label": "Rua",
+        "placeholder": "Rua"
+      },
+      "number": {
+        "label": "Numero",
+        "placeholder": "xxxx-xxxx"
+      }
+    },
+
+    "buttonSubmit": "Enviar"
+  }
+}

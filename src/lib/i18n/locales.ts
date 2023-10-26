@@ -25,6 +25,15 @@ import productsAddEN from "src/pages/Products/locale/en.json";
 import cartEN from "src/pages/Cart/locale/en.json";
 import cartPT from "src/pages/Cart/locale/pt.json";
 
+import profileEN from "src/pages/Profile/locale/en.json";
+import profilePT from "src/pages/Profile/locale/pt.json";
+
+import ordersEN from "src/pages/Orders/locale/en.json";
+import ordersPT from "src/pages/Orders/locale/pt.json";
+
+import menuEN from "src/components/Menu/locale/en.json"
+import menuPT from "src/components/Menu/locale/pt.json"
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -35,6 +44,10 @@ export const localeEN = {
   ...categoriesEN,
   ...productsAddEN,
   ...cartEN,
+  ...profileEN,
+  ...ordersEN,
+  ...menuEN,
+  
 };
 
 export const localePT = {
@@ -47,4 +60,7 @@ export const localePT = {
   ...categoriesPT,
   ...productsAddPT,
   ...cartPT,
+  ...profilePT,
+  ...ordersPT,
+  ...menuPT,
 };
