@@ -4,7 +4,10 @@ import { Link } from "react-router-dom";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { cn } from "src/lib/utils";
 import { deliveryInstance } from "src/services/deliveryInstance";
-import { Category, categoriesSchema } from "src/validator/category/categorySchema";
+import {
+  Category,
+  categoriesSchema,
+} from "src/validator/category/categorySchema";
 
 const Categories = () => {
   const [categories, setCategories] = useState<Array<Category>>();

@@ -31,8 +31,11 @@ import profilePT from "src/pages/Profile/locale/pt.json";
 import ordersEN from "src/pages/Orders/locale/en.json";
 import ordersPT from "src/pages/Orders/locale/pt.json";
 
-import menuEN from "src/components/Menu/locale/en.json"
-import menuPT from "src/components/Menu/locale/pt.json"
+import menuEN from "src/components/Menu/locale/en.json";
+import menuPT from "src/components/Menu/locale/pt.json";
+
+import registerUserEN from "src/pages/RegisterUser/locale/en.json";
+import registerUserPT from "src/pages/RegisterUser/locale/pt.json";
 
 export const localeEN = {
   ...themeEN,
@@ -47,7 +50,7 @@ export const localeEN = {
   ...profileEN,
   ...ordersEN,
   ...menuEN,
-  
+  ...registerUserEN,
 };
 
 export const localePT = {
@@ -63,4 +66,5 @@ export const localePT = {
   ...profilePT,
   ...ordersPT,
   ...menuPT,
+  ...registerUserPT,
 };

@@ -92,7 +92,10 @@ const Login = () => {
       </Card>
 
       <div className="flex justify-between pt-10">
-        <Button className="font-semibold tracking-wider">
+        <Button
+          className="font-semibold tracking-wider"
+          onClick={() => navigate("/registerUser")}
+        >
           {t("login.singup")}
         </Button>
         <Button variant="link">{t("login.forgot")}</Button>
@@ -104,13 +107,13 @@ const Login = () => {
         <div className="border-b-2 border-border pt-4">
           <h3 className="text-lg  font-bold">{t("login.adm")}</h3>
           <p>E-mail: adm@email.com</p>
-          <p>Senha: 123456</p>
+          <p>{t("login.password")}: 123456</p>
         </div>
 
         <div className="border-b-2 border-border pt-4">
           <h3 className="text-lg font-bold">{t("login.client")}</h3>
           <p>Email: cliente@email.com</p>
-          <p>Senha: 123456</p>
+          <p>{t("login.password")}: 123456</p>
         </div>
       </Card>
 

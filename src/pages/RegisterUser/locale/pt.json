@@ -1,0 +1,54 @@
+{
+  "registerUser": {
+    "title": "Preencha seus dados.",
+    "name": {
+      "label": "Nome Completo",
+      "placeholder": "Nome Completo"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "E-mail"
+    },
+    "password": {
+      "label": "Senha",
+      "placeholder": "Senha"
+    },
+    "confirmPassword": {
+      "label": "Repita sua senha",
+      "placeholder": "Repita sua senha"
+    },
+    "phoneNumber": {
+      "label": "Numero de telefone",
+      "placeholder": "Numero de telefone"
+    },
+    "document": {
+      "label": "Documento",
+      "placeholder": "Documento"
+    },
+    "zipCode": {
+      "label": "CEP",
+      "placeholder": "CEP"
+    },
+    "neighbourhood": {
+      "label": "Bairro",
+      "placeholder": "Bairro"
+    },
+    "street": {
+      "label": "Rua",
+      "placeholder": "Rua"
+    },
+    "city": {
+      "label": "Cidade",
+      "placeholder": "Cidade"
+    },
+    "number": {
+      "label": "Numero",
+      "placeholder": "Numero"
+    },
+    "buttonSubmit": "Cadastrar",
+    "buttonCancel": "Fechar",
+    "buttonOk": "Ir para Login",
+    "messageSuccess": "Usuário cadastrado com sucesso.",
+    "messageError": "Algo deu errado ao cadastrar usuário. Verifique o E-mail, Documento e Telefone."
+  }
+}

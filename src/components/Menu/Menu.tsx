@@ -6,13 +6,22 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "src/components/ui/Sheet/Sheet";
-import { ClipboardList, Home, Menu as MenuIcon, ScrollText, ShoppingCart, User2 } from "lucide-react";
+import {
+  ClipboardList,
+  Home,
+  LogOut,
+  Menu as MenuIcon,
+  ScrollText,
+  ShoppingCart,
+  User2,
+} from "lucide-react";
 import { useContext, useEffect, useState } from "react";
 import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
 import ToggleTheme from "../ToggleTheme/ToggleTheme";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { cn } from "src/lib/utils";
 import { AuthContext } from "src/context/auth/AuthContext";
+import { Button } from "../ui/Button/Button";
 
 const menuADM = [
   {
@@ -55,7 +64,7 @@ const menuUser = [
   },
   {
     to: "/restricted/orders",
-    icon: <ScrollText size={24}/>,
+    icon: <ScrollText size={24} />,
     translateKey: "menu.orders",
   },
   {
@@ -71,7 +80,7 @@ type MenuProps = {
 
 const Menu = ({ className }: MenuProps) => {
   const { t } = useContext(LanguageContext);
-  const { user } = useContext(AuthContext);
+  const { user, singout } = useContext(AuthContext);
   const [menu, setMenu] = useState<typeof menuADM>();
 
   useEffect(() => {
@@ -114,9 +123,14 @@ const Menu = ({ className }: MenuProps) => {
                 </nav>
               </div>
 
-              <div className="flex flex-row gap-2 self-end text-secondary-foreground">
-                <ToggleTheme />
-                <ToggleLanguage />
+              <div className="flex justify-between text-secondary-foreground">
+                <Button variant="outline" onClick={singout}>
+                  <LogOut />
+                </Button>
+                <div className="flex flex-row gap-2 self-end ">
+                  <ToggleTheme />
+                  <ToggleLanguage />
+                </div>
               </div>
             </SheetHeader>
           </SheetContent>

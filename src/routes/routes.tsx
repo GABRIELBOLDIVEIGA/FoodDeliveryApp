@@ -10,6 +10,7 @@ import Products from "src/pages/Products/Products";
 import Cart from "src/pages/Cart/Cart";
 import Profile from "src/pages/Profile/Profile";
 import Orders from "src/pages/Orders/Orders";
+import RegisterUser from "src/pages/RegisterUser/RegisterUser";
 
 export const routes = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const routes = createBrowserRouter([
           {
             path: "/login",
             element: <Login />,
+          },
+          {
+            path: "/registerUser",
+            element: <RegisterUser />,
           },
           // {
           //   path: "/cadastro",

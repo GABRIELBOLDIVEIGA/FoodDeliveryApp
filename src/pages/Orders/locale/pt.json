@@ -1,5 +1,6 @@
 {
   "orders": {
-    "title": "Meus Pedidos"
+    "title": "Meus Pedidos",
+    "cardTitle": "Pedido"
   }
 }

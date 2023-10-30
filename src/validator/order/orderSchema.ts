@@ -8,9 +8,9 @@ export const orderSchema = z.object({
       name: z.string(),
       price: z.number(),
       amount: z.number(),
-    })
+    }),
   ),
   total: z.number(),
-})
+});
 
-export type Order = z.infer<typeof orderSchema>
+export type Order = z.infer<typeof orderSchema>;

@@ -17,7 +17,7 @@ const DailyDeal = () => {
         setProduct(parse.success ? parse.data : undefined);
       })
       .catch((err) => console.log(err))
-      .finally(() => { });
+      .finally(() => {});
   }, []);
 
   return (
@@ -44,7 +44,6 @@ const DailyDeal = () => {
             onLoad={() => setLoading(false)}
           />
         </div>
-
       )}
     </section>
   );

@@ -1,4 +1,10 @@
-import { ClipboardList, Home, ScrollText, ShoppingCart, User2 } from "lucide-react";
+import {
+  ClipboardList,
+  Home,
+  ScrollText,
+  ShoppingCart,
+  User2,
+} from "lucide-react";
 import { cn } from "./../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
 

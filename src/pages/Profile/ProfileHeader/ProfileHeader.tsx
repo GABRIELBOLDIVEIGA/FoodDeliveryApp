@@ -13,7 +13,7 @@ const Header = () => {
       </Link>
       <h3 className="font-bold tracking-wider">{t("profile.title")}</h3>
       <Link to="/restricted/profile">
-        <Avatar urlImg="" className="w-[35px] h-[35px]"/>
+        <Avatar urlImg="" className="w-[35px] h-[35px]" />
       </Link>
     </div>
   );

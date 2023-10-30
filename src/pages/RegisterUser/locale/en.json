@@ -1,0 +1,54 @@
+{
+  "registerUser": {
+    "title": "",
+    "name": {
+      "label": "Name",
+      "placeholder": "Name"
+    },
+    "email": {
+      "label": "E-mail",
+      "placeholder": "email@email.com"
+    },
+    "password": {
+      "label": "Password",
+      "placeholder": "Password"
+    },
+    "confirmPassword": {
+      "label": "Confirm Password",
+      "placeholder": "Confirm Password"
+    },
+    "phoneNumber": {
+      "label": "Phone Number",
+      "placeholder": "Phone Number"
+    },
+    "document": {
+      "label": "Document",
+      "placeholder": "Document"
+    },
+    "zipCode": {
+      "label": "Zip Code",
+      "placeholder": "Zip Code"
+    },
+    "neighbourhood": {
+      "label": "Neighbourhood",
+      "placeholder": "Neighbourhood"
+    },
+    "street": {
+      "label": "Street",
+      "placeholder": "Street"
+    },
+    "city": {
+      "label": "City",
+      "placeholder": "City"
+    },
+    "number": {
+      "label": "Number",
+      "placeholder": "Number"
+    },
+    "buttonSubmit": "Register",
+    "buttonCancel": "Cancel",
+    "buttonOk": "Login",
+    "messageSuccess": "User registered successfully.",
+    "messageError": "Something went wrong when registering a user. Check Email, Document and Phone Number."
+  }
+}

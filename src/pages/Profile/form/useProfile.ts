@@ -8,7 +8,11 @@ import { Profile, profileSchema } from "src/validator/perfil/perfilSchema";
 
 export const useProfile = () => {
   const { user } = useContext(AuthContext);
-  const form = useForm<Profile>({ mode: 'onBlur', criteriaMode: 'all', resolver: zodResolver(profileSchema) });
+  const form = useForm<Profile>({
+    mode: "onBlur",
+    criteriaMode: "all",
+    resolver: zodResolver(profileSchema),
+  });
   const [loadingSubmit, setLoadingSubmit] = useState(false);
   const [loadingZipCode, setLoadingZipCode] = useState(false);
   const ref = useRef(false);
@@ -16,35 +20,40 @@ export const useProfile = () => {
   const watchZipCode = form.watch(["zipCode"]);
 
   useEffect(() => {
-    deliveryInstance.get(`/user/${user?.userId}`)
+    deliveryInstance
+      .get(`/user/${user?.userId}`)
       .then((res) => {
         const parse = profileSchema.safeParse(res.data);
         if (parse.success) {
-          form.setValue('zipCode', parse.data.zipCode)
-          form.setValue('city', parse.data.city)
-          form.setValue('neighborhood', parse.data.neighborhood)
-          form.setValue('street', parse.data.street)
-          form.setValue('number', parse.data.number)
+          form.setValue("zipCode", parse.data.zipCode);
+          form.setValue("city", parse.data.city);
+          form.setValue("neighborhood", parse.data.neighborhood);
+          form.setValue("street", parse.data.street);
+          form.setValue("number", parse.data.number);
 
-          form.setValue('phoneNumber', parse.data.phoneNumber)
-          form.setValue('document', parse.data.document)
-          form.setValue('name', parse.data.name)
-          form.setValue('email', parse.data.email)
+          form.setValue("phoneNumber", parse.data.phoneNumber);
+          form.setValue("document", parse.data.document);
+          form.setValue("name", parse.data.name);
+          form.setValue("email", parse.data.email);
+        } else {
+          console.log(parse.error.message);
         }
       })
-      .catch((err) => { console.log(err) })
+      .catch((err) => {
+        console.log(err);
+      });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, []);
 
   useEffect(() => {
     if (watchZipCode.toString().length < 8) {
-      ref.current = true
+      ref.current = true;
     }
 
     if (watchZipCode.toString().length >= 8 && ref.current === true) {
-      ref.current = false
-      setLoadingZipCode(true)
+      ref.current = false;
+      setLoadingZipCode(true);
       axios
         .get(`https://viacep.com.br/ws/${watchZipCode.toString()}/json/`)
         .then((res) => {
@@ -52,22 +61,32 @@ export const useProfile = () => {
           form.setValue("neighborhood", res.data.bairro);
           form.setValue("city", res.data.localidade);
         })
-        .catch((err) => { console.log(err) })
-        .finally(() => { setLoadingZipCode(false) });
+        .catch((err) => {
+          console.log(err);
+        })
+        .finally(() => {
+          setLoadingZipCode(false);
+        });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [watchZipCode]);
 
-
   const submitForm = (data: Profile) => {
-    setLoadingSubmit(true)
+    setLoadingSubmit(true);
 
-    deliveryInstance.put(`/user/${user?.userId}`, data)
-      .then((res) => { console.log(res.data) })
-      .catch((err) => { console.log(err) })
-      .finally(() => { setLoadingSubmit(false) })
-  }
+    deliveryInstance
+      .put(`/user/${user?.userId}`, data)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoadingSubmit(false);
+      });
+  };
 
-  return { form, submitForm, loadingSubmit, loadingZipCode }
-}
+  return { form, submitForm, loadingSubmit, loadingZipCode };
+};

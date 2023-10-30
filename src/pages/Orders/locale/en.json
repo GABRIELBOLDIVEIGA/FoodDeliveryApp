@@ -1,5 +1,6 @@
 {
   "orders": {
-    "title": "My Orders"
+    "title": "My Orders",
+    "cardTitle": "Order"
   }
 }
