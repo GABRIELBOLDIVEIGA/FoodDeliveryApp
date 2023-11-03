@@ -3,13 +3,13 @@ import PublicRoutes from "./PublicRoutes";
 import Login from "src/pages/login/Login";
 import RequireAuth from "src/context/auth/RequireAuth";
 import PrivateRoutes from "./PriviteRoutes";
-import Home from "src/pages/home/Home";
+import Home from "src/pages/Client-User/Home/Home";
 import BasePage from "src/pages/paginaBase/BasePage";
-import Categories from "src/pages/Categories/Categories";
-import Products from "src/pages/Products/Products";
-import Cart from "src/pages/Cart/Cart";
-import Profile from "src/pages/Profile/Profile";
-import Orders from "src/pages/Orders/Orders";
+import Categories from "src/pages/Client-User/Categories/Categories";
+import Products from "src/pages/Client-User/Products/Products";
+import Cart from "src/pages/Client-User/Cart/Cart";
+import Profile from "src/pages/Client-User/Profile/Profile";
+import Orders from "src/pages/Client-User/Orders/Orders";
 import RegisterUser from "src/pages/RegisterUser/RegisterUser";
 
 export const routes = createBrowserRouter([
