@@ -33,8 +33,13 @@ const Login = () => {
   }, [error]);
 
   useEffect(() => {
-    if (user) {
-      navigate("/restricted/home");
+    switch (user?.role) {
+      case 'adm':
+        navigate("/adm/home");
+        break;
+      case 'user':
+        navigate("/restricted/home");
+        break;
     }
   }, [user, navigate]);
 
