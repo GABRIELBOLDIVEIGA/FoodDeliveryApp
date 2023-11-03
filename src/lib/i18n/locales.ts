@@ -4,32 +4,32 @@ import themeEN from "src/components/ToggleTheme/locale/en.json";
 import loginPT from "src/pages/login/locale/pt.json";
 import loginEN from "src/pages/login/locale/en.json";
 
-import bannerHomePT from "src/pages/home/Banner/locale/pt.json";
-import bannerHomeEN from "src/pages/home/Banner/locale/en.json";
+import bannerHomePT from "src/pages/Client-User/Home/Banner/locale/pt.json";
+import bannerHomeEN from "src/pages/Client-User/Home/Banner/locale/en.json";
 
-import categoriesHomePT from "src/pages/home/Categories/locale/pt.json";
-import categoriesHomeEN from "src/pages/home/Categories/locale/en.json";
+import categoriesHomePT from "src/pages/Client-User/Home/Categories/locale/pt.json";
+import categoriesHomeEN from "src/pages/Client-User/Home/Categories/locale/en.json";
 
-import dailyDealHomePT from "src/pages/home/DailyDeal/locale/pt.json";
-import dailyDealHomeEN from "src/pages/home/DailyDeal/locale/en.json";
+import dailyDealHomePT from "src/pages/Client-User/Home/DailyDeal/locale/pt.json";
+import dailyDealHomeEN from "src/pages/Client-User/Home/DailyDeal/locale/en.json";
 
-import homePT from "src/pages/home/locale/pt.json";
-import homeEN from "src/pages/home/locale/en.json";
+import homePT from "src/pages/Client-User/Home/locale/pt.json";
+import homeEN from "src/pages/Client-User/Home/locale/en.json";
 
-import categoriesPT from "src/pages/Categories/locale/pt.json";
-import categoriesEN from "src/pages/Categories/locale/en.json";
+import categoriesPT from "src/pages/Client-User/Categories/locale/pt.json";
+import categoriesEN from "src/pages/Client-User/Categories/locale/en.json";
 
-import productsAddPT from "src/pages/Products/locale/pt.json";
-import productsAddEN from "src/pages/Products/locale/en.json";
+import productsAddPT from "src/pages/Client-User/Products/locale/pt.json";
+import productsAddEN from "src/pages/Client-User/Products/locale/en.json";
 
-import cartEN from "src/pages/Cart/locale/en.json";
-import cartPT from "src/pages/Cart/locale/pt.json";
+import cartEN from "src/pages/Client-User/Cart/locale/en.json";
+import cartPT from "src/pages/Client-User/Cart/locale/pt.json";
 
-import profileEN from "src/pages/Profile/locale/en.json";
-import profilePT from "src/pages/Profile/locale/pt.json";
+import profileEN from "src/pages/Client-User/Profile/locale/en.json";
+import profilePT from "src/pages/Client-User/Profile/locale/pt.json";
 
-import ordersEN from "src/pages/Orders/locale/en.json";
-import ordersPT from "src/pages/Orders/locale/pt.json";
+import ordersEN from "src/pages/Client-User/Orders/locale/en.json";
+import ordersPT from "src/pages/Client-User/Orders/locale/pt.json";
 
 import menuEN from "src/components/Menu/locale/en.json";
 import menuPT from "src/components/Menu/locale/pt.json";
