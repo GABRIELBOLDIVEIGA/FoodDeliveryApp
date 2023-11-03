@@ -7,8 +7,16 @@ import {
 } from "lucide-react";
 import { cn } from "./../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import { AuthContext } from "src/context/auth/AuthContext";
 
-const barOption = [
+type Option = {
+  id: string,
+  icon: JSX.Element,
+  link: string
+}
+
+const barOptionClientUser: Array<Option> = [
   {
     id: "orders",
     icon: <ScrollText size={24} />,
@@ -36,8 +44,57 @@ const barOption = [
   },
 ];
 
+const barOptionAdmUser: Array<Option> = [
+  {
+    id: "home",
+    icon: <Home size={24} />,
+    link: "/adm/home",
+  },
+  {
+    id: "orders",
+    icon: <ScrollText size={24} />,
+    link: "/adm/orders",
+  },
+  {
+    id: "categories",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/categories",
+  },
+  {
+    id: "products",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/products",
+  },
+  {
+    id: "sidedish",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/sidedish",
+  },
+  {
+    id: "users",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/users",
+  },
+]
+
 const NavBar = () => {
+  const { user } = useContext(AuthContext);
   const location = useLocation();
+  const [options, setOptions] = useState<Array<Option>>()
+
+  useEffect(() => {
+    switch (user?.role) {
+      case 'adm':
+        setOptions(barOptionAdmUser)
+        break;
+      case 'user':
+        setOptions(barOptionClientUser)
+        break;
+      default:
+        break;
+    }
+  }, [user?.role])
+
 
   return (
     <div
@@ -46,7 +103,7 @@ const NavBar = () => {
         bg-muted shadow-[0px_-4px_6px_-1px_rgba(0,0,0,0.1)]
       "
     >
-      {barOption.map((option) => {
+      {options?.map((option) => {
         return (
           <Link
             to={option.link}

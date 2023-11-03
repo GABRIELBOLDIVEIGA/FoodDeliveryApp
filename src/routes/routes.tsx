@@ -13,6 +13,7 @@ import Profile from "src/pages/Client-User/Profile/Profile";
 import Orders from "src/pages/Client-User/Orders/Orders";
 import RegisterUser from "src/pages/RegisterUser/RegisterUser";
 import AdmRoutes from "./AdmRoutes";
+import { Categories as CategoriesAdm } from "src/pages/Adm-User/Categories/Categories";
 
 export const routes = createBrowserRouter([
   {
@@ -76,7 +77,11 @@ export const routes = createBrowserRouter([
           {
             path: "/adm/home",
             element: <HomeAdm />,
-          }
+          },
+          {
+            path: "/adm/categories",
+            element: <CategoriesAdm />,
+          },
         ]
       }
     ],

@@ -25,24 +25,34 @@ import { Button } from "../ui/Button/Button";
 
 const menuADM = [
   {
-    to: "/restricted/home",
+    to: "/adm/home",
     icon: <Home size={24} />,
     translateKey: "menu.home",
   },
   {
-    to: "/restricted/products",
-    icon: <Home size={24} />,
-    translateKey: "menu.about-me",
+    icon: <ScrollText size={24} />,
+    link: "/adm/orders",
+    translateKey: "menu.adm.orders",
   },
   {
-    to: "/restricted/categories",
-    icon: <Home size={24} />,
-    translateKey: "menu.projects",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/categories",
+    translateKey: "menu.categories",
   },
   {
-    to: "/restricted/users",
-    icon: <Home size={24} />,
-    translateKey: "menu.skills",
+    icon: <ClipboardList size={24} />,
+    link: "/adm/products",
+    translateKey: "menu.products",
+  },
+  {
+    icon: <ClipboardList size={24} />,
+    link: "/adm/sidedish",
+    translateKey: "menu.sidedish",
+  },
+  {
+    icon: <ClipboardList size={24} />,
+    link: "/adm/users",
+    translateKey: "menu.users",
   },
 ];
 

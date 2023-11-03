@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "src/components/NavBar/NavBar";
 
-const OutletUser = () => {
+const ClientRoutes = () => {
   return (
     <>
       <Outlet />
@@ -10,4 +10,4 @@ const OutletUser = () => {
   );
 };
 
-export default OutletUser
+export default ClientRoutes

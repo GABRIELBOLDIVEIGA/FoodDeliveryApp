@@ -40,6 +40,8 @@ const Login = () => {
       case 'user':
         navigate("/restricted/home");
         break;
+      default:
+        navigate('/login')
     }
   }, [user, navigate]);
 

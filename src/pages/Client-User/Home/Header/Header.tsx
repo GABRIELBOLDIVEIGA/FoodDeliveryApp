@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import Avatar from "../Avatar/Avatar";
-import Menu from "../Menu/Menu";
+import Avatar from "../../../../components/Avatar/Avatar";
+import Menu from "../../../../components/Menu/Menu";
 import { LanguageContext } from "src/context/language/LanguageContenxt";
 import { cn } from "src/lib/utils";
 import { Link } from "react-router-dom";
 
-const HeaderHome = () => {
+const Header = () => {
   const { t } = useContext(LanguageContext);
 
   return (
@@ -23,4 +23,4 @@ const HeaderHome = () => {
   );
 };
 
-export default HeaderHome;
+export default Header;
