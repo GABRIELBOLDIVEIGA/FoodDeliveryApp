@@ -2,8 +2,6 @@ import { useContext, useEffect } from "react"
 import { Outlet, useNavigate } from "react-router-dom"
 import NavBar from "src/components/NavBar/NavBar";
 import { AuthContext } from "src/context/auth/AuthContext"
-import Header from "src/pages/Adm-User/Header/Header";
-
 
 const AdmRoutes = () => {
   const { user, singout } = useContext(AuthContext);
@@ -19,7 +17,6 @@ const AdmRoutes = () => {
 
   return (
     <>
-      <Header />
       <Outlet />
       <NavBar />
     </>

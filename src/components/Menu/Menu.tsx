@@ -23,40 +23,41 @@ import { cn } from "src/lib/utils";
 import { AuthContext } from "src/context/auth/AuthContext";
 import { Button } from "../ui/Button/Button";
 
-const menuADM = [
-  {
-    to: "/adm/home",
-    icon: <Home size={24} />,
-    translateKey: "menu.home",
-  },
+interface Option {
+  icon: JSX.Element,
+  to: string,
+  translateKey: string,
+}
+
+const menuADM: Array<Option> = [
   {
     icon: <ScrollText size={24} />,
-    link: "/adm/orders",
+    to: "/adm/orders",
     translateKey: "menu.adm.orders",
   },
   {
     icon: <ClipboardList size={24} />,
-    link: "/adm/categories",
+    to: "/adm/categories",
     translateKey: "menu.categories",
   },
   {
     icon: <ClipboardList size={24} />,
-    link: "/adm/products",
+    to: "/adm/products",
     translateKey: "menu.products",
   },
   {
     icon: <ClipboardList size={24} />,
-    link: "/adm/sidedish",
+    to: "/adm/sidedish",
     translateKey: "menu.sidedish",
   },
   {
     icon: <ClipboardList size={24} />,
-    link: "/adm/users",
+    to: "/adm/users",
     translateKey: "menu.users",
   },
 ];
 
-const menuUser = [
+const menuUser: Array<Option> = [
   {
     to: "/restricted/home",
     icon: <Home size={24} />,
@@ -91,7 +92,7 @@ type MenuProps = {
 const Menu = ({ className }: MenuProps) => {
   const { t } = useContext(LanguageContext);
   const { user, singout } = useContext(AuthContext);
-  const [menu, setMenu] = useState<typeof menuADM>();
+  const [menu, setMenu] = useState<Array<Option>>();
 
   useEffect(() => {
     switch (user?.role) {

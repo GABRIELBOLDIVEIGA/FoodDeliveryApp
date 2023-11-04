@@ -4,7 +4,7 @@ import Login from "src/pages/login/Login";
 import RequireAuth from "src/context/auth/RequireAuth";
 import PrivateRoutes from "./PriviteRoutes";
 import Home from "src/pages/Client-User/Home/Home";
-import { Home as HomeAdm } from "src/pages/Adm-User/Home/Home";
+import { Orders as OrdersAdm } from "src/pages/Adm-User/Orders/Orders";
 import BasePage from "src/pages/BasePage/BasePage";
 import Categories from "src/pages/Client-User/Categories/Categories";
 import Products from "src/pages/Client-User/Products/Products";
@@ -75,8 +75,8 @@ export const routes = createBrowserRouter([
         element: <AdmRoutes />,
         children: [
           {
-            path: "/adm/home",
-            element: <HomeAdm />,
+            path: "/adm/orders",
+            element: <OrdersAdm />,
           },
           {
             path: "/adm/categories",

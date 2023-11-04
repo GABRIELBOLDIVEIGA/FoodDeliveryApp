@@ -35,7 +35,7 @@ const Login = () => {
   useEffect(() => {
     switch (user?.role) {
       case 'adm':
-        navigate("/adm/home");
+        navigate("/adm/orders");
         break;
       case 'user':
         navigate("/restricted/home");

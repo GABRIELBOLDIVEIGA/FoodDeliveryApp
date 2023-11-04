@@ -13,7 +13,7 @@ const Header = () => {
       )}
     >
       <Menu />
-      <div className="text-2xl font-semibold">{t("home.title")}</div>
+      <div className="text-2xl font-semibold">{t("admOrders.title")}</div>
       <div className="w-[35px] h-[35px]"></div>
     </div>
   );

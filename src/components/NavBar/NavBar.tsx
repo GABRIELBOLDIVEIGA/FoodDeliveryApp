@@ -1,9 +1,11 @@
 import {
   ClipboardList,
   Home,
+  PackageSearch,
   ScrollText,
   ShoppingCart,
   User2,
+  Users2,
 } from "lucide-react";
 import { cn } from "./../../lib/utils";
 import { Link, useLocation } from "react-router-dom";
@@ -46,24 +48,19 @@ const barOptionClientUser: Array<Option> = [
 
 const barOptionAdmUser: Array<Option> = [
   {
-    id: "home",
-    icon: <Home size={24} />,
-    link: "/adm/home",
-  },
-  {
-    id: "orders",
-    icon: <ScrollText size={24} />,
-    link: "/adm/orders",
-  },
-  {
     id: "categories",
     icon: <ClipboardList size={24} />,
     link: "/adm/categories",
   },
   {
     id: "products",
-    icon: <ClipboardList size={24} />,
+    icon: <PackageSearch size={24} />,
     link: "/adm/products",
+  },
+  {
+    id: "orders",
+    icon: <ScrollText size={24} />,
+    link: "/adm/orders",
   },
   {
     id: "sidedish",
@@ -72,7 +69,7 @@ const barOptionAdmUser: Array<Option> = [
   },
   {
     id: "users",
-    icon: <ClipboardList size={24} />,
+    icon: <Users2 size={24} />,
     link: "/adm/users",
   },
 ]
