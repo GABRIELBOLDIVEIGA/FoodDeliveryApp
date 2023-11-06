@@ -2,10 +2,14 @@ import { useEffect, useState } from "react"
 import Header from "../Header/Header"
 import { deliveryInstance } from "src/services/deliveryInstance"
 import { Category, categorySchema } from "src/validator/category/categorySchema"
-import { Card } from "src/components/ui/Card/Card"
+import CardCategory from "src/components/CardCategory/CardCategory"
+import { Plus } from "lucide-react"
+import { useNavigate } from "react-router-dom"
 
 export const Categories = () => {
-  const [categories, setCategories] = useState<Array<Category>>()
+  const [categories, setCategories] = useState<Array<Category>>();
+  const [loading, setLoading] = useState(true);
+  const navigate = useNavigate()
 
   useEffect(() => {
     deliveryInstance.get('/category')
@@ -18,18 +22,25 @@ export const Categories = () => {
       }
     })
     .catch((err) => { console.log(err)})
-    .finally(() => {})
+    .finally(() => { setLoading(false); })
   },[])
 
   return (
-    <section>
-      <Header />
-      <div className="border border-red-600 pt-20">
-      {categories?.map((category) => (
-        <Card key={category._id}>
-          <p>{category.name}</p>
-        </Card>
-      ))}
+    <section className="bg-background">
+      <Header translateKey="categories.title" >
+        <Plus onClick={() => navigate('/adm/create-new-category')} />
+      </Header>
+      <div className="flex flex-col gap-4 px-4 py-16">
+        {loading &&
+          [1, 2, 3, 4].map((index) => (
+            <div
+              key={index}
+              className="relative shadow-md rounded-2xl animate-pulse bg-secondary h-[200px] w-full"
+            ></div>
+          ))}
+        {categories?.map((category) => {
+          return <CardCategory key={category._id} {...category} />;
+        })}
       </div>
       
     </section>

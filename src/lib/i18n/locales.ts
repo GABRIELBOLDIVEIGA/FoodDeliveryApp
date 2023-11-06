@@ -37,6 +37,9 @@ import menuPT from "src/components/Menu/locale/pt.json";
 import registerUserEN from "src/pages/RegisterUser/locale/en.json";
 import registerUserPT from "src/pages/RegisterUser/locale/pt.json";
 
+import updateCategoryEN from "src/pages/Adm-User/Categories/UpdateCategory/locale/en.json";
+import updateCategoryPT from "src/pages/Adm-User/Categories/UpdateCategory/locale/pt.json";
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -51,6 +54,8 @@ export const localeEN = {
   ...ordersEN,
   ...menuEN,
   ...registerUserEN,
+  ...updateCategoryEN,
+
 };
 
 export const localePT = {
@@ -67,4 +72,6 @@ export const localePT = {
   ...ordersPT,
   ...menuPT,
   ...registerUserPT,
+  ...updateCategoryPT,
+
 };

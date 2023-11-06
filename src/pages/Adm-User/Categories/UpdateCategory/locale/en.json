@@ -1,0 +1,13 @@
+{
+  "updateCategory": {
+    "name": {
+      "label": "Name",
+      "placeholder": "Enter Category name"
+    },
+    "description": {
+      "label": "Descrição",
+      "placeholder": "Enter Category Description"
+    },
+    "buttonSubmit": "Submit"
+  }
+}

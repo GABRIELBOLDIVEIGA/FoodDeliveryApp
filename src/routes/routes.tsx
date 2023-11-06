@@ -14,6 +14,9 @@ import Orders from "src/pages/Client-User/Orders/Orders";
 import RegisterUser from "src/pages/RegisterUser/RegisterUser";
 import AdmRoutes from "./AdmRoutes";
 import { Categories as CategoriesAdm } from "src/pages/Adm-User/Categories/Categories";
+import UpdateCategory from "src/pages/Adm-User/Categories/UpdateCategory/UpdateCategory";
+import NewCategory from "src/pages/Adm-User/Categories/NewCategory/NewCategory";
+
 
 export const routes = createBrowserRouter([
   {
@@ -81,6 +84,14 @@ export const routes = createBrowserRouter([
           {
             path: "/adm/categories",
             element: <CategoriesAdm />,
+          },
+          {
+            path: "/adm/category/:id",
+            element: <UpdateCategory />,
+          },
+          {
+            path: "/adm/create-new-category",
+            element: <NewCategory />,
           },
         ]
       }

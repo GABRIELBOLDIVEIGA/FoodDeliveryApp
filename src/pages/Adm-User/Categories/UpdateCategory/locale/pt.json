@@ -1,0 +1,13 @@
+{
+  "updateCategory": {
+    "name": {
+      "label": "Nome",
+      "placeholder": "Insira o nome da categoria"
+    },
+    "description": {
+      "label": "Descrição",
+      "placeholder": "Insira a Descrição da categoria"
+    },
+    "buttonSubmit": "Salvar Altereações"
+  }
+}
