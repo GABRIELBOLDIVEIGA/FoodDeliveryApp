@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const orderSchema = z.object({
+export const orderValidator = z.object({
   _id: z.string(),
   products: z.array(
     z.object({
@@ -13,4 +13,4 @@ export const orderSchema = z.object({
   total: z.number(),
 });
 
-export type Order = z.infer<typeof orderSchema>;
+export type Order = z.infer<typeof orderValidator>;

@@ -9,8 +9,6 @@ const AdmRoutes = () => {
 
   useEffect(() => {
     if (user?.role !== 'adm') {
-      console.log(user?.role);
-      // singout()
       navigate('/login');
     }
   }, [navigate, singout, user?.role]);

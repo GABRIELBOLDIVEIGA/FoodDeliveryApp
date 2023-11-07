@@ -1,6 +1,6 @@
 import { z } from 'zod';
 
-export const profileSchema = z.object({
+export const profileValidator = z.object({
   name: z.string().max(30, 'Nome muito grande.'),
   email: z.string().email('Informe um Email valido'),
   document: z
@@ -30,4 +30,4 @@ export const profileSchema = z.object({
     .max(10, 'Numero de telefone muito grande.'),
 });
 
-export type Profile = z.infer<typeof profileSchema>;
+export type Profile = z.infer<typeof profileValidator>;

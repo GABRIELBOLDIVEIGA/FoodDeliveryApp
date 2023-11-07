@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { deliveryInstance } from 'src/services/deliveryInstance';
-import { Product, productSchema } from 'src/validator/product/productSchema';
+import { Product, productValidator } from 'src/validator/product/productValidator';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import imgError from 'src/assets/404FullHD.jpg';
 
@@ -13,7 +13,7 @@ const DailyDeal = () => {
     deliveryInstance
       .get('/product/product/query?page=1&limit=1')
       .then((res) => {
-        const parse = productSchema.safeParse(res.data[0]);
+        const parse = productValidator.safeParse(res.data[0]);
         setProduct(parse.success ? parse.data : undefined);
       })
       .catch((err) => console.log(err))

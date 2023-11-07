@@ -1,8 +1,8 @@
 import { useContext, useEffect, useState } from 'react';
 import {
   Category as UpdateCategory,
-  categorySchema,
-} from 'src/validator/category/categorySchema';
+  categoryValidator,
+} from 'src/validator/category/categoryValidator';
 import { deliveryInstance } from 'src/services/deliveryInstance';
 import { useParams } from 'react-router-dom';
 import Header from '../../Header/Header';
@@ -42,13 +42,13 @@ const UpdateCategory = () => {
   const [imgLoad, setImgLoad] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState('');
-  const { form, submit, deleteCategory, loading } = useUpdateCategory();
+  const { form, submit, deleteCategory, loading, setLoading } = useUpdateCategory();
 
   useEffect(() => {
     deliveryInstance
       .get(`category/${params.id}`)
       .then((res) => {
-        const parse = categorySchema.safeParse(res.data);
+        const parse = categoryValidator.safeParse(res.data);
         if (parse.success) {
           setCategory(parse.data);
           setPreview(parse.data.img);
@@ -66,6 +66,7 @@ const UpdateCategory = () => {
 
   useEffect(() => {
     if (file) {
+      setLoading(true)
       setPreview(URL.createObjectURL(file));
       const formData = new FormData();
       formData.append('file', file);
@@ -82,7 +83,8 @@ const UpdateCategory = () => {
         })
         .catch((err) => {
           console.log(err);
-        });
+        })
+        .finally(() => { setLoading(false) })
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

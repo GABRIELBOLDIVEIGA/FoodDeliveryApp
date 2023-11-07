@@ -7,7 +7,7 @@ import { deliveryInstance } from 'src/services/deliveryInstance';
 import {
   Category,
   categoriesSchema,
-} from 'src/validator/category/categorySchema';
+} from 'src/validator/category/categoryValidator';
 
 const Categories = () => {
   const [categories, setCategories] = useState<Array<Category>>();

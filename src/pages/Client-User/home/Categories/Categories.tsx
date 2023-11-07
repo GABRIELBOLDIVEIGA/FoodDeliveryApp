@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import {
   Category,
   categoriesSchema,
-} from 'src/validator/category/categorySchema';
+} from 'src/validator/category/categoryValidator';
 
 const Categories = () => {
   const { t } = useContext(LanguageContext);

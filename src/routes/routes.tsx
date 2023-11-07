@@ -8,6 +8,7 @@ import { Orders as OrdersAdm } from 'src/pages/Adm-User/Orders/Orders';
 import BasePage from 'src/pages/BasePage/BasePage';
 import Categories from 'src/pages/Client-User/Categories/Categories';
 import Products from 'src/pages/Client-User/Products/Products';
+import { Products as AdmProducts } from 'src/pages/Adm-User/Products/Products';
 import Cart from 'src/pages/Client-User/Cart/Cart';
 import Profile from 'src/pages/Client-User/Profile/Profile';
 import Orders from 'src/pages/Client-User/Orders/Orders';
@@ -91,6 +92,10 @@ export const routes = createBrowserRouter([
           {
             path: '/adm/create-new-category',
             element: <NewCategory />,
+          },
+          {
+            path: '/adm/products',
+            element: <AdmProducts />,
           },
         ],
       },

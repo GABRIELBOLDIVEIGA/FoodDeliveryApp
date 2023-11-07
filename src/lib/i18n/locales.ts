@@ -43,6 +43,9 @@ import updateCategoryPT from 'src/pages/Adm-User/Categories/UpdateCategory/local
 import newCategoryPT from 'src/pages/Adm-User/Categories/newCategory/locale/pt.json';
 import newCategoryEN from 'src/pages/Adm-User/Categories/newCategory/locale/en.json';
 
+import productsAdmPT from 'src/pages/Adm-User/Products/locale/pt.json';
+import productsAdmEN from 'src/pages/Adm-User/Products/locale/en.json';
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -59,6 +62,8 @@ export const localeEN = {
   ...registerUserEN,
   ...updateCategoryEN,
   ...newCategoryEN,
+  ...productsAdmEN,
+
 };
 
 export const localePT = {
@@ -77,4 +82,6 @@ export const localePT = {
   ...registerUserPT,
   ...updateCategoryPT,
   ...newCategoryPT,
+  ...productsAdmPT,
+
 };

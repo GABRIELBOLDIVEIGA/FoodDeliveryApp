@@ -3,8 +3,8 @@ import Header from '../Header/Header';
 import { deliveryInstance } from 'src/services/deliveryInstance';
 import {
   Category,
-  categorySchema,
-} from 'src/validator/category/categorySchema';
+  categoryValidator,
+} from 'src/validator/category/categoryValidator';
 import CardCategory from 'src/components/CardCategory/CardCategory';
 import { Plus } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
@@ -18,19 +18,15 @@ export const Categories = () => {
     deliveryInstance
       .get('/category')
       .then((res) => {
-        const parse = categorySchema.array().safeParse(res.data);
+        const parse = categoryValidator.array().safeParse(res.data);
         if (parse.success) {
           setCategories(parse.data);
         } else {
           console.log(parse);
         }
       })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+      .catch((err) => { console.log(err) })
+      .finally(() => { setLoading(false) });
   }, []);
 
   return (

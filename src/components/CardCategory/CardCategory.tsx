@@ -2,7 +2,7 @@ import { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from 'src/context/auth/AuthContext';
 import { cn } from 'src/lib/utils';
-import { Category } from 'src/validator/category/categorySchema';
+import { Category } from 'src/validator/category/categoryValidator';
 
 const CardCategory = (category: Category) => {
   const [imgLoad, setImgLoad] = useState(false);

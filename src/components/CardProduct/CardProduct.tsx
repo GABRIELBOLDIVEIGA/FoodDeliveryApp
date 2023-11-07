@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { CartContext } from 'src/context/cart/CartContext';
 import { cn } from 'src/lib/utils';
-import { Product } from 'src/validator/product/productSchema';
+import { Product } from 'src/validator/product/productValidator';
 import { Button } from '../ui/Button/Button';
 import { Minus, Plus } from 'lucide-react';
 import _404_img from 'src/assets/404FullHD.jpg';

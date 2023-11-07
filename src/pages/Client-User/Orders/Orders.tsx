@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import Header from './OrdersHeader/OrdersHeader';
 import { deliveryInstance } from 'src/services/deliveryInstance';
 import { AuthContext } from 'src/context/auth/AuthContext';
-import { Order, orderSchema } from 'src/validator/order/orderSchema';
+import { Order, orderValidator } from 'src/validator/order/orderValidator';
 import { currencyFormat } from 'src/lib/intl/currencyFormt';
 import { Card } from 'src/components/ui/Card/Card';
 import { Separator } from 'src/components/ui/Separator/Separator';
@@ -18,7 +18,7 @@ const Orders = () => {
     deliveryInstance
       .get(`/order/userOrders/${user?.userId}`)
       .then((res) => {
-        const parse = orderSchema.array().safeParse(res.data);
+        const parse = orderValidator.array().safeParse(res.data);
         setOrders(parse.success ? parse.data : undefined);
       })
       .catch((err) => {
