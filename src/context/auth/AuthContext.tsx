@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { createContext } from "react";
-import { User } from "src/types/User";
+import { createContext } from 'react';
+import { User } from 'src/types/User';
 
 export type AuthContextType = {
   user: User | null;
@@ -15,4 +15,4 @@ export type AuthContextType = {
 };
 
 export const AuthContext = createContext<AuthContextType>(null!);
-AuthContext.displayName = "AuthContext";
+AuthContext.displayName = 'AuthContext';

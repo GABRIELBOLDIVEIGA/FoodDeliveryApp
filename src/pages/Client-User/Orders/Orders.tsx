@@ -1,13 +1,13 @@
-import { useContext, useEffect, useState } from "react";
-import Header from "./OrdersHeader/OrdersHeader";
-import { deliveryInstance } from "src/services/deliveryInstance";
-import { AuthContext } from "src/context/auth/AuthContext";
-import { Order, orderSchema } from "src/validator/order/orderSchema";
-import { currencyFormat } from "src/lib/intl/currencyFormt";
-import { Card } from "src/components/ui/Card/Card";
-import { Separator } from "src/components/ui/Separator/Separator";
-import { Loader } from "lucide-react";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
+import { useContext, useEffect, useState } from 'react';
+import Header from './OrdersHeader/OrdersHeader';
+import { deliveryInstance } from 'src/services/deliveryInstance';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import { Order, orderSchema } from 'src/validator/order/orderSchema';
+import { currencyFormat } from 'src/lib/intl/currencyFormt';
+import { Card } from 'src/components/ui/Card/Card';
+import { Separator } from 'src/components/ui/Separator/Separator';
+import { Loader } from 'lucide-react';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const Orders = () => {
   const { t } = useContext(LanguageContext);
@@ -41,7 +41,7 @@ const Orders = () => {
         {orders?.map((order, index) => (
           <Card key={index} className="p-2 bg-muted dark:border-none">
             <div className="font-bold pb-2">
-              {t("orders.cardTitle")} {index + 1}
+              {t('orders.cardTitle')} {index + 1}
             </div>
             {order.products.map((prod) => (
               <div key={prod.productID} className="flex justify-between gap-2">

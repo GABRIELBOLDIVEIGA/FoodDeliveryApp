@@ -1,4 +1,4 @@
-import { Button } from "./components/shadcn/Button/Button";
+import { Button } from './components/shadcn/Button/Button';
 
 function App() {
   return (

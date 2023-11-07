@@ -1,15 +1,20 @@
-import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { AuthContext } from "src/context/auth/AuthContext";
-import { cn } from "src/lib/utils";
-import { Category } from "src/validator/category/categorySchema";
+import { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import { cn } from 'src/lib/utils';
+import { Category } from 'src/validator/category/categorySchema';
 
 const CardCategory = (category: Category) => {
   const [imgLoad, setImgLoad] = useState(false);
-  const { user } = useContext(AuthContext)
+  const { user } = useContext(AuthContext);
 
   return (
-    <Link key={category._id} to={`/${user?.role === 'adm' ? 'adm' : 'restricted' }/category/${category._id}`}>
+    <Link
+      key={category._id}
+      to={`/${user?.role === 'adm' ? 'adm' : 'restricted'}/category/${
+        category._id
+      }`}
+    >
       <div
         className={`relative shadow-md rounded-2xl overflow-hidden h-[200px] w-full`}
       >
@@ -19,8 +24,8 @@ const CardCategory = (category: Category) => {
 
         <div
           className={cn(
-            "shadow-md rounded-2xl animate-pulse bg-secondary h-[200px] w-full",
-            imgLoad && "sr-only",
+            'shadow-md rounded-2xl animate-pulse bg-secondary h-[200px] w-full',
+            imgLoad && 'sr-only'
           )}
         ></div>
         <img
@@ -33,4 +38,4 @@ const CardCategory = (category: Category) => {
   );
 };
 
-export default CardCategory
+export default CardCategory;

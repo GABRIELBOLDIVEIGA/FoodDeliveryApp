@@ -1,26 +1,26 @@
-import { useContext, useEffect } from "react"
-import { Outlet, useNavigate } from "react-router-dom"
-import NavBar from "src/components/NavBar/NavBar";
-import { AuthContext } from "src/context/auth/AuthContext"
+import { useContext, useEffect } from 'react';
+import { Outlet, useNavigate } from 'react-router-dom';
+import NavBar from 'src/components/NavBar/NavBar';
+import { AuthContext } from 'src/context/auth/AuthContext';
 
 const AdmRoutes = () => {
   const { user, singout } = useContext(AuthContext);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (user?.role !== 'adm') {
-      console.log(user?.role)
+      console.log(user?.role);
       // singout()
-      navigate('/login')
+      navigate('/login');
     }
-  }, [navigate, singout, user?.role])
+  }, [navigate, singout, user?.role]);
 
   return (
     <>
       <Outlet />
       <NavBar />
     </>
-  )
-}
+  );
+};
 
-export default AdmRoutes
+export default AdmRoutes;

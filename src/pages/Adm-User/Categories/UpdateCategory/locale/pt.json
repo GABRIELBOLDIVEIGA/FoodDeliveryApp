@@ -8,6 +8,12 @@
       "label": "Descrição",
       "placeholder": "Insira a Descrição da categoria"
     },
-    "buttonSubmit": "Salvar Altereações"
+    "buttonSubmit": "Salvar Altereações",
+    "alert": {
+      "title": "Apagar esta Categoria?",
+      "message": "Ao confirmar esta categoria será APAGADA permanentemente",
+      "btnCancel": "Cancelar",
+      "btnConfirm": "APAGAR"
+    }
   }
 }

@@ -1,10 +1,13 @@
-import { ChevronLeftCircle } from "lucide-react";
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import CardCategory from "src/components/CardCategory/CardCategory";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
-import { deliveryInstance } from "src/services/deliveryInstance";
-import { Category, categoriesSchema } from "src/validator/category/categorySchema";
+import { ChevronLeftCircle } from 'lucide-react';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import CardCategory from 'src/components/CardCategory/CardCategory';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import { deliveryInstance } from 'src/services/deliveryInstance';
+import {
+  Category,
+  categoriesSchema,
+} from 'src/validator/category/categorySchema';
 
 const Categories = () => {
   const [categories, setCategories] = useState<Array<Category>>();
@@ -12,7 +15,7 @@ const Categories = () => {
 
   useEffect(() => {
     deliveryInstance
-      .get("/category")
+      .get('/category')
       .then((res) => {
         const parse = categoriesSchema.safeParse(res.data);
         setCategories(parse.success ? parse.data.reverse() : undefined);
@@ -52,10 +55,8 @@ const Header = () => {
       <Link to="/restricted/home">
         <ChevronLeftCircle className="text-primary" />
       </Link>
-      <h3 className="font-bold tracking-wider">{t("categories.title")}</h3>
+      <h3 className="font-bold tracking-wider">{t('categories.title')}</h3>
       <div className="w-[24px]"></div>
     </div>
   );
 };
-
-

@@ -1,10 +1,10 @@
-import { ChevronLeftCircle, Loader } from "lucide-react";
-import { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
-import { deliveryInstance } from "src/services/deliveryInstance";
-import { Product, productsSchema } from "src/validator/product/productSchema";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
-import CardProduct from "src/components/CardProduct/CardProduct";
+import { ChevronLeftCircle, Loader } from 'lucide-react';
+import { useContext, useEffect, useState } from 'react';
+import { Link, useParams } from 'react-router-dom';
+import { deliveryInstance } from 'src/services/deliveryInstance';
+import { Product, productsSchema } from 'src/validator/product/productSchema';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import CardProduct from 'src/components/CardProduct/CardProduct';
 
 const Products = () => {
   const params = useParams<{ id: string }>();
@@ -45,7 +45,7 @@ const Header = () => {
       <Link to="/restricted/categories">
         <ChevronLeftCircle className="text-primary" />
       </Link>
-      <h3 className="font-bold tracking-wider">{t("productsAdd.title")}</h3>
+      <h3 className="font-bold tracking-wider">{t('productsAdd.title')}</h3>
       <div className="w-[24px]"></div>
     </div>
   );

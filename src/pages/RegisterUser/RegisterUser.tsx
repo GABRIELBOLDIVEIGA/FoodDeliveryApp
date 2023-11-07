@@ -1,6 +1,6 @@
-import { ChevronLeftCircle, Loader } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
-import Configs from "src/components/Configs/Configs";
+import { ChevronLeftCircle, Loader } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import Configs from 'src/components/Configs/Configs';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -10,9 +10,9 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-} from "src/components/ui/AlertDialog/AlertDialog";
-import { Button } from "src/components/ui/Button/Button";
-import { Card } from "src/components/ui/Card/Card";
+} from 'src/components/ui/AlertDialog/AlertDialog';
+import { Button } from 'src/components/ui/Button/Button';
+import { Card } from 'src/components/ui/Card/Card';
 import {
   Form,
   FormControl,
@@ -20,11 +20,11 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "src/components/ui/Form/Form";
-import { Input } from "src/components/ui/Input/Input";
-import useRegisterUser from "./form/RegisterUser";
-import { useContext } from "react";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
+} from 'src/components/ui/Form/Form';
+import { Input } from 'src/components/ui/Input/Input';
+import useRegisterUser from './form/RegisterUser';
+import { useContext } from 'react';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const RegisterUser = () => {
   const { form, submit, loading, showAlert, setShowAlert } = useRegisterUser();
@@ -41,7 +41,7 @@ const RegisterUser = () => {
       </div>
 
       <p className="text-center text-xl text-primary font-bold py-2 ">
-        {t("registerUser.title")}
+        {t('registerUser.title')}
       </p>
 
       <Form {...form}>
@@ -55,10 +55,10 @@ const RegisterUser = () => {
               name="name"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.name.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.name.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.name.placeholder")}
+                      placeholder={t('registerUser.name.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -71,10 +71,10 @@ const RegisterUser = () => {
               name="email"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.email.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.email.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.email.placeholder")}
+                      placeholder={t('registerUser.email.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -88,11 +88,11 @@ const RegisterUser = () => {
               name="password"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.password.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.password.label')}</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
-                      placeholder={t("registerUser.password.placeholder")}
+                      placeholder={t('registerUser.password.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -107,13 +107,13 @@ const RegisterUser = () => {
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>
-                    {t("registerUser.confirmPassword.label")}
+                    {t('registerUser.confirmPassword.label')}
                   </FormLabel>
                   <FormControl>
                     <Input
                       type="password"
                       placeholder={t(
-                        "registerUser.confirmPassword.placeholder",
+                        'registerUser.confirmPassword.placeholder'
                       )}
                       {...field}
                     />
@@ -130,10 +130,10 @@ const RegisterUser = () => {
               name="phoneNumber"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.phoneNumber.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.phoneNumber.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.phoneNumber.placeholder")}
+                      placeholder={t('registerUser.phoneNumber.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -147,10 +147,10 @@ const RegisterUser = () => {
               name="document"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.document.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.document.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.document.placeholder")}
+                      placeholder={t('registerUser.document.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -166,10 +166,10 @@ const RegisterUser = () => {
               name="zipCode"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.zipCode.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.zipCode.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.zipCode.placeholder")}
+                      placeholder={t('registerUser.zipCode.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -183,10 +183,10 @@ const RegisterUser = () => {
               name="neighborhood"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.neighbourhood.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.neighbourhood.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.neighbourhood.placeholder")}
+                      placeholder={t('registerUser.neighbourhood.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -200,10 +200,10 @@ const RegisterUser = () => {
               name="street"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.street.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.street.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.street.placeholder")}
+                      placeholder={t('registerUser.street.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -217,10 +217,10 @@ const RegisterUser = () => {
               name="city"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.city.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.city.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.city.placeholder")}
+                      placeholder={t('registerUser.city.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -234,10 +234,10 @@ const RegisterUser = () => {
               name="number"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>{t("registerUser.number.label")}</FormLabel>
+                  <FormLabel>{t('registerUser.number.label')}</FormLabel>
                   <FormControl>
                     <Input
-                      placeholder={t("registerUser.number.placeholder")}
+                      placeholder={t('registerUser.number.placeholder')}
                       {...field}
                     />
                   </FormControl>
@@ -249,7 +249,7 @@ const RegisterUser = () => {
 
           <Button className="flex gap-2">
             {loading && <Loader />}
-            {t("registerUser.buttonSubmit")}
+            {t('registerUser.buttonSubmit')}
             {loading && <div className="w-[24px] h-[24px]"></div>}
           </Button>
         </form>
@@ -259,7 +259,7 @@ const RegisterUser = () => {
         <AlertDialogContent className="w-[95%]">
           <AlertDialogHeader>
             <AlertDialogTitle>
-              {showAlert?.success ? "Sucesso" : "Erro!"}
+              {showAlert?.success ? 'Sucesso' : 'Erro!'}
             </AlertDialogTitle>
             <AlertDialogDescription>
               {showAlert?.message}
@@ -270,10 +270,10 @@ const RegisterUser = () => {
               <AlertDialogAction
                 onClick={() => {
                   setShowAlert(undefined);
-                  navigate("/login");
+                  navigate('/login');
                 }}
               >
-                {t("registerUser.buttonOk")}
+                {t('registerUser.buttonOk')}
               </AlertDialogAction>
             ) : (
               <AlertDialogCancel
@@ -281,7 +281,7 @@ const RegisterUser = () => {
                   setShowAlert(undefined);
                 }}
               >
-                {t("registerUser.buttonCancel")}
+                {t('registerUser.buttonCancel')}
               </AlertDialogCancel>
             )}
           </AlertDialogFooter>

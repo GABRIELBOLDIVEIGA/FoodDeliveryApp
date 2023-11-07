@@ -8,6 +8,12 @@
       "label": "Descrição",
       "placeholder": "Enter Category Description"
     },
-    "buttonSubmit": "Submit"
+    "buttonSubmit": "Submit",
+    "alert": {
+      "title": "Delete this Category?",
+      "message": "By confirming this category it will be DELETED permanently.",
+      "btnCancel": "Cancel",
+      "btnConfirm": "DELETE"
+    }
   }
 }

@@ -1,6 +1,6 @@
-import { useEffect, useState } from "react";
-import { CartContext } from "./CartContext";
-import { ProductCart } from "./schema/cartSchema";
+import { useEffect, useState } from 'react';
+import { CartContext } from './CartContext';
+import { ProductCart } from './schema/cartSchema';
 
 export const CartProvider = ({ children }: { children: JSX.Element }) => {
   const [products, setProducts] = useState<ProductCart[] | []>([]);
@@ -8,12 +8,12 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
 
   useEffect(() => {
     const productPrice_X_productAmount: Array<number> = products.map(
-      (product) => product.amount * product.price,
+      (product) => product.amount * product.price
     );
 
     const tt = productPrice_X_productAmount.reduce(
       (accumulator, currentValue) => accumulator + currentValue,
-      0,
+      0
     );
     setTotal(tt);
 
@@ -22,7 +22,7 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
 
   const addProduct = (product: ProductCart) => {
     const existe = products?.find(
-      (prod) => prod.productID === product.productID,
+      (prod) => prod.productID === product.productID
     );
 
     if (!existe) {
@@ -45,7 +45,7 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
 
   const subitractProduct = (product: ProductCart) => {
     const existe = products?.find(
-      (prod) => prod.productID === product.productID,
+      (prod) => prod.productID === product.productID
     );
 
     if (existe?.amount === 1) {
@@ -71,7 +71,7 @@ export const CartProvider = ({ children }: { children: JSX.Element }) => {
 
   const removeProduct = (product: ProductCart) => {
     const newList = products.filter(
-      (prod) => prod.productID != product.productID,
+      (prod) => prod.productID != product.productID
     );
     setProducts(newList);
   };

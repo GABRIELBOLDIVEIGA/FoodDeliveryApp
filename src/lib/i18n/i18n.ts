@@ -1,7 +1,7 @@
-import i18n from "i18next";
-import { initReactI18next } from "react-i18next";
+import i18n from 'i18next';
+import { initReactI18next } from 'react-i18next';
 
-import { localeEN, localePT } from "./locales";
+import { localeEN, localePT } from './locales';
 
 i18n.use(initReactI18next).init({
   resources: {
@@ -16,5 +16,5 @@ i18n.use(initReactI18next).init({
       },
     },
   },
-  lng: "pt",
+  lng: 'pt',
 });

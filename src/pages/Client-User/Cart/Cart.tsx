@@ -1,9 +1,9 @@
-import { Button } from "src/components/ui/Button/Button";
-import { useContext } from "react";
-import { CartContext } from "src/context/cart/CartContext";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
-import { useNavigate } from "react-router-dom";
-import { currencyFormat } from "src/lib/intl/currencyFormt";
+import { Button } from 'src/components/ui/Button/Button';
+import { useContext } from 'react';
+import { CartContext } from 'src/context/cart/CartContext';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import { useNavigate } from 'react-router-dom';
+import { currencyFormat } from 'src/lib/intl/currencyFormt';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -13,11 +13,11 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "src/components/ui/AlertDialog/AlertDialog";
-import CartItem from "./CartItem/CartItem";
-import Header from "./CartHeader/CartHeader";
-import useSubmitOrder from "./submitOrder/useSubmitOrder";
-import CardAddress from "./CardAddress/CardAddress";
+} from 'src/components/ui/AlertDialog/AlertDialog';
+import CartItem from './CartItem/CartItem';
+import Header from './CartHeader/CartHeader';
+import useSubmitOrder from './submitOrder/useSubmitOrder';
+import CardAddress from './CardAddress/CardAddress';
 
 const Cart = () => {
   const { products, total } = useContext(CartContext);
@@ -39,7 +39,7 @@ const Cart = () => {
             <div key={product.productID}>
               <div className="flex justify-between py-1">
                 <p>
-                  <span className="font-bold">{product.name}</span>{" "}
+                  <span className="font-bold">{product.name}</span>{' '}
                   {product.amount} uni.
                 </p>
                 <p>{currencyFormat(product.price * product.amount)}</p>
@@ -61,7 +61,7 @@ const Cart = () => {
           onClick={() => submitOrder()}
           className="w-full"
         >
-          {t("cart.confirm")}
+          {t('cart.confirm')}
         </Button>
       </div>
 
@@ -72,8 +72,8 @@ const Cart = () => {
             <AlertDialogTitle>{status?.message}</AlertDialogTitle>
             <AlertDialogDescription>
               {status?.status === 201
-                ? "Voltar para a Home"
-                : "Tente outra vez"}
+                ? 'Voltar para a Home'
+                : 'Tente outra vez'}
             </AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
@@ -81,11 +81,11 @@ const Cart = () => {
               onClick={() => {
                 resetStatus();
                 if (status?.status === 201) {
-                  navigate("/restricted/home");
+                  navigate('/restricted/home');
                 }
               }}
             >
-              {t("cart.buttonAlert")}
+              {t('cart.buttonAlert')}
             </AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>

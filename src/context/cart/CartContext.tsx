@@ -1,5 +1,5 @@
-import { createContext } from "react";
-import { ProductCart } from "./schema/cartSchema";
+import { createContext } from 'react';
+import { ProductCart } from './schema/cartSchema';
 
 export type CartContextType = {
   products: ProductCart[] | [];
@@ -10,4 +10,4 @@ export type CartContextType = {
 };
 
 export const CartContext = createContext<CartContextType>(null!);
-CartContext.displayName = "CartContext";
+CartContext.displayName = 'CartContext';

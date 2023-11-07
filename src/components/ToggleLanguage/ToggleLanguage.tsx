@@ -3,24 +3,24 @@ import {
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@radix-ui/react-dropdown-menu";
-import { LanguagesIcon } from "lucide-react";
-import { useContext } from "react";
-import br_flag from "../../assets/br.png";
-import us_flag from "../../assets/us.png";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
-import { Button } from "../ui/Button/Button";
+} from '@radix-ui/react-dropdown-menu';
+import { LanguagesIcon } from 'lucide-react';
+import { useContext } from 'react';
+import br_flag from '../../assets/br.png';
+import us_flag from '../../assets/us.png';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import { Button } from '../ui/Button/Button';
 
-const options: Array<{ icon: string; code: string; value: "en" | "pt" }> = [
+const options: Array<{ icon: string; code: string; value: 'en' | 'pt' }> = [
   {
     icon: us_flag,
-    code: "EN-US",
-    value: "en",
+    code: 'EN-US',
+    value: 'en',
   },
   {
     icon: br_flag,
-    code: "PT-BR",
-    value: "pt",
+    code: 'PT-BR',
+    value: 'pt',
   },
 ];
 

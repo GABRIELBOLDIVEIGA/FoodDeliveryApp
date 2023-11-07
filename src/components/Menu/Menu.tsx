@@ -1,11 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink } from 'react-router-dom';
 import {
   Sheet,
   SheetContent,
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "src/components/ui/Sheet/Sheet";
+} from 'src/components/ui/Sheet/Sheet';
 import {
   ClipboardList,
   Home,
@@ -14,74 +14,74 @@ import {
   ScrollText,
   ShoppingCart,
   User2,
-} from "lucide-react";
-import { useContext, useEffect, useState } from "react";
-import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
-import ToggleTheme from "../ToggleTheme/ToggleTheme";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
-import { cn } from "src/lib/utils";
-import { AuthContext } from "src/context/auth/AuthContext";
-import { Button } from "../ui/Button/Button";
+} from 'lucide-react';
+import { useContext, useEffect, useState } from 'react';
+import ToggleLanguage from '../ToggleLanguage/ToggleLanguage';
+import ToggleTheme from '../ToggleTheme/ToggleTheme';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import { cn } from 'src/lib/utils';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import { Button } from '../ui/Button/Button';
 
 interface Option {
-  icon: JSX.Element,
-  to: string,
-  translateKey: string,
+  icon: JSX.Element;
+  to: string;
+  translateKey: string;
 }
 
 const menuADM: Array<Option> = [
   {
     icon: <ScrollText size={24} />,
-    to: "/adm/orders",
-    translateKey: "menu.adm.orders",
+    to: '/adm/orders',
+    translateKey: 'menu.adm.orders',
   },
   {
     icon: <ClipboardList size={24} />,
-    to: "/adm/categories",
-    translateKey: "menu.categories",
+    to: '/adm/categories',
+    translateKey: 'menu.categories',
   },
   {
     icon: <ClipboardList size={24} />,
-    to: "/adm/products",
-    translateKey: "menu.products",
+    to: '/adm/products',
+    translateKey: 'menu.products',
   },
   {
     icon: <ClipboardList size={24} />,
-    to: "/adm/sidedish",
-    translateKey: "menu.sidedish",
+    to: '/adm/sidedish',
+    translateKey: 'menu.sidedish',
   },
   {
     icon: <ClipboardList size={24} />,
-    to: "/adm/users",
-    translateKey: "menu.users",
+    to: '/adm/users',
+    translateKey: 'menu.users',
   },
 ];
 
 const menuUser: Array<Option> = [
   {
-    to: "/restricted/home",
+    to: '/restricted/home',
     icon: <Home size={24} />,
-    translateKey: "menu.home",
+    translateKey: 'menu.home',
   },
   {
-    to: "/restricted/categories",
+    to: '/restricted/categories',
     icon: <ClipboardList size={24} />,
-    translateKey: "menu.categories",
+    translateKey: 'menu.categories',
   },
   {
-    to: "/restricted/cart",
+    to: '/restricted/cart',
     icon: <ShoppingCart size={24} />,
-    translateKey: "menu.cart",
+    translateKey: 'menu.cart',
   },
   {
-    to: "/restricted/orders",
+    to: '/restricted/orders',
     icon: <ScrollText size={24} />,
-    translateKey: "menu.orders",
+    translateKey: 'menu.orders',
   },
   {
-    to: "/restricted/profile",
+    to: '/restricted/profile',
     icon: <User2 size={24} />,
-    translateKey: "menu.profile",
+    translateKey: 'menu.profile',
   },
 ];
 
@@ -96,10 +96,10 @@ const Menu = ({ className }: MenuProps) => {
 
   useEffect(() => {
     switch (user?.role) {
-      case "adm":
+      case 'adm':
         setMenu(menuADM);
         break;
-      case "user":
+      case 'user':
         setMenu(menuUser);
         break;
       default:

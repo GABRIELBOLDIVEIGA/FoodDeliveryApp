@@ -1,16 +1,16 @@
-import { useContext } from "react";
-import { Navigate } from "react-router-dom";
-import { AuthContext } from "src/context/auth/AuthContext";
-import AdmRoutes from "./AdmRoutes";
-import ClientRoutes from "./ClientRoutes";
+import { useContext } from 'react';
+import { Navigate } from 'react-router-dom';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import AdmRoutes from './AdmRoutes';
+import ClientRoutes from './ClientRoutes';
 
 const PrivateRoutes = () => {
   const { user } = useContext(AuthContext);
 
   switch (user?.role) {
-    case "adm":
+    case 'adm':
       return <AdmRoutes />;
-    case "user":
+    case 'user':
       return <ClientRoutes />;
     default:
       // singout();
@@ -19,5 +19,3 @@ const PrivateRoutes = () => {
 };
 
 export default PrivateRoutes;
-
-

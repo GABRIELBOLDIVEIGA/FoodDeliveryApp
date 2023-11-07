@@ -1,7 +1,7 @@
-import { useContext, useState } from "react";
-import { AuthContext } from "src/context/auth/AuthContext";
-import { CartContext } from "src/context/cart/CartContext";
-import { deliveryInstance } from "src/services/deliveryInstance";
+import { useContext, useState } from 'react';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import { CartContext } from 'src/context/cart/CartContext';
+import { deliveryInstance } from 'src/services/deliveryInstance';
 
 const useSubmitOrder = () => {
   const { user } = useContext(AuthContext);
@@ -28,17 +28,20 @@ const useSubmitOrder = () => {
 
   const submitOrder = () => {
     deliveryInstance
-      .post("/order", order)
+      .post('/order', order)
       .then((res) => {
         if (res.status === 201) {
-          setStatus({ status: 201, message: "Pedido gerado com sucesso!" });
+          setStatus({
+            status: 201,
+            message: 'Pedido gerado com sucesso!',
+          });
           resetCart();
         }
       })
       .catch((err) => {
         setStatus({
           status: err.response.status,
-          message: "Tivemos algum problema para enviar seu pedido...",
+          message: 'Tivemos algum problema para enviar seu pedido...',
         });
       });
   };

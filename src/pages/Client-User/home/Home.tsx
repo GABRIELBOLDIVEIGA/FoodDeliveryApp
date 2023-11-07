@@ -1,7 +1,7 @@
-import Header from "src/pages/Client-User/Home/Header/Header";
-import Banner from "./Banner/Banner";
-import Categories from "./Categories/Categories";
-import DailyDeal from "./DailyDeal/DailyDeal";
+import Header from 'src/pages/Client-User/Home/Header/Header';
+import Banner from './Banner/Banner';
+import Categories from './Categories/Categories';
+import DailyDeal from './DailyDeal/DailyDeal';
 
 const Home = () => {
   return (

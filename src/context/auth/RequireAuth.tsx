@@ -1,6 +1,6 @@
-import { useContext } from "react";
-import { AuthContext } from "./AuthContext";
-import Login from "src/pages/login/Login";
+import { useContext } from 'react';
+import { AuthContext } from './AuthContext';
+import Login from 'src/pages/login/Login';
 
 type RequireAuthProps = {
   children: JSX.Element;

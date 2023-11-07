@@ -1,5 +1,5 @@
-import { Outlet } from "react-router-dom";
-import NavBar from "src/components/NavBar/NavBar";
+import { Outlet } from 'react-router-dom';
+import NavBar from 'src/components/NavBar/NavBar';
 
 const ClientRoutes = () => {
   return (
@@ -10,4 +10,4 @@ const ClientRoutes = () => {
   );
 };
 
-export default ClientRoutes
+export default ClientRoutes;

@@ -1,0 +1,14 @@
+{
+  "newCategory": {
+    "title": "New Category",
+    "name": {
+      "label": "Name",
+      "placeholder": "Name"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description"
+    },
+    "buttonSubmit": "Create"
+  }
+}

@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { categorySchema } from "src/validator/category/categorySchema";
+import { z } from 'zod';
+import { categorySchema } from 'src/validator/category/categorySchema';
 
 export const productSchema = z.object({
   _id: z.string(),

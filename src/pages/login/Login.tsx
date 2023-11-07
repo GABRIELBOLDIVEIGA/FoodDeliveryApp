@@ -1,12 +1,12 @@
-import { Button } from "src/components/ui/Button/Button";
-import { Card } from "src/components/ui/Card/Card";
-import { Input } from "src/components/ui/Input/Input";
-import { Label } from "src/components/ui/Label/Label";
-import useLogin from "./form/useLogin";
-import { useContext, useEffect, useState } from "react";
-import { Loader2 } from "lucide-react";
-import { AuthContext } from "src/context/auth/AuthContext";
-import { useNavigate } from "react-router-dom";
+import { Button } from 'src/components/ui/Button/Button';
+import { Card } from 'src/components/ui/Card/Card';
+import { Input } from 'src/components/ui/Input/Input';
+import { Label } from 'src/components/ui/Label/Label';
+import useLogin from './form/useLogin';
+import { useContext, useEffect, useState } from 'react';
+import { Loader2 } from 'lucide-react';
+import { AuthContext } from 'src/context/auth/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,9 +16,9 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
   AlertDialogTrigger,
-} from "src/components/ui/AlertDialog/AlertDialog";
-import Configs from "src/components/Configs/Configs";
-import { LanguageContext } from "src/context/language/LanguageContenxt";
+} from 'src/components/ui/AlertDialog/AlertDialog';
+import Configs from 'src/components/Configs/Configs';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const Login = () => {
   const { t } = useContext(LanguageContext);
@@ -35,13 +35,13 @@ const Login = () => {
   useEffect(() => {
     switch (user?.role) {
       case 'adm':
-        navigate("/adm/orders");
+        navigate('/adm/orders');
         break;
       case 'user':
-        navigate("/restricted/home");
+        navigate('/restricted/home');
         break;
       default:
-        navigate('/login')
+        navigate('/login');
     }
   }, [user, navigate]);
 
@@ -54,17 +54,17 @@ const Login = () => {
       </div>
 
       <h1 className="font-bold text-center text-2xl py-10 text-primary">
-        {t("login.welcome")}
+        {t('login.welcome')}
       </h1>
 
       <Card className="bg-background p-4 border-border">
-        <p className="text-center text-lg font-semibold">{t("login.header")}</p>
+        <p className="text-center text-lg font-semibold">{t('login.header')}</p>
         <form onSubmit={handleSubmit(handleLogin)}>
           <div>
-            <Label className="font-semibold">{t("login.email")}</Label>
+            <Label className="font-semibold">{t('login.email')}</Label>
             <Input
-              placeholder={t("login.emailPlaceholder")}
-              {...register("email")}
+              placeholder={t('login.emailPlaceholder')}
+              {...register('email')}
             />
             {errors.email && (
               <span className="text-red-600 text-sm">
@@ -74,11 +74,11 @@ const Login = () => {
           </div>
 
           <div>
-            <Label className="font-semibold">{t("login.password")}</Label>
+            <Label className="font-semibold">{t('login.password')}</Label>
             <Input
               type="password"
-              placeholder={t("login.passwordPlaceholder")}
-              {...register("password")}
+              placeholder={t('login.passwordPlaceholder')}
+              {...register('password')}
             />
             {errors.password && (
               <span className="text-red-600 text-sm">
@@ -101,26 +101,26 @@ const Login = () => {
       <div className="flex justify-between pt-10">
         <Button
           className="font-semibold tracking-wider"
-          onClick={() => navigate("/registerUser")}
+          onClick={() => navigate('/registerUser')}
         >
-          {t("login.singup")}
+          {t('login.singup')}
         </Button>
-        <Button variant="link">{t("login.forgot")}</Button>
+        <Button variant="link">{t('login.forgot')}</Button>
       </div>
 
       <Card className="bg-background p-4 mt-20 border-border">
-        <h2 className=" font-bold text-center text-xl">{t("login.mock")}</h2>
+        <h2 className=" font-bold text-center text-xl">{t('login.mock')}</h2>
 
         <div className="border-b-2 border-border pt-4">
-          <h3 className="text-lg  font-bold">{t("login.adm")}</h3>
+          <h3 className="text-lg  font-bold">{t('login.adm')}</h3>
           <p>E-mail: adm@email.com</p>
-          <p>{t("login.password")}: 123456</p>
+          <p>{t('login.password')}: 123456</p>
         </div>
 
         <div className="border-b-2 border-border pt-4">
-          <h3 className="text-lg font-bold">{t("login.client")}</h3>
+          <h3 className="text-lg font-bold">{t('login.client')}</h3>
           <p>Email: cliente@email.com</p>
-          <p>{t("login.password")}: 123456</p>
+          <p>{t('login.password')}: 123456</p>
         </div>
       </Card>
 

@@ -1,6 +1,6 @@
-import ToggleTheme from "../ToggleTheme/ToggleTheme";
-import ToggleLanguage from "../ToggleLanguage/ToggleLanguage";
-import { cn } from "src/lib/utils";
+import ToggleTheme from '../ToggleTheme/ToggleTheme';
+import ToggleLanguage from '../ToggleLanguage/ToggleLanguage';
+import { cn } from 'src/lib/utils';
 
 type ConfigsProps = {
   className?: string;
@@ -8,7 +8,7 @@ type ConfigsProps = {
 
 const Configs = ({ className }: ConfigsProps, rest) => {
   return (
-    <div {...rest} className={cn("flex flex-row gap-2 self-end", className)}>
+    <div {...rest} className={cn('flex flex-row gap-2 self-end', className)}>
       <ToggleTheme />
       <ToggleLanguage />
     </div>
