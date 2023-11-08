@@ -17,6 +17,8 @@ import AdmRoutes from './AdmRoutes';
 import { Categories as CategoriesAdm } from 'src/pages/Adm-User/Categories/Categories';
 import UpdateCategory from 'src/pages/Adm-User/Categories/UpdateCategory/UpdateCategory';
 import NewCategory from 'src/pages/Adm-User/Categories/NewCategory/NewCategory';
+import UpdateProduct from 'src/pages/Adm-User/Products/UpdateProduct/UpdateProduct';
+import NewProduct from 'src/pages/Adm-User/Products/NewProduct/NewProduct';
 
 export const routes = createBrowserRouter([
   {
@@ -96,6 +98,14 @@ export const routes = createBrowserRouter([
           {
             path: '/adm/products',
             element: <AdmProducts />,
+          },
+          {
+            path: '/adm/create-new-product',
+            element: <NewProduct />,
+          },
+          {
+            path: '/adm/product/:id',
+            element: <UpdateProduct />,
           },
         ],
       },

@@ -6,18 +6,19 @@ import { Product, productValidator } from "src/validator/product/productValidato
 import { Card } from "src/components/ui/Card/Card";
 import { currencyFormat } from "src/lib/intl/currencyFormt";
 import bg_cinza from "src/assets/bg-cinza.png"
+import { Link } from "react-router-dom";
+import { Plus } from "lucide-react";
 
 export const Products = () => {
   const { t } = useContext(LanguageContext);
-  const [products, setProducts] = useState<Array<Product>>()
+  const [products, setProducts] = useState<Array<Product>>();
+
 
   useEffect(() => {
     deliveryInstance.get('/product')
     .then((res) => { 
-      console.log(res.data) 
       const parse = productValidator.array().safeParse(res.data);
       if(parse.success) {
-        console.log(parse.data)
         setProducts(parse.data)
       } else {
         console.log(parse)
@@ -28,9 +29,13 @@ export const Products = () => {
 
   return (
     <section >
-      <Header translateKey={t('productsAdm.title')} />
+      <Header translateKey={t('productsAdm.title')}>
+        <Link to='/adm/create-new-product'>
+          <Plus />
+        </Link>
+      </Header>
 
-      <section className="pt-20 px-2">
+      <section className="py-20 px-2">
         <div className="flex flex-col gap-2">
         {products?.map((product) => (
           <Product key={product._id} product={product} />
@@ -46,10 +51,11 @@ type Props = {
 }
 const Product = ({ product }: Props) => {
   return (
-    <Card className="flex gap-2 p-2 border-border">
+    <Link to={`/adm/product/${product._id}`}>
+    <Card className="flex items-center gap-2 p-2 border-border">
       <div className="w-[90px] h-[90px] overflow-hidden rounded-full">
-        <div className="w-[160px] h-[90px] flex items-center justify-center">
-          <img src={product.img} className="shadow-md h-full w-full" 
+        <div className="w-[160px] h-[90px]">
+          <img src={product.img} className="-translate-x-[20%] shadow-md h-full w-full" 
             onError={(ev) => { 
               ev.currentTarget.src = bg_cinza; 
               ev.currentTarget.className = 'shadow-md h-full w-full animate-pulse' 
@@ -59,12 +65,13 @@ const Product = ({ product }: Props) => {
       </div>
 
       <div>
-        <p>{product.name}</p>
-        <p>Price {currencyFormat(product.price)}</p>
-        <p>Promotional Price {currencyFormat(product.promotionalPrice)}</p>
-        <p>Active Promotion {product.activePromotion ? 'true' : 'false'}</p>
-        <p>Avaliable {product.avaliable ? 'true' : 'false'}</p>
+        <p className="text-lg font-semibold">{product.name}</p>
+        <p><span className="font-semibold">Price</span> {currencyFormat(product.price)}</p>
+        <p><span className="font-semibold">Promotional Price</span> {currencyFormat(product.promotionalPrice)}</p>
+        <p><span className="font-semibold">Active Promotion</span> {product.activePromotion ? 'true' : 'false'}</p>
+        <p><span className="font-semibold">Avaliable</span> {product.avaliable ? 'true' : 'false'}</p>
       </div>
     </Card>
+    </Link>
   )
 }

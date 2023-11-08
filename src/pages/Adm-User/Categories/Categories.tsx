@@ -34,7 +34,7 @@ export const Categories = () => {
       <Header translateKey="categories.title">
         <Plus onClick={() => navigate('/adm/create-new-category')} />
       </Header>
-      <div className="flex flex-col gap-4 px-4 py-16">
+      <div className="flex flex-col gap-4 px-4 py-20">
         {loading &&
           [1, 2, 3, 4].map((index) => (
             <div
