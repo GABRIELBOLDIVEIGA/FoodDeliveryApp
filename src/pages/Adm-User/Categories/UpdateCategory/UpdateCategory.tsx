@@ -42,7 +42,8 @@ const UpdateCategory = () => {
   const [imgLoad, setImgLoad] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState('');
-  const { form, submit, deleteCategory, loading, setLoading } = useUpdateCategory();
+  const { form, submit, deleteCategory, loading, setLoading } =
+    useUpdateCategory();
 
   useEffect(() => {
     deliveryInstance
@@ -66,7 +67,7 @@ const UpdateCategory = () => {
 
   useEffect(() => {
     if (file) {
-      setLoading(true)
+      setLoading(true);
       setPreview(URL.createObjectURL(file));
       const formData = new FormData();
       formData.append('file', file);
@@ -84,7 +85,9 @@ const UpdateCategory = () => {
         .catch((err) => {
           console.log(err);
         })
-        .finally(() => { setLoading(false) })
+        .finally(() => {
+          setLoading(false);
+        });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -41,11 +41,15 @@ const useUpdateCategory = () => {
 
     deliveryInstance
       .put(`/category/${params.id}`, data2)
-      .then(() => { navigate('/adm/categories') })
+      .then(() => {
+        navigate('/adm/categories');
+      })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => { setLoading(false) });
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const deleteCategory = (id: string) => {

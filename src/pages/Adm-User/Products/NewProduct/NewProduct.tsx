@@ -1,47 +1,71 @@
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "src/components/ui/Form/Form"
-import Header from "../../Header/Header"
-import useNewProduct from "./form/useNewProduct"
-import { Card } from "src/components/ui/Card/Card"
-import { Input } from "src/components/ui/Input/Input"
-import ButtonSubmit from "src/components/ButtonSubmit/ButtonSubmit"
-import { Textarea } from "src/components/ui/Textarea/Textarea"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "src/components/ui/Select/Select"
-import { useEffect, useState } from "react"
-import { deliveryInstance } from "src/services/deliveryInstance"
-import { Category, categoryValidator } from "src/validator/category/categoryValidator"
-import { Switch } from "src/components/ui/Switch/Switch"
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from 'src/components/ui/Form/Form';
+import Header from '../../Header/Header';
+import useNewProduct from './form/useNewProduct';
+import { Card } from 'src/components/ui/Card/Card';
+import { Input } from 'src/components/ui/Input/Input';
+import ButtonSubmit from 'src/components/ButtonSubmit/ButtonSubmit';
+import { Textarea } from 'src/components/ui/Textarea/Textarea';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from 'src/components/ui/Select/Select';
+import { useContext, useEffect, useState } from 'react';
+import { deliveryInstance } from 'src/services/deliveryInstance';
+import {
+  Category,
+  categoryValidator,
+} from 'src/validator/category/categoryValidator';
+import { Switch } from 'src/components/ui/Switch/Switch';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const NewProduct = () => {
   const { form, submit, loading } = useNewProduct();
-  const [categories, setCategories] = useState<Array<Category>>()
+  const [categories, setCategories] = useState<Array<Category>>();
+  const { t } = useContext(LanguageContext)
 
   useEffect(() => {
-    deliveryInstance.get('/category')
-    .then((res) => { 
-      const parse = categoryValidator.array().safeParse(res.data);
-      if(parse.success) {
-        setCategories(parse.data) 
-      } else {
-         console.log(parse)
-      }
-    })
-    .catch((err) => { console.log(err) })
-  },[])
+    deliveryInstance
+      .get('/category')
+      .then((res) => {
+        const parse = categoryValidator.array().safeParse(res.data);
+        if (parse.success) {
+          setCategories(parse.data);
+        } else {
+          console.log(parse);
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
 
   return (
     <section>
-      <Header translateKey="NewProduct.title" type='back' />
+      <Header translateKey="NewProduct.title" type="back" />
 
       <section className="pt-20 px-2">
         <Card className="border-border p-2">
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(submit)} className="flex flex-col gap-2">
-            <FormField
+            <form
+              onSubmit={form.handleSubmit(submit)}
+              className="flex flex-col gap-2"
+            >
+              <FormField
                 control={form.control}
                 name="avaliable"
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
-                    <FormLabel>Product Avaliable</FormLabel>
+                    <FormLabel>{t('NewProduct.avaliable.label')}</FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -52,65 +76,74 @@ const NewProduct = () => {
                 )}
               />
 
-              <FormField 
+              <FormField
                 control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Product Name</FormLabel>
+                    <FormLabel>{t('NewProduct.name.label')}</FormLabel>
                     <FormControl>
-                      <Input placeholder="Product Name" { ...field } />
+                      <Input placeholder={t('NewProduct.name.placeholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              <FormField 
+              <FormField
                 control={form.control}
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Product description</FormLabel>
+                    <FormLabel>{t('NewProduct.description.label')}</FormLabel>
                     <FormControl>
-                      <Textarea rows={3} placeholder="Product Description" { ...field } />
+                      <Textarea
+                        rows={3}
+                        placeholder={t('NewProduct.description.placeholder')}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              <FormField 
+              <FormField
                 control={form.control}
                 name="price"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Product Price</FormLabel>
+                    <FormLabel>{t('NewProduct.price.label')}</FormLabel>
                     <FormControl>
-                      <Input type='number' placeholder="R$ 00.00" { ...field } />
+                      <Input type="number" placeholder={t('NewProduct.price.placeholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
 
-              <Separator text='Category' />
-              
-              <FormField 
+              <Separator text={t('NewProduct.separator.category')} />
+
+              <FormField
                 control={form.control}
                 name="category"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Promotional Price</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <FormLabel>{t('NewProduct.category.label')}</FormLabel>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder="Select a Category" />
+                          <SelectValue placeholder={t('NewProduct.category.placeholder')} />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
                         {categories?.map((category) => (
-                          <SelectItem value={category._id}>{category.name}</SelectItem>
+                          <SelectItem value={category._id}>
+                            {category.name}
+                          </SelectItem>
                         ))}
                       </SelectContent>
                     </Select>
@@ -119,16 +152,16 @@ const NewProduct = () => {
                 )}
               />
 
-              <Separator text='Promotion' />
-            
-              <FormField 
+              <Separator text={t('NewProduct.separator.promotion')} />
+
+              <FormField
                 control={form.control}
                 name="promotionalPrice"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Promotional Price</FormLabel>
+                    <FormLabel>{t('NewProduct.promotionalPrice.label')}</FormLabel>
                     <FormControl>
-                      <Input type='number' placeholder="R$ 00.00" { ...field } />
+                      <Input type="number" placeholder={t('NewProduct.promotionalPrice.placeholder')} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -140,7 +173,7 @@ const NewProduct = () => {
                 name="activePromotion"
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
-                    <FormLabel>Active Promotion</FormLabel>
+                    <FormLabel>{t('NewProduct.activePromotion.label')}</FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -151,29 +184,29 @@ const NewProduct = () => {
                 )}
               />
 
-              <ButtonSubmit loading={loading} translateKey="NewProduct.btnSubmit" />
+              <ButtonSubmit
+                loading={loading}
+                translateKey="NewProduct.btnSubmit"
+              />
             </form>
           </Form>
         </Card>
       </section>
-      
     </section>
-  )
-}
+  );
+};
 
-export default NewProduct
-
+export default NewProduct;
 
 type Props = {
   text: string;
-}
+};
 const Separator = ({ text }: Props) => {
-
   return (
     <div className="flex items-center gap-2 pt-6">
       <div className="border-b border-border w-full" />
       <p className="w-max">{text}</p>
       <div className="border-b border-border w-full" />
     </div>
-  )
-}
+  );
+};

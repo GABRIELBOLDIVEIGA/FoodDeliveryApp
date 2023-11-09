@@ -1,0 +1,36 @@
+{
+  "NewProduct": {
+    "title": "Create New Product",
+    "avaliable": {
+      "label": "Product Avaliable"
+    },
+    "name": {
+      "label": "Product Name",
+      "placeholder": "Product Name"
+    },
+    "description": {
+      "label": "Product Description",
+      "placeholder": "Product Description"
+    },
+    "price": {
+      "label": "Product Price",
+      "placeholder": "R$ 00.00"
+    },
+    "category": {
+      "label": "Promotional Price",
+      "placeholder": "Select a Category"
+    },
+    "promotionalPrice": {
+      "label": "Promotional Price",
+      "placeholder": "R$ 00.00"
+    },
+    "activePromotion": {
+      "label": "Active Promotion"
+    },
+    "separator": {
+      "category": "Category",
+      "promotion": "Promotion"
+    },
+    "btnSubmit": "Submit"
+  }
+}

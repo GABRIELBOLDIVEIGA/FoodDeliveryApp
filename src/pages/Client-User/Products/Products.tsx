@@ -2,7 +2,10 @@ import { ChevronLeftCircle, Loader } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { deliveryInstance } from 'src/services/deliveryInstance';
-import { Product, productsSchema } from 'src/validator/product/productValidator';
+import {
+  Product,
+  productsSchema,
+} from 'src/validator/product/productValidator';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import CardProduct from 'src/components/CardProduct/CardProduct';
 

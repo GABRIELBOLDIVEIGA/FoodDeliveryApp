@@ -21,11 +21,11 @@ export const useNewCategory = () => {
       .post(`/category`, data)
       .then((res) => {
         console.log(res.data);
-        const parse = categoryValidator.safeParse(res.data)
-        if(parse.success) {
+        const parse = categoryValidator.safeParse(res.data);
+        if (parse.success) {
           navigate(`/adm/category/${res.data._id}`);
         } else {
-          console.log(parse)
+          console.log(parse);
         }
       })
       .catch((err) => {

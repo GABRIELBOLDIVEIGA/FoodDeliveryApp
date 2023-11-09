@@ -1,0 +1,36 @@
+{
+  "NewProduct": {
+    "title": "Novo Produto",
+    "avaliable": {
+      "label": "Produto Disponivel"
+    },
+    "name": {
+      "label": "Nome do Produto",
+      "placeholder": "Nome do Produto"
+    },
+    "description": {
+      "label": "Descrição do Produto",
+      "placeholder": "Descrição do Produto"
+    },
+    "price": {
+      "label": "Preço do Produto",
+      "placeholder": "R$ 00.00"
+    },
+    "category": {
+      "label": "Categoria",
+      "placeholder": "Selecione uma Categoria"
+    },
+    "promotionalPrice": {
+      "label": "Preço Promocional",
+      "placeholder": "R$ 00.00"
+    },
+    "activePromotion": {
+      "label": "Promoção Ativa"
+    },
+    "separator": {
+      "category": "Categoria",
+      "promotion": "Promoção"
+    },
+    "btnSubmit": "Salvar"
+  }
+}

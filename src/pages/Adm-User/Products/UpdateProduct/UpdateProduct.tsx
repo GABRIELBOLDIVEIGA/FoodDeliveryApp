@@ -1,12 +1,22 @@
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from "src/components/ui/AlertDialog/AlertDialog"
-import Header from "../../Header/Header"
-import { Loader, Trash2 } from "lucide-react"
-import { useParams } from "react-router-dom"
-import { useContext, useEffect, useState } from "react"
-import { LanguageContext } from "src/context/language/LanguageContenxt"
-import useUpdateProduct from "./form/useUpdateProduct"
-import { Card } from "src/components/ui/Card/Card"
-import { deliveryInstance } from "src/services/deliveryInstance"
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from 'src/components/ui/AlertDialog/AlertDialog';
+import Header from '../../Header/Header';
+import { Loader, Trash2 } from 'lucide-react';
+import { useParams } from 'react-router-dom';
+import { useContext, useEffect, useState } from 'react';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import useUpdateProduct from './form/useUpdateProduct';
+import { Card } from 'src/components/ui/Card/Card';
+import { deliveryInstance } from 'src/services/deliveryInstance';
 import _404FullHD from 'src/assets/404FullHD.jpg';
 import {
   Form,
@@ -16,16 +26,17 @@ import {
   FormLabel,
   FormMessage,
 } from 'src/components/ui/Form/Form';
-import { cn } from "src/lib/utils"
-import { Button } from "src/components/ui/Button/Button"
-import { Textarea } from "src/components/ui/Textarea/Textarea"
-import { Input } from "src/components/ui/Input/Input"
-import { productValidator } from "src/validator/product/productValidator"
+import { cn } from 'src/lib/utils';
+import { Button } from 'src/components/ui/Button/Button';
+import { Textarea } from 'src/components/ui/Textarea/Textarea';
+import { Input } from 'src/components/ui/Input/Input';
+import { productValidator } from 'src/validator/product/productValidator';
 
 const UpdateProduct = () => {
-  const { form, deleteProduct, loading, submit, setLoading } = useUpdateProduct()
-  const { t } = useContext(LanguageContext)
-  const params = useParams<{ id: string }>()
+  const { form, deleteProduct, loading, submit, setLoading } =
+    useUpdateProduct();
+  const { t } = useContext(LanguageContext);
+  const params = useParams<{ id: string }>();
   const [imgLoad, setImgLoad] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState('');
@@ -51,7 +62,7 @@ const UpdateProduct = () => {
 
   useEffect(() => {
     if (file) {
-      setLoading(true)
+      setLoading(true);
       setPreview(URL.createObjectURL(file));
       const formData = new FormData();
       formData.append('file', file);
@@ -69,7 +80,9 @@ const UpdateProduct = () => {
         .catch((err) => {
           console.log(err);
         })
-        .finally(() => { setLoading(false) })
+        .finally(() => {
+          setLoading(false);
+        });
     }
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -77,8 +90,8 @@ const UpdateProduct = () => {
 
   return (
     <section>
-      <Header translateKey='UpdateProduct.title' type='back'>
-      <AlertDialog>
+      <Header translateKey="UpdateProduct.title" type="back">
+        <AlertDialog>
           <AlertDialogTrigger asChild>
             <Trash2 />
           </AlertDialogTrigger>
@@ -104,7 +117,7 @@ const UpdateProduct = () => {
           </AlertDialogContent>
         </AlertDialog>
       </Header>
-      
+
       <section className="pt-20">
         <Card className="p-2 border-border">
           <label htmlFor="banner-img">
@@ -169,9 +182,7 @@ const UpdateProduct = () => {
                     <FormControl>
                       <Textarea
                         rows={5}
-                        placeholder={t(
-                          'UpdateProduct.description.placeholder'
-                        )}
+                        placeholder={t('UpdateProduct.description.placeholder')}
                         {...field}
                       />
                     </FormControl>
@@ -190,7 +201,7 @@ const UpdateProduct = () => {
         </Card>
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default UpdateProduct
+export default UpdateProduct;

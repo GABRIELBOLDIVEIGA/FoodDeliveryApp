@@ -1,5 +1,11 @@
 {
   "productsAdm": {
     "title": "Produtos"
+  },
+  "cardProduct": {
+    "price": "Preço",
+    "promotionalPrice": "Preço Promocional",
+    "activePromotion": "Promoção Ativa",
+    "avaliable": "Disponivel"
   }
 }

@@ -1,9 +1,12 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
-import { deliveryInstance } from "src/services/deliveryInstance";
-import { Product, productValidator } from "src/validator/product/productValidator";
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate, useParams } from 'react-router-dom';
+import { deliveryInstance } from 'src/services/deliveryInstance';
+import {
+  Product,
+  productValidator,
+} from 'src/validator/product/productValidator';
 
 const useUpdateProduct = () => {
   const form = useForm<Product>({
@@ -20,8 +23,8 @@ const useUpdateProduct = () => {
       .then((res) => {
         const parse = productValidator.safeParse(res.data);
         if (parse.success) {
-          console.log(parse.data)
-          form.setValue('name', parse.data.name);    
+          console.log(parse.data);
+          form.setValue('name', parse.data.name);
         } else {
           console.log(parse);
         }
@@ -40,11 +43,15 @@ const useUpdateProduct = () => {
 
     deliveryInstance
       .put(`/product/${params.id}`, data2)
-      .then(() => { navigate('/adm/products') })
+      .then(() => {
+        navigate('/adm/products');
+      })
       .catch((err) => {
         console.log(err);
       })
-      .finally(() => { setLoading(false) });
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const deleteProduct = (id: string) => {

@@ -4,7 +4,10 @@ import { useContext, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from 'src/context/auth/AuthContext';
 import { deliveryInstance } from 'src/services/deliveryInstance';
-import { Profile, profileValidator } from 'src/validator/perfil/perfilValidator';
+import {
+  Profile,
+  profileValidator,
+} from 'src/validator/perfil/perfilValidator';
 
 export const useProfile = () => {
   const { user } = useContext(AuthContext);

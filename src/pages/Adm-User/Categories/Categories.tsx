@@ -25,8 +25,12 @@ export const Categories = () => {
           console.log(parse);
         }
       })
-      .catch((err) => { console.log(err) })
-      .finally(() => { setLoading(false) });
+      .catch((err) => {
+        console.log(err);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
 
   return (
