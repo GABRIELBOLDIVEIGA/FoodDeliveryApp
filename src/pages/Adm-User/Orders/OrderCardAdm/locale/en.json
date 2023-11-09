@@ -1,0 +1,11 @@
+{
+  "OrderCardAdm": {
+    "title": "Order",
+    "deliveryAddress": "Delivery Address",
+    "zipCode": "Zip-Code",
+    "neighborhood": "Neighborhood",
+    "street": "Street",
+    "city": "City",
+    "number": "nº"
+  }
+}

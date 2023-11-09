@@ -1,7 +1,9 @@
 import { z } from 'zod';
+// import { userValidator } from '../user/user';
 
 export const orderValidator = z.object({
   _id: z.string(),
+  // user: userValidator,
   products: z.array(
     z.object({
       productID: z.string(),

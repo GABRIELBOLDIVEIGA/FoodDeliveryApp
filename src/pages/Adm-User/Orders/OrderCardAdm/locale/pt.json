@@ -1,0 +1,11 @@
+{
+  "OrderCardAdm": {
+    "title": "Pedido",
+    "deliveryAddress": "Endereço de Entrega",
+    "zipCode": "CEP",
+    "neighborhood": "Bairro",
+    "street": "Rua",
+    "city": "Cidade",
+    "number": "nº"
+  }
+}

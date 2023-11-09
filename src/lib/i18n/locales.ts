@@ -52,6 +52,12 @@ import newProductEN from 'src/pages/Adm-User/Products/NewProduct/locale/en.json'
 import updateProductPT from 'src/pages/Adm-User/Products/UpdateProduct/locale/pt.json';
 import updateProductEN from 'src/pages/Adm-User/Products/UpdateProduct/locale/en.json';
 
+import ordersAdmPT from 'src/pages/Adm-User/Orders/locale/pt.json';
+import ordersAdmEN from 'src/pages/Adm-User/Orders/locale/en.json';
+
+import ordersCardAdmPT from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/pt.json';
+import ordersCardAdmEN from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/en.json';
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -71,6 +77,8 @@ export const localeEN = {
   ...productsAdmEN,
   ...newProductEN,
   ...updateProductEN,
+  ...ordersAdmEN,
+  ...ordersCardAdmEN,
 };
 
 export const localePT = {
@@ -92,4 +100,6 @@ export const localePT = {
   ...productsAdmPT,
   ...newProductPT,
   ...updateProductPT,
+  ...ordersAdmPT,
+  ...ordersCardAdmPT,
 };

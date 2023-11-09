@@ -2,15 +2,11 @@ import { useContext, useEffect, useState } from 'react';
 import Header from './OrdersHeader/OrdersHeader';
 import { deliveryInstance } from 'src/services/deliveryInstance';
 import { AuthContext } from 'src/context/auth/AuthContext';
-import { Order, orderValidator } from 'src/validator/order/orderValidator';
-import { currencyFormat } from 'src/lib/intl/currencyFormt';
-import { Card } from 'src/components/ui/Card/Card';
-import { Separator } from 'src/components/ui/Separator/Separator';
+import { Order, orderValidator } from 'src/validator/orderUser/orderUserValidator';
 import { Loader } from 'lucide-react';
-import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import OrderCard from 'src/components/Order/Order';
 
 const Orders = () => {
-  const { t } = useContext(LanguageContext);
   const { user } = useContext(AuthContext);
   const [orders, setOrders] = useState<Array<Order>>();
 
@@ -38,27 +34,12 @@ const Orders = () => {
             <Loader className="animate-spin" />
           </div>
         )}
-        {orders?.map((order, index) => (
-          <Card key={index} className="p-2 bg-muted dark:border-none">
-            <div className="font-bold pb-2">
-              {t('orders.cardTitle')} {index + 1}
-            </div>
-            {order.products.map((prod) => (
-              <div key={prod.productID} className="flex justify-between gap-2">
-                <p>{prod.name}</p>
-                <div className="flex gap-2">
-                  <p>{prod.amount}x</p>
-                  <p>{currencyFormat(prod.price)}</p>
-                </div>
-              </div>
-            ))}
-            <Separator className="my-2" />
-            <div className="flex justify-between font-bold">
-              <span>Total:</span>
-              <p>{currencyFormat(order.total)}</p>
-            </div>
-          </Card>
-        ))}
+
+        <div className='flex flex-col gap-2'>
+          {orders?.map((order) => (
+            <OrderCard key={order._id} {...order} />
+          ))}
+        </div>
       </div>
     </section>
   );
