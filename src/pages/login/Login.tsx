@@ -15,7 +15,6 @@ import {
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
-  AlertDialogTrigger,
 } from 'src/components/ui/AlertDialog/AlertDialog';
 import Configs from 'src/components/Configs/Configs';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
@@ -127,8 +126,7 @@ const Login = () => {
       <div className="fixed bottom-0 translate-y-10 -translate-x-12 border-[10px] border-primary rounded-full w-[100px] h-[100px]"></div>
 
       <AlertDialog open={alert}>
-        <AlertDialogTrigger></AlertDialogTrigger>
-        <AlertDialogContent>
+        <AlertDialogContent className="w-[95%]">
           <AlertDialogHeader>
             <AlertDialogTitle>{error?.message}</AlertDialogTitle>
             <AlertDialogDescription>{error?.message}</AlertDialogDescription>

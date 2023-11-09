@@ -49,6 +49,8 @@ import productsAdmEN from 'src/pages/Adm-User/Products/locale/en.json';
 import newProductPT from 'src/pages/Adm-User/Products/NewProduct/locale/pt.json';
 import newProductEN from 'src/pages/Adm-User/Products/NewProduct/locale/en.json';
 
+import updateProductPT from 'src/pages/Adm-User/Products/UpdateProduct/locale/pt.json';
+import updateProductEN from 'src/pages/Adm-User/Products/UpdateProduct/locale/en.json';
 
 export const localeEN = {
   ...themeEN,
@@ -68,7 +70,7 @@ export const localeEN = {
   ...newCategoryEN,
   ...productsAdmEN,
   ...newProductEN,
-
+  ...updateProductEN,
 };
 
 export const localePT = {
@@ -89,5 +91,5 @@ export const localePT = {
   ...newCategoryPT,
   ...productsAdmPT,
   ...newProductPT,
-
+  ...updateProductPT,
 };

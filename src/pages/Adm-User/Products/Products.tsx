@@ -56,7 +56,7 @@ type Props = {
   product: Product;
 };
 const Product = ({ product }: Props) => {
-  const { t } = useContext(LanguageContext)
+  const { t } = useContext(LanguageContext);
   return (
     <Link to={`/adm/product/${product._id}`}>
       <Card className="flex items-center gap-2 p-2 border-border">
@@ -74,21 +74,23 @@ const Product = ({ product }: Props) => {
           </div>
         </div>
 
-        <div className='w-full'>
+        <div className="w-full">
           <p className="text-lg font-semibold">{product.name}</p>
           <p>
             <span className="font-semibold">{t('cardProduct.price')}</span>{' '}
             {currencyFormat(product.price)}
           </p>
           <p>
-            <span className="font-semibold">{t('cardProduct.promotionalPrice')}</span>{' '}
+            <span className="font-semibold">
+              {t('cardProduct.promotionalPrice')}
+            </span>{' '}
             {currencyFormat(product.promotionalPrice)}
           </p>
-          <div className='flex justify-between items-center gap-2 pb-[2px]'>
-            <p className='font-semibold'>{t('cardProduct.activePromotion')}</p>
+          <div className="flex justify-between items-center gap-2 pb-[2px]">
+            <p className="font-semibold">{t('cardProduct.activePromotion')}</p>
             <Switch checked={product.activePromotion} disabled />
           </div>
-          <div className='flex justify-between items-center gap-2'>
+          <div className="flex justify-between items-center gap-2">
             <p className="font-semibold">{t('cardProduct.avaliable')}</p>
             <Switch checked={product.avaliable} disabled />
           </div>

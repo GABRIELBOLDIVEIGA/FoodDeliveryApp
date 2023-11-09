@@ -3,15 +3,13 @@ import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
 import { deliveryInstance } from 'src/services/deliveryInstance';
-import {
-  Product,
-  productValidator,
-} from 'src/validator/product/productValidator';
+import { productValidator } from 'src/validator/product/productValidator';
+import { Product, productSchema } from '../../schema/productSchema';
 
 const useUpdateProduct = () => {
   const form = useForm<Product>({
     mode: 'all',
-    resolver: zodResolver(productValidator),
+    resolver: zodResolver(productSchema),
   });
   const params = useParams<{ id: string }>();
   const [loading, setLoading] = useState(false);
@@ -23,8 +21,13 @@ const useUpdateProduct = () => {
       .then((res) => {
         const parse = productValidator.safeParse(res.data);
         if (parse.success) {
-          console.log(parse.data);
           form.setValue('name', parse.data.name);
+          form.setValue('avaliable', parse.data.avaliable);
+          form.setValue('description', parse.data.description);
+          form.setValue('price', parse.data.price);
+          form.setValue('category', parse.data.category._id);
+          form.setValue('promotionalPrice', parse.data.promotionalPrice);
+          form.setValue('activePromotion', parse.data.activePromotion);
         } else {
           console.log(parse);
         }
@@ -39,10 +42,10 @@ const useUpdateProduct = () => {
 
   const submit = (data: Product) => {
     setLoading(true);
-    const data2 = { name: data.name, description: data.description };
+    console.log('[Produto Atualizado] - ', data);
 
     deliveryInstance
-      .put(`/product/${params.id}`, data2)
+      .put(`/product/${params.id}`, data)
       .then(() => {
         navigate('/adm/products');
       })

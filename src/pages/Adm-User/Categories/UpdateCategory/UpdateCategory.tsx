@@ -95,7 +95,7 @@ const UpdateCategory = () => {
 
   return (
     <section>
-      <Header title={category?.name}>
+      <Header title={category?.name ? category.name : ' '} type="back">
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Trash2 />

@@ -10,7 +10,7 @@ import {
   AlertDialogTrigger,
 } from 'src/components/ui/AlertDialog/AlertDialog';
 import Header from '../../Header/Header';
-import { Loader, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
 import { useParams } from 'react-router-dom';
 import { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
@@ -27,10 +27,26 @@ import {
   FormMessage,
 } from 'src/components/ui/Form/Form';
 import { cn } from 'src/lib/utils';
-import { Button } from 'src/components/ui/Button/Button';
 import { Textarea } from 'src/components/ui/Textarea/Textarea';
 import { Input } from 'src/components/ui/Input/Input';
-import { productValidator } from 'src/validator/product/productValidator';
+import {
+  productValidator,
+  Product,
+} from 'src/validator/product/productValidator';
+import { Switch } from 'src/components/ui/Switch/Switch';
+import ButtonSubmit from 'src/components/ButtonSubmit/ButtonSubmit';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from 'src/components/ui/Select/Select';
+import {
+  Category,
+  categoryValidator,
+} from 'src/validator/category/categoryValidator';
+import { Separator } from 'src/components/Separator/Separator';
 
 const UpdateProduct = () => {
   const { form, deleteProduct, loading, submit, setLoading } =
@@ -40,6 +56,8 @@ const UpdateProduct = () => {
   const [imgLoad, setImgLoad] = useState(false);
   const [file, setFile] = useState<File | null>(null);
   const [preview, setPreview] = useState('');
+  const [categories, setCategories] = useState<Array<Category>>();
+  const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
     deliveryInstance
@@ -48,14 +66,28 @@ const UpdateProduct = () => {
         const parse = productValidator.safeParse(res.data);
         if (parse.success) {
           setPreview(parse.data.img);
+          setProduct(parse.data);
         } else {
           console.log(parse);
         }
       })
       .catch((err) => {
         console.log(err);
+      });
+
+    deliveryInstance
+      .get('/category')
+      .then((res) => {
+        const parse = categoryValidator.array().safeParse(res.data);
+        if (parse.success) {
+          setCategories(parse.data);
+        } else {
+          console.log(parse);
+        }
       })
-      .finally(() => {});
+      .catch((err) => {
+        console.log(err);
+      });
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -90,7 +122,7 @@ const UpdateProduct = () => {
 
   return (
     <section>
-      <Header translateKey="UpdateProduct.title" type="back">
+      <Header translateKey={product?.name ? product.name : ' '} type="back">
         <AlertDialog>
           <AlertDialogTrigger asChild>
             <Trash2 />
@@ -118,7 +150,7 @@ const UpdateProduct = () => {
         </AlertDialog>
       </Header>
 
-      <section className="pt-20">
+      <section className="py-20">
         <Card className="p-2 border-border">
           <label htmlFor="banner-img">
             <div
@@ -156,6 +188,22 @@ const UpdateProduct = () => {
             >
               <FormField
                 control={form.control}
+                name="avaliable"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
+                    <FormLabel>{t('UpdateProduct.avaliable.label')}</FormLabel>
+                    <FormControl>
+                      <Switch
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
                 name="name"
                 render={({ field }) => (
                   <FormItem>
@@ -181,7 +229,7 @@ const UpdateProduct = () => {
                     </FormLabel>
                     <FormControl>
                       <Textarea
-                        rows={5}
+                        rows={3}
                         placeholder={t('UpdateProduct.description.placeholder')}
                         {...field}
                       />
@@ -191,11 +239,105 @@ const UpdateProduct = () => {
                 )}
               />
 
-              <Button disabled={loading} className="flex gap-2">
-                {loading && <Loader className="animate-spin" />}
-                {t('UpdateProduct.buttonSubmit')}
-                {loading && <div className="w-[24px] h-[24px]"></div>}
-              </Button>
+              <FormField
+                control={form.control}
+                name="price"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>{t('UpdateProduct.price.label')}</FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder={t('UpdateProduct.price.placeholder')}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <Separator text={t('UpdateProduct.separator.category')} />
+
+              <FormField
+                control={form.control}
+                name="category"
+                render={({ field }) => {
+                  const placeholder = categories?.find(
+                    (category) => category._id === field.value
+                  );
+                  return (
+                    <FormItem>
+                      <FormLabel>{t('UpdateProduct.category.label')}</FormLabel>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
+                        <FormControl>
+                          <SelectTrigger>
+                            <SelectValue placeholder={placeholder?.name} />
+                          </SelectTrigger>
+                        </FormControl>
+                        <SelectContent>
+                          {categories?.map((category) => (
+                            <SelectItem value={category._id}>
+                              {category.name}
+                            </SelectItem>
+                          ))}
+                        </SelectContent>
+                      </Select>
+                      <FormMessage />
+                    </FormItem>
+                  );
+                }}
+              />
+
+              <Separator text={t('UpdateProduct.separator.promotion')} />
+
+              <FormField
+                control={form.control}
+                name="promotionalPrice"
+                render={({ field }) => (
+                  <FormItem>
+                    <FormLabel>
+                      {t('UpdateProduct.promotionalPrice.label')}
+                    </FormLabel>
+                    <FormControl>
+                      <Input
+                        type="number"
+                        placeholder={t(
+                          'UpdateProduct.promotionalPrice.placeholder'
+                        )}
+                        {...field}
+                      />
+                    </FormControl>
+                    <FormMessage />
+                  </FormItem>
+                )}
+              />
+
+              <FormField
+                control={form.control}
+                name="activePromotion"
+                render={({ field }) => (
+                  <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
+                    <FormLabel>
+                      {t('UpdateProduct.activePromotion.label')}
+                    </FormLabel>
+                    <FormControl>
+                      <Switch
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
+                    </FormControl>
+                  </FormItem>
+                )}
+              />
+
+              <ButtonSubmit
+                loading={loading}
+                translateKey="UpdateProduct.btnSubmit"
+              />
             </form>
           </Form>
         </Card>

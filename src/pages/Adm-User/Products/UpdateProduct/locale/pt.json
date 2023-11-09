@@ -1,6 +1,5 @@
 {
-  "NewProduct": {
-    "title": "Novo Produto",
+  "UpdateProduct": {
     "avaliable": {
       "label": "Produto Disponivel"
     },
@@ -31,6 +30,12 @@
       "category": "Categoria",
       "promotion": "Promoção"
     },
-    "btnSubmit": "Salvar"
+    "btnSubmit": "Salvar",
+    "alert": {
+      "title": "Apagar este Produto?",
+      "message": "Ao confirmar este Produto será APAGADO permanentemente.",
+      "btnCancel": "Cancelar",
+      "btnConfirm": "APAGAR"
+    }
   }
 }

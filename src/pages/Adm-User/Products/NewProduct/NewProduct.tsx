@@ -27,11 +27,12 @@ import {
 } from 'src/validator/category/categoryValidator';
 import { Switch } from 'src/components/ui/Switch/Switch';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
+import { Separator } from 'src/components/Separator/Separator';
 
 const NewProduct = () => {
   const { form, submit, loading } = useNewProduct();
   const [categories, setCategories] = useState<Array<Category>>();
-  const { t } = useContext(LanguageContext)
+  const { t } = useContext(LanguageContext);
 
   useEffect(() => {
     deliveryInstance
@@ -83,7 +84,10 @@ const NewProduct = () => {
                   <FormItem>
                     <FormLabel>{t('NewProduct.name.label')}</FormLabel>
                     <FormControl>
-                      <Input placeholder={t('NewProduct.name.placeholder')} {...field} />
+                      <Input
+                        placeholder={t('NewProduct.name.placeholder')}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -115,7 +119,11 @@ const NewProduct = () => {
                   <FormItem>
                     <FormLabel>{t('NewProduct.price.label')}</FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder={t('NewProduct.price.placeholder')} {...field} />
+                      <Input
+                        type="number"
+                        placeholder={t('NewProduct.price.placeholder')}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -136,7 +144,9 @@ const NewProduct = () => {
                     >
                       <FormControl>
                         <SelectTrigger>
-                          <SelectValue placeholder={t('NewProduct.category.placeholder')} />
+                          <SelectValue
+                            placeholder={t('NewProduct.category.placeholder')}
+                          />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -159,9 +169,17 @@ const NewProduct = () => {
                 name="promotionalPrice"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('NewProduct.promotionalPrice.label')}</FormLabel>
+                    <FormLabel>
+                      {t('NewProduct.promotionalPrice.label')}
+                    </FormLabel>
                     <FormControl>
-                      <Input type="number" placeholder={t('NewProduct.promotionalPrice.placeholder')} {...field} />
+                      <Input
+                        type="number"
+                        placeholder={t(
+                          'NewProduct.promotionalPrice.placeholder'
+                        )}
+                        {...field}
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -173,7 +191,9 @@ const NewProduct = () => {
                 name="activePromotion"
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
-                    <FormLabel>{t('NewProduct.activePromotion.label')}</FormLabel>
+                    <FormLabel>
+                      {t('NewProduct.activePromotion.label')}
+                    </FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -197,16 +217,3 @@ const NewProduct = () => {
 };
 
 export default NewProduct;
-
-type Props = {
-  text: string;
-};
-const Separator = ({ text }: Props) => {
-  return (
-    <div className="flex items-center gap-2 pt-6">
-      <div className="border-b border-border w-full" />
-      <p className="w-max">{text}</p>
-      <div className="border-b border-border w-full" />
-    </div>
-  );
-};

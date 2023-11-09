@@ -1,6 +1,5 @@
 {
-  "NewProduct": {
-    "title": "Create New Product",
+  "UpdateProduct": {
     "avaliable": {
       "label": "Product Avaliable"
     },
@@ -31,6 +30,12 @@
       "category": "Category",
       "promotion": "Promotion"
     },
-    "btnSubmit": "Submit"
+    "btnSubmit": "Submit",
+    "alert": {
+      "title": "Delete this Product?",
+      "message": "By confirming this Product it will be DELETED permanently.",
+      "btnCancel": "Cancel",
+      "btnConfirm": "DELETE"
+    }
   }
 }
