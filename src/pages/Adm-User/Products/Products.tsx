@@ -41,7 +41,7 @@ export const Products = () => {
         </Link>
       </Header>
 
-      <section className="py-20 px-2">
+      <section className="py-20 px-2 bg-background">
         <div className="flex flex-col gap-2">
           {products?.map((product) => (
             <Product key={product._id} product={product} />

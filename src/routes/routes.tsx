@@ -19,6 +19,8 @@ import UpdateCategory from 'src/pages/Adm-User/Categories/UpdateCategory/UpdateC
 import NewCategory from 'src/pages/Adm-User/Categories/NewCategory/NewCategory';
 import UpdateProduct from 'src/pages/Adm-User/Products/UpdateProduct/UpdateProduct';
 import NewProduct from 'src/pages/Adm-User/Products/NewProduct/NewProduct';
+import SideDish from 'src/pages/Adm-User/SideDish/SideDish';
+import Users from 'src/pages/Adm-User/Users/Users';
 
 export const routes = createBrowserRouter([
   {
@@ -106,6 +108,14 @@ export const routes = createBrowserRouter([
           {
             path: '/adm/product/:id',
             element: <UpdateProduct />,
+          },
+          {
+            path: '/adm/sidedish',
+            element: <SideDish />,
+          },
+          {
+            path: '/adm/users',
+            element: <Users />,
           },
         ],
       },

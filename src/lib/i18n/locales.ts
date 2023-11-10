@@ -58,6 +58,10 @@ import ordersAdmEN from 'src/pages/Adm-User/Orders/locale/en.json';
 import ordersCardAdmPT from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/pt.json';
 import ordersCardAdmEN from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/en.json';
 
+import SideDishAdmPT from 'src/pages/Adm-User/SideDish/locale/pt.json';
+import SideDishAdmEN from 'src/pages/Adm-User/SideDish/locale/en.json';
+
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -79,6 +83,8 @@ export const localeEN = {
   ...updateProductEN,
   ...ordersAdmEN,
   ...ordersCardAdmEN,
+  ...SideDishAdmEN,
+
 };
 
 export const localePT = {
@@ -102,4 +108,6 @@ export const localePT = {
   ...updateProductPT,
   ...ordersAdmPT,
   ...ordersCardAdmPT,
+  ...SideDishAdmPT,
+
 };

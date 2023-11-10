@@ -26,7 +26,7 @@ export const Orders = () => {
   <section>
     <Header translateKey="OrdersAdm.title" />
     
-    <section className="flex flex-col gap-2 py-20 px-4">
+    <section className="flex flex-col gap-2 py-20 px-4 bg-background">
       {orders?.map((order) => (
         <OrderCardAdm key={order._id} {...order}/>
       ))}
