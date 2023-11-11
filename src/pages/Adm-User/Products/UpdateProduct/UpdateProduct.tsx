@@ -121,7 +121,7 @@ const UpdateProduct = () => {
   }, [file]);
 
   return (
-    <section>
+    <section className="bg-background">
       <Header translateKey={product?.name ? product.name : ' '} type="back">
         <AlertDialog>
           <AlertDialogTrigger asChild>
@@ -150,7 +150,7 @@ const UpdateProduct = () => {
         </AlertDialog>
       </Header>
 
-      <section className="py-20">
+      <section className="py-20 px-2">
         <Card className="p-2 border-border">
           <label htmlFor="banner-img">
             <div
@@ -210,6 +210,7 @@ const UpdateProduct = () => {
                     <FormLabel>{t('UpdateProduct.name.label')}</FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-muted"
                         placeholder={t('UpdateProduct.name.placeholder')}
                         {...field}
                       />
@@ -229,6 +230,7 @@ const UpdateProduct = () => {
                     </FormLabel>
                     <FormControl>
                       <Textarea
+                        className="bg-muted"
                         rows={3}
                         placeholder={t('UpdateProduct.description.placeholder')}
                         {...field}
@@ -247,6 +249,7 @@ const UpdateProduct = () => {
                     <FormLabel>{t('UpdateProduct.price.label')}</FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-muted"
                         type="number"
                         placeholder={t('UpdateProduct.price.placeholder')}
                         {...field}
@@ -274,11 +277,11 @@ const UpdateProduct = () => {
                         defaultValue={field.value}
                       >
                         <FormControl>
-                          <SelectTrigger>
+                          <SelectTrigger className="bg-muted">
                             <SelectValue placeholder={placeholder?.name} />
                           </SelectTrigger>
                         </FormControl>
-                        <SelectContent>
+                        <SelectContent className="dark:border-border">
                           {categories?.map((category) => (
                             <SelectItem value={category._id}>
                               {category.name}
@@ -304,6 +307,7 @@ const UpdateProduct = () => {
                     </FormLabel>
                     <FormControl>
                       <Input
+                        className="bg-muted"
                         type="number"
                         placeholder={t(
                           'UpdateProduct.promotionalPrice.placeholder'

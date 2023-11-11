@@ -1,46 +1,30 @@
-import { Card } from "src/components/ui/Card/Card";
-import Header from "../Header/Header";
-import { useEffect, useState } from "react";
-import { deliveryInstance } from "src/services/deliveryInstance";
-import { Profile, profileValidator } from "src/validator/perfil/perfilValidator";
+import Header from '../Header/Header';
+import { useQuery } from 'react-query';
+import { getAllClients } from './queries/useQueries';
+import { Loader } from 'lucide-react';
+import { CardUser } from './CardUser/CardUser';
+import { useContext } from 'react';
+import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const Users = () => {
-  const [users, setUsers] = useState<Array<Profile>>();
-
-  useEffect(() => {
-    deliveryInstance.get('/user')
-      .then((res) => { 
-        const parse = profileValidator.array().safeParse(res.data);
-        if(parse.success) {
-          setUsers(parse.data);
-        } else {
-          console.log(parse);
-        }
-      })
-      .catch((err) => { console.log(err) })
-  },[])
+  const { t } = useContext(LanguageContext);
+  const { data: users, isLoading } = useQuery(['getAllClients'], () =>
+    getAllClients()
+  );
 
   return (
     <section>
       <Header translateKey="Users.title" />
-      
-      <section className="flex flex-col gap-2 py-20 bg-background px-2">
-        {users?.map((user) => (
-          <CardUser {...user} />
-        ))}
+
+      <section className="flex flex-col gap-2 py-20 px-2">
+        {!users && !isLoading && (
+          <h1 className="self-center">{t('Users.errorMessage')}</h1>
+        )}
+        {isLoading && <Loader className="self-center animate-spin" />}
+        {users?.map((user) => <CardUser key={user.email} {...user} />)}
       </section>
     </section>
-  )
-}
+  );
+};
 
-export default Users
-
-
-const CardUser = (user: Profile) => {
-
-  return(
-    <Card className="p-2 border border-border">
-      {user.name}
-    </Card>
-  )
-}
+export default Users;

@@ -1,6 +1,7 @@
 import { z } from 'zod';
 
 export const profileValidator = z.object({
+  _id: z.string(),
   name: z.string().max(30, 'Nome muito grande.'),
   email: z.string().email('Informe um Email valido'),
   document: z

@@ -1,15 +1,23 @@
-import { Outlet } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Outlet, useLocation, useNavigate } from 'react-router-dom';
 
 const BasePage = () => {
-  return (
-    <div className="w-screen h-screen relative bg-background text-secondary-foreground tracking-wide">
-      {/* <div className="w-full h-full border border-red-600 absolute opacity-[4%] bg-doodles">
-      </div> */}
+  const location = useLocation();
+  const navigate = useNavigate();
 
+  useEffect(() => {
+    if (location.pathname === '/') {
+      navigate('/login');
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  return (
+    <section className="w-screen h-screen relative bg-background text-secondary-foreground tracking-wide">
       <div className="relative">
         <Outlet />
       </div>
-    </div>
+    </section>
   );
 };
 

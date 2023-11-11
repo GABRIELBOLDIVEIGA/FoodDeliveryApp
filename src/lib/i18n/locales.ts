@@ -58,8 +58,15 @@ import ordersAdmEN from 'src/pages/Adm-User/Orders/locale/en.json';
 import ordersCardAdmPT from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/pt.json';
 import ordersCardAdmEN from 'src/pages/Adm-User/Orders/OrderCardAdm/locale/en.json';
 
-import SideDishAdmPT from 'src/pages/Adm-User/SideDish/locale/pt.json';
-import SideDishAdmEN from 'src/pages/Adm-User/SideDish/locale/en.json';
+import sideDishAdmPT from 'src/pages/Adm-User/SideDish/locale/pt.json';
+import sideDishAdmEN from 'src/pages/Adm-User/SideDish/locale/en.json';
+
+import usersPT from 'src/pages/Adm-User/Users/locale/pt.json';
+import usersEN from 'src/pages/Adm-User/Users/locale/en.json';
+
+import cardUserPT from 'src/pages/Adm-User/Users/CardUser/locale/pt.json';
+import cardUserEN from 'src/pages/Adm-User/Users/CardUser/locale/en.json';
+
 
 
 export const localeEN = {
@@ -83,8 +90,9 @@ export const localeEN = {
   ...updateProductEN,
   ...ordersAdmEN,
   ...ordersCardAdmEN,
-  ...SideDishAdmEN,
-
+  ...sideDishAdmEN,
+  ...usersEN,
+  ...cardUserEN,
 };
 
 export const localePT = {
@@ -108,6 +116,8 @@ export const localePT = {
   ...updateProductPT,
   ...ordersAdmPT,
   ...ordersCardAdmPT,
-  ...SideDishAdmPT,
+  ...sideDishAdmPT,
+  ...usersPT,
+  ...cardUserPT,
 
 };
