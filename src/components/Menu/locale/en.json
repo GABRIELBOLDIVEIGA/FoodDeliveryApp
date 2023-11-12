@@ -4,6 +4,14 @@
     "categories": "Categories",
     "cart": "Cart",
     "orders": "My Orders",
-    "profile": "Profile"
+    "profile": "Profile",
+
+    "adm": {
+      "orders": "Orders",
+      "categories": "Categories",
+      "products": "Products",
+      "sidedish": "SideDishies",
+      "users": "Users"
+    }
   }
 }

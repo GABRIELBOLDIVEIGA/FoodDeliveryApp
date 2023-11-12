@@ -4,6 +4,14 @@
     "categories": "Categorias",
     "cart": "Carrinho",
     "orders": "Minhas Comprars",
-    "profile": "Perfil"
+    "profile": "Perfil",
+
+    "adm": {
+      "orders": "Pedidos",
+      "categories": "Categorias",
+      "products": "Produtos",
+      "sidedish": "Acompanhamentos",
+      "users": "Usuarios"
+    }
   }
 }

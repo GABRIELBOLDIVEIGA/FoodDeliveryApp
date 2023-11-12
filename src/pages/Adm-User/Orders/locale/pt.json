@@ -1,5 +1,6 @@
 {
   "OrdersAdm": {
-    "title": "Pedidos"
+    "title": "Pedidos",
+    "errorMessage": "Erro ao obter Pedidos!"
   }
 }

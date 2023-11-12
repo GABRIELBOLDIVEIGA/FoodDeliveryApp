@@ -7,7 +7,7 @@ import { deliveryInstance } from 'src/services/deliveryInstance';
 import {
   Profile,
   profileValidator,
-} from 'src/validator/perfil/perfilValidator';
+} from 'src/validator/profile/profileValidator';
 
 export const useProfile = () => {
   const { user } = useContext(AuthContext);

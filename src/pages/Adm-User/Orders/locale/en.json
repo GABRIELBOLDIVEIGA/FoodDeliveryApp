@@ -1,5 +1,6 @@
 {
   "OrdersAdm": {
-    "title": "Orders"
+    "title": "Orders",
+    "errorMessage": "Error getting Orders!"
   }
 }

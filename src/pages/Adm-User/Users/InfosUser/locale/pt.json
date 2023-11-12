@@ -1,0 +1,17 @@
+{
+  "InfosUser": {
+    "title": "Informações do Usuario",
+    "infos": "Dados Pessoais",
+    "address": "Endereço",
+    "errorMessage": "Erro ao obter Informações do Usuario!",
+    "name": "Nome",
+    "email": "Email",
+    "phoneNumber": "Telefone",
+    "document": "Documento",
+    "zipCode": "CEP",
+    "city": "Cidade",
+    "neighborhood": "Bairro",
+    "street": "Rua",
+    "number": "Numero" 
+  }
+}

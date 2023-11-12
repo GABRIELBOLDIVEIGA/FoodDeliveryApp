@@ -11,9 +11,12 @@ import {
   Home,
   LogOut,
   Menu as MenuIcon,
+  PackageSearch,
   ScrollText,
   ShoppingCart,
   User2,
+  Users2,
+  Workflow,
 } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import ToggleLanguage from '../ToggleLanguage/ToggleLanguage';
@@ -38,22 +41,22 @@ const menuADM: Array<Option> = [
   {
     icon: <ClipboardList size={24} />,
     to: '/adm/categories',
-    translateKey: 'menu.categories',
+    translateKey: 'menu.adm.categories',
   },
   {
-    icon: <ClipboardList size={24} />,
+    icon: <PackageSearch size={24} />,
     to: '/adm/products',
-    translateKey: 'menu.products',
+    translateKey: 'menu.adm.products',
   },
   {
-    icon: <ClipboardList size={24} />,
+    icon: <Workflow size={24} />,
     to: '/adm/sidedish',
-    translateKey: 'menu.sidedish',
+    translateKey: 'menu.adm.sidedish',
   },
   {
-    icon: <ClipboardList size={24} />,
+    icon: <Users2 size={24} />,
     to: '/adm/users',
-    translateKey: 'menu.users',
+    translateKey: 'menu.adm.users',
   },
 ];
 

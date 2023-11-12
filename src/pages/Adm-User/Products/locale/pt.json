@@ -2,6 +2,9 @@
   "productsAdm": {
     "title": "Produtos"
   },
+
+  "messageError": "Erro ao obter Produtos!",
+
   "cardProduct": {
     "price": "Preço",
     "promotionalPrice": "Preço Promocional",

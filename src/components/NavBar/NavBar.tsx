@@ -6,6 +6,7 @@ import {
   ShoppingCart,
   User2,
   Users2,
+  Workflow,
 } from 'lucide-react';
 import { cn } from './../../lib/utils';
 import { Link, useLocation } from 'react-router-dom';
@@ -64,7 +65,7 @@ const barOptionAdmUser: Array<Option> = [
   },
   {
     id: 'sidedish',
-    icon: <ClipboardList size={24} />,
+    icon: <Workflow size={24} />,
     link: '/adm/sidedish',
   },
   {

@@ -67,7 +67,8 @@ import usersEN from 'src/pages/Adm-User/Users/locale/en.json';
 import cardUserPT from 'src/pages/Adm-User/Users/CardUser/locale/pt.json';
 import cardUserEN from 'src/pages/Adm-User/Users/CardUser/locale/en.json';
 
-
+import cardUserInfosPT from 'src/pages/Adm-User/Users/InfosUser/locale/pt.json';
+import cardUserInfosEN from 'src/pages/Adm-User/Users/InfosUser/locale/en.json';
 
 export const localeEN = {
   ...themeEN,
@@ -93,6 +94,8 @@ export const localeEN = {
   ...sideDishAdmEN,
   ...usersEN,
   ...cardUserEN,
+  ...cardUserInfosEN,
+
 };
 
 export const localePT = {
@@ -119,5 +122,6 @@ export const localePT = {
   ...sideDishAdmPT,
   ...usersPT,
   ...cardUserPT,
+  ...cardUserInfosPT,
 
 };

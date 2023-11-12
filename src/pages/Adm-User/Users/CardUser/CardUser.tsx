@@ -2,7 +2,7 @@ import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Card } from 'src/components/ui/Card/Card';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
-import { Profile } from 'src/validator/perfil/perfilValidator';
+import { Profile } from 'src/validator/profile/profileValidator';
 
 export const CardUser = (user: Profile) => {
   const { t } = useContext(LanguageContext);

@@ -1,5 +1,5 @@
 import { deliveryInstance } from "src/services/deliveryInstance"
-import { profileValidator } from "src/validator/perfil/perfilValidator";
+import { profileValidator } from "src/validator/profile/profileValidator";
 
 export const getAllClients = async () => {
   const response = await deliveryInstance.get('/user')

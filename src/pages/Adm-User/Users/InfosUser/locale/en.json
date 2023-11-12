@@ -1,0 +1,17 @@
+{
+  "InfosUser": {
+    "title": "User Information",
+    "infos": "User Infos",
+    "address": "Address",
+    "errorMessage": "Error obtaining User Information!",
+    "name": "Name",
+    "email": "Email",
+    "phoneNumber": "PhoneNmumber",
+    "document": "Document",
+    "zipCode": "ZipCode",
+    "city": "City",
+    "neighborhood": "Neighborhood",
+    "street": "Street",
+    "number": "Number" 
+  }
+}
