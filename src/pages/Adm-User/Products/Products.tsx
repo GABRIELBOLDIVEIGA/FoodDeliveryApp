@@ -2,12 +2,12 @@ import { useContext } from 'react';
 import Header from '../Header/Header';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import { Link } from 'react-router-dom';
-import { Plus } from 'lucide-react';
-import { useQuery } from 'react-query';
 import { getAllProducts } from './queries/useQueries';
 import { Loader } from 'src/components/Loader/Loader';
 import { MessageError } from 'src/components/MessageError/MessageError';
 import { Product } from './Product/Product';
+import { useQuery } from 'react-query';
+import { Plus } from 'lucide-react';
 
 export const Products = () => {
   const { t } = useContext(LanguageContext);

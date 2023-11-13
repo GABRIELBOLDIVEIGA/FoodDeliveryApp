@@ -107,7 +107,7 @@ const Login = () => {
         <Button variant="link">{t('login.forgot')}</Button>
       </div>
 
-      <Card className="bg-background p-4 mt-20 border-border">
+      <Card className="bg-background p-4 mt-10 border-border">
         <h2 className=" font-bold text-center text-xl">{t('login.mock')}</h2>
 
         <div className="border-b-2 border-border pt-4">
@@ -122,8 +122,6 @@ const Login = () => {
           <p>{t('login.password')}: 123456</p>
         </div>
       </Card>
-
-      <div className="fixed bottom-0 translate-y-10 -translate-x-12 border-[10px] border-primary rounded-full w-[100px] h-[100px]"></div>
 
       <AlertDialog open={alert}>
         <AlertDialogContent className="w-[95%]">
