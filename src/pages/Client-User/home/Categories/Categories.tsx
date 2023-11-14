@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Button } from 'src/components/ui/Button/Button';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import { Link } from 'react-router-dom';
 import {
@@ -14,7 +14,7 @@ const Categories = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/category/category/query?page=1&limit=3')
       .then((res) => {
         const categories = categoriesSchema.safeParse(res.data);

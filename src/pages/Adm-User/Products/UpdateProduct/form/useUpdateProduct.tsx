@@ -2,7 +2,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate, useParams } from 'react-router-dom';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { productValidator } from 'src/validator/product/productValidator';
 import { Product, productSchema } from '../../schema/productSchema';
 
@@ -16,7 +16,7 @@ const useUpdateProduct = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`product/${params.id}`)
       .then((res) => {
         const parse = productValidator.safeParse(res.data);
@@ -44,7 +44,7 @@ const useUpdateProduct = () => {
     setLoading(true);
     console.log('[Produto Atualizado] - ', data);
 
-    deliveryInstance
+    deliveryInstanceOLD
       .put(`/product/${params.id}`, data)
       .then(() => {
         navigate('/adm/products');
@@ -58,7 +58,7 @@ const useUpdateProduct = () => {
   };
 
   const deleteProduct = (id: string) => {
-    deliveryInstance
+    deliveryInstanceOLD
       .delete(`/product/${id}`)
       .then(() => {
         navigate('/adm/products');

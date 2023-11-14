@@ -16,7 +16,7 @@ import { useContext, useEffect, useState } from 'react';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import useUpdateProduct from './form/useUpdateProduct';
 import { Card } from 'src/components/ui/Card/Card';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import _404FullHD from 'src/assets/404FullHD.jpg';
 import {
   Form,
@@ -60,7 +60,7 @@ const UpdateProduct = () => {
   const [product, setProduct] = useState<Product>();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`product/${params.id}`)
       .then((res) => {
         const parse = productValidator.safeParse(res.data);
@@ -75,7 +75,7 @@ const UpdateProduct = () => {
         console.log(err);
       });
 
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/category')
       .then((res) => {
         const parse = categoryValidator.array().safeParse(res.data);
@@ -100,7 +100,7 @@ const UpdateProduct = () => {
       formData.append('file', file);
       formData.append('fileName', file.name);
 
-      deliveryInstance
+      deliveryInstanceOLD
         .post(`/product/upload-image/${params.id}`, formData, {
           headers: {
             'content-type': 'multipart/form-data',

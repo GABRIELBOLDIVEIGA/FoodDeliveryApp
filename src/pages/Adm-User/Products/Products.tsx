@@ -2,18 +2,20 @@ import { useContext } from 'react';
 import Header from '../Header/Header';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import { Link } from 'react-router-dom';
-import { getAllProducts } from './queries/useQueries';
+import { useGetAllProducts } from './queries/useQueries';
 import { Loader } from 'src/components/Loader/Loader';
 import { MessageError } from 'src/components/MessageError/MessageError';
 import { Product } from './Product/Product';
-import { useQuery } from 'react-query';
+import { useQuery } from '@tanstack/react-query';
 import { Plus } from 'lucide-react';
 
 export const Products = () => {
+  const { getAllProducts } = useGetAllProducts();
   const { t } = useContext(LanguageContext);
-  const { data: products, isLoading } = useQuery(['getAllProducts'], () =>
-    getAllProducts()
-  );
+  const { data: products, isLoading } = useQuery({
+    queryKey: ['getAllProducts'],
+    queryFn: getAllProducts,
+  });
 
   return (
     <section>

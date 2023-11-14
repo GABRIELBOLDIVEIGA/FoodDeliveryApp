@@ -20,7 +20,7 @@ import {
   SelectValue,
 } from 'src/components/ui/Select/Select';
 import { useContext, useEffect, useState } from 'react';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Category,
   categoryValidator,
@@ -35,7 +35,7 @@ const NewProduct = () => {
   const { t } = useContext(LanguageContext);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/category')
       .then((res) => {
         const parse = categoryValidator.array().safeParse(res.data);

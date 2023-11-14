@@ -1,16 +1,18 @@
 import Header from '../Header/Header';
-import { useQuery } from 'react-query';
-import { getAllClients } from './queries/useQueries';
+import { useQuery } from '@tanstack/react-query';
+import { useGetAllClients } from './queries/useQueries';
 import { Loader } from 'lucide-react';
 import { CardUser } from './CardUser/CardUser';
 import { useContext } from 'react';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const Users = () => {
+  const { getAllClients } = useGetAllClients();
   const { t } = useContext(LanguageContext);
-  const { data: users, isLoading } = useQuery(['getAllClients'], () =>
-    getAllClients()
-  );
+  const { data: users, isLoading } = useQuery({
+    queryKey: ['getAllClients'],
+    queryFn: getAllClients,
+  });
 
   return (
     <section>

@@ -1,19 +1,21 @@
 import { Card } from 'src/components/ui/Card/Card';
 import Header from '../../Header/Header';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import { getUserInfos } from './queries/useQueries';
+import { useQuery } from '@tanstack/react-query';
+import { useGetUserInfos } from './queries/useQueries';
 import { Loader } from 'lucide-react';
 import { Separator } from 'src/components/Separator/Separator';
 import { useContext } from 'react';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const InfosUser = () => {
-  const { t } = useContext(LanguageContext)
+  const { getUserInfos } = useGetUserInfos()
+  const { t } = useContext(LanguageContext);
   const params = useParams<{ id: string }>();
-  const { data: user, isLoading } = useQuery(['getUserInfos', params], () =>
-    getUserInfos(params.id ?? '')
-  );
+  const { data: user, isLoading } = useQuery({
+    queryKey: ['getUserInfos', params],
+    queryFn: () => getUserInfos(params.id ?? ''),
+  });
 
   return (
     <section className="bg-background">

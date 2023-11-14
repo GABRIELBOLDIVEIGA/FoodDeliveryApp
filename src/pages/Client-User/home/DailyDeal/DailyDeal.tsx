@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Product,
   productValidator,
@@ -13,7 +13,7 @@ const DailyDeal = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/product/product/query?page=1&limit=1')
       .then((res) => {
         const parse = productValidator.safeParse(res.data[0]);

@@ -1,7 +1,7 @@
 import { ChevronLeftCircle, Loader } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Product,
   productsSchema,
@@ -15,7 +15,7 @@ const Products = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`/product/productsByCategory/${params.id}`)
       .then((res) => {
         const parse = productsSchema.safeParse(res.data);

@@ -3,7 +3,7 @@ import { RegisterUser, registerUserSchema } from './registerUserSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useContext, useEffect, useState } from 'react';
 import axios from 'axios';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 
 const useRegisterUser = () => {
@@ -41,7 +41,7 @@ const useRegisterUser = () => {
   const submit = (data: RegisterUser) => {
     console.log(data);
     setLoading(true);
-    deliveryInstance
+    deliveryInstanceOLD
       .post('/user', data)
       .then((res) => {
         console.log(res.data);

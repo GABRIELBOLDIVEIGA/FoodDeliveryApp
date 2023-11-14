@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CardCategory from 'src/components/CardCategory/CardCategory';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Category,
   categoriesSchema,
@@ -14,7 +14,7 @@ const Categories = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/category')
       .then((res) => {
         const parse = categoriesSchema.safeParse(res.data);

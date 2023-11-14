@@ -11,7 +11,6 @@ import {
   AlertDialog,
   AlertDialogAction,
   AlertDialogContent,
-  AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
   AlertDialogTitle,
@@ -127,7 +126,6 @@ const Login = () => {
         <AlertDialogContent className="w-[95%]">
           <AlertDialogHeader>
             <AlertDialogTitle>{error?.message}</AlertDialogTitle>
-            <AlertDialogDescription>{error?.message}</AlertDialogDescription>
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogAction onClick={() => setAlert(!alert)}>

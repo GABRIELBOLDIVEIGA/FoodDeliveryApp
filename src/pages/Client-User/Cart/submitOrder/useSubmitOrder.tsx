@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react';
 import { AuthContext } from 'src/context/auth/AuthContext';
 import { CartContext } from 'src/context/cart/CartContext';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 
 const useSubmitOrder = () => {
   const { user } = useContext(AuthContext);
@@ -27,7 +27,7 @@ const useSubmitOrder = () => {
   };
 
   const submitOrder = () => {
-    deliveryInstance
+    deliveryInstanceOLD
       .post('/order', order)
       .then((res) => {
         if (res.status === 201) {

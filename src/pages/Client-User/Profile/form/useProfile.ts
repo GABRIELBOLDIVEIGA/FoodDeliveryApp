@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { AuthContext } from 'src/context/auth/AuthContext';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Profile,
   profileValidator,
@@ -23,7 +23,7 @@ export const useProfile = () => {
   const watchZipCode = form.watch(['zipCode']);
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`/user/${user?.userId}`)
       .then((res) => {
         const parse = profileValidator.safeParse(res.data);
@@ -78,7 +78,7 @@ export const useProfile = () => {
   const submitForm = (data: Profile) => {
     setLoadingSubmit(true);
 
-    deliveryInstance
+    deliveryInstanceOLD
       .put(`/user/${user?.userId}`, data)
       .then((res) => {
         console.log(res.data);

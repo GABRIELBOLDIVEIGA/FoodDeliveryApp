@@ -3,47 +3,47 @@ import { User } from '../../types/User';
 import { AuthContext } from './AuthContext';
 import { useState, useLayoutEffect } from 'react';
 import jwt_decode from 'jwt-decode';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
+import { useMutation } from '@tanstack/react-query';
+import { ErrorAxios } from 'src/types/ErrorAxios';
+
+const login = async (data: { email: string; password: string }) => {
+  return deliveryInstanceOLD
+    .post('http://localhost:3000/auth/login', { ...data })
+    .then((res) => {
+      return res.data;
+    })
+    .catch((error: ErrorAxios) => {
+      throw new Error(error.response.data.message);
+    });
+};
 
 export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   const [user, setUser] = useState<User | null>(null);
-  const [error, setError] = useState<any>();
-  const [loading, setLoading] = useState(false);
+  const loginMutation = useMutation({
+    mutationFn: login,
+    onSuccess: (data) => {
+      if (data.access_token) {
+        localStorage.setItem('access_token', data.access_token);
+        const user: User = jwt_decode(data.access_token);
+        setUser(user);
+      }
+    },
+  });
 
   useLayoutEffect(() => {
     loadUser();
   }, []);
 
   const singin = async (data: { email: string; password: string }) => {
-    setError(null);
-    setLoading(true);
-    deliveryInstance
-      .post('http://localhost:3000/auth/login', { ...data })
-      .then((res) => {
-        if (res.data.access_token) {
-          localStorage.setItem('access_token', res.data.access_token);
-          const user: User = jwt_decode(res.data.access_token);
-          setUser(user);
-        }
-      })
-      .catch((err) => {
-        setError(err);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
+    loginMutation.mutate(data);
     return true;
   };
 
   const singout = () => {
     setUser(null);
     localStorage.removeItem('access_token');
-    // removeAccessToken();
   };
-
-  // const removeAccessToken = () => {
-  //   localStorage.removeItem("access_token")
-  // };
 
   const loadUser = () => {
     const access_token = localStorage.getItem('access_token');
@@ -54,7 +54,15 @@ export const AuthProvider = ({ children }: { children: JSX.Element }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ user, singin, singout, error, loading }}>
+    <AuthContext.Provider
+      value={{
+        user,
+        singin,
+        singout,
+        error: loginMutation.error,
+        loading: loginMutation.isPending,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

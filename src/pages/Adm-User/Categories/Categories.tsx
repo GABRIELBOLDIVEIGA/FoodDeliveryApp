@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import Header from '../Header/Header';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Category,
   categoryValidator,
@@ -15,7 +15,7 @@ export const Categories = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get('/category')
       .then((res) => {
         const parse = categoryValidator.array().safeParse(res.data);

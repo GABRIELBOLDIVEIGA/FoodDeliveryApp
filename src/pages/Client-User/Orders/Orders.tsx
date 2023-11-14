@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import Header from './OrdersHeader/OrdersHeader';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { AuthContext } from 'src/context/auth/AuthContext';
 import { Order, orderValidator } from 'src/validator/orderUser/orderUserValidator';
 import { Loader } from 'lucide-react';
@@ -11,7 +11,7 @@ const Orders = () => {
   const [orders, setOrders] = useState<Array<Order>>();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`/order/userOrders/${user?.userId}`)
       .then((res) => {
         const parse = orderValidator.array().safeParse(res.data);

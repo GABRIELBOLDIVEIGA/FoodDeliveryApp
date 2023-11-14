@@ -1,12 +1,13 @@
 import Header from "../Header/Header";
 import { OrderCardAdm } from "./OrderCardAdm/OrderCardAdm";
-import { useQuery } from "react-query";
-import { getAllOrders } from "./queries/useQueries";
+import { useQuery } from "@tanstack/react-query";
+import { useGetAllOrders } from "./queries/useQueries";
 import { Loader } from "src/components/Loader/Loader";
 import { MessageError } from "src/components/MessageError/MessageError";
 
 export const Orders = () => {
-  const { data: orders, isLoading } = useQuery(['getAllOrders'], () => getAllOrders() )
+  const { getAllOrders } = useGetAllOrders()
+  const { data: orders, isLoading } = useQuery({ queryKey: ['getAllOrders'], queryFn: getAllOrders })
 
   return (
   <section>

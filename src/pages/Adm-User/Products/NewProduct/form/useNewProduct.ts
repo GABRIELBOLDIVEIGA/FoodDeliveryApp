@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { Product, productSchema } from '../../schema/productSchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { productValidator } from 'src/validator/product/productValidator';
@@ -18,7 +18,7 @@ const useNewProduct = () => {
     console.log('[useNewProduct] - Submit => ', data);
 
     setLoading(true);
-    deliveryInstance
+    deliveryInstanceOLD
       .post('/product', data)
       .then((res) => {
         const parse = productValidator.safeParse(res.data);

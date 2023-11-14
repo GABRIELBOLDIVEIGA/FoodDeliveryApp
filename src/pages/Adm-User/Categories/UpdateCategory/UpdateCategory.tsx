@@ -3,7 +3,7 @@ import {
   Category as UpdateCategory,
   categoryValidator,
 } from 'src/validator/category/categoryValidator';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { useParams } from 'react-router-dom';
 import Header from '../../Header/Header';
 import { Card } from 'src/components/ui/Card/Card';
@@ -46,7 +46,7 @@ const UpdateCategory = () => {
     useUpdateCategory();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`category/${params.id}`)
       .then((res) => {
         const parse = categoryValidator.safeParse(res.data);
@@ -73,7 +73,7 @@ const UpdateCategory = () => {
       formData.append('file', file);
       formData.append('fileName', file.name);
 
-      deliveryInstance
+      deliveryInstanceOLD
         .post(`/category/upload-image/${params.id}`, formData, {
           headers: {
             'content-type': 'multipart/form-data',

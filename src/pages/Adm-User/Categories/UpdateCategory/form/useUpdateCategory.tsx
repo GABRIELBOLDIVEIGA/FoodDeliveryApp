@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import { Category, categorySchema } from '../../schema/categorySchema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { deliveryInstance } from 'src/services/deliveryInstance';
+import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { useNavigate, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 
@@ -15,7 +15,7 @@ const useUpdateCategory = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    deliveryInstance
+    deliveryInstanceOLD
       .get(`category/${params.id}`)
       .then((res) => {
         const parse = categorySchema.safeParse(res.data);
@@ -39,7 +39,7 @@ const useUpdateCategory = () => {
     setLoading(true);
     const data2 = { name: data.name, description: data.description };
 
-    deliveryInstance
+    deliveryInstanceOLD
       .put(`/category/${params.id}`, data2)
       .then(() => {
         navigate('/adm/categories');
@@ -53,7 +53,7 @@ const useUpdateCategory = () => {
   };
 
   const deleteCategory = (id: string) => {
-    deliveryInstance
+    deliveryInstanceOLD
       .delete(`/category/${id}`)
       .then(() => {
         navigate('/adm/categories');
