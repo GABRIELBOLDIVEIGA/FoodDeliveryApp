@@ -40,8 +40,9 @@ import registerUserPT from 'src/pages/RegisterUser/locale/pt.json';
 import updateCategoryEN from 'src/pages/Adm-User/Categories/UpdateCategory/locale/en.json';
 import updateCategoryPT from 'src/pages/Adm-User/Categories/UpdateCategory/locale/pt.json';
 
-import newCategoryPT from '../../pages/Adm-User/Categories/newCategory/locale/pt.json';
-import newCategoryEN from '../../pages/Adm-User/Categories/NewCategory/locale/en.json';
+import { EN, PT } from '../../pages/Adm-User/Categories/NewCategory/locale/locale'
+// import newCategoryPT from '../../pages/Adm-User/Categories/newCategory/locale/pt.json';
+// import newCategoryEN from '../../pages/Adm-User/Categories/NewCategory/locale/en.json';
 
 import productsAdmPT from 'src/pages/Adm-User/Products/locale/pt.json';
 import productsAdmEN from 'src/pages/Adm-User/Products/locale/en.json';
@@ -85,7 +86,8 @@ export const localeEN = {
   ...menuEN,
   ...registerUserEN,
   ...updateCategoryEN,
-  ...newCategoryEN,
+  // ...newCategoryEN,
+  ...EN,
   ...productsAdmEN,
   ...newProductEN,
   ...updateProductEN,
@@ -113,7 +115,8 @@ export const localePT = {
   ...menuPT,
   ...registerUserPT,
   ...updateCategoryPT,
-  ...newCategoryPT,
+  // ...newCategoryPT,
+  ...PT,
   ...productsAdmPT,
   ...newProductPT,
   ...updateProductPT,
