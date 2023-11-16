@@ -4,8 +4,9 @@ import themeEN from 'src/components/ToggleTheme/locale/en.json';
 import loginPT from 'src/pages/login/locale/pt.json';
 import loginEN from 'src/pages/login/locale/en.json';
 
-import bannerHomePT from '../../pages/Client-User/Home/Banner/locale/pt.json';
-import bannerHomeEN from '../../pages/Client-User/Home/Banner/locale/en.json';
+// import bannerHomePT from '../../pages/Client-User/Home/Banner/locale/pt.json';
+// import bannerHomeEN from '../../pages/Client-User/Home/Banner/locale/en.json';
+import { bannerHomeEN, bannerHomePT} from '../../pages/Client-User/Home/Banner/locale/locale'
 
 import categoriesHomePT from '../../pages/Client-User/Home/Categories/locale/pt.json';
 import categoriesHomeEN from '../../pages/Client-User/Home/Categories/locale/en.json';
