@@ -6,7 +6,8 @@ type ConfigsProps = {
   className?: string;
 };
 
-const Configs = ({ className }: ConfigsProps, rest) => {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+const Configs = ({ className }: ConfigsProps, rest: any) => {
   return (
     <div {...rest} className={cn('flex flex-row gap-2 self-end', className)}>
       <ToggleTheme />

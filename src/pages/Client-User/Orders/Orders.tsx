@@ -14,7 +14,9 @@ const Orders = () => {
     deliveryInstanceOLD
       .get(`/order/userOrders/${user?.userId}`)
       .then((res) => {
+        console.log(res.data)
         const parse = orderValidator.array().safeParse(res.data);
+        console.log(parse)
         setOrders(parse.success ? parse.data : undefined);
       })
       .catch((err) => {
