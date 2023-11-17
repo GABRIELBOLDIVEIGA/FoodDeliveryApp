@@ -21,6 +21,7 @@ import NewProduct from 'src/pages/Adm-User/Products/NewProduct/NewProduct';
 import SideDish from 'src/pages/Adm-User/SideDish/SideDish';
 import Users from 'src/pages/Adm-User/Users/Users';
 import InfosUser from 'src/pages/Adm-User/Users/InfosUser/InfosUser';
+import { LoadAc } from 'src/pages/LoadAc';
 
 // export const routes = createBrowserRouter([
 //   {
