@@ -1,4 +1,8 @@
-import EN from './en.json'
-import PT from './pt.json'
+import newCategoryEN from './en.json'
+import newCategoryPT from './pt.json'
 
-export {EN, PT}
+export {
+  newCategoryPT,
+  newCategoryEN
+}
+
