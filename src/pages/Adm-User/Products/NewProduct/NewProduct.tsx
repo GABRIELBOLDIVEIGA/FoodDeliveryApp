@@ -54,7 +54,7 @@ const NewProduct = () => {
     <section>
       <Header translateKey="NewProduct.title" type="back" />
 
-      <section className="pt-20 px-2">
+      <section className="py-20 px-2">
         <Card className="border-border p-2">
           <Form {...form}>
             <form

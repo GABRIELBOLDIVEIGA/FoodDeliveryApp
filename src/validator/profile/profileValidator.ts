@@ -10,8 +10,8 @@ export const profileValidator = z.object({
     .max(15, 'Documento muito grande.'),
   zipCode: z
     .string()
-    .min(8, 'informe o CEP')
-    .max(8, 'Numero do CEP muito grande.'),
+    .min(3, 'informe o CEP')
+    .max(13, 'Numero do CEP muito grande.'),
   neighborhood: z.string().min(3, 'Informe o Bairro'),
   street: z
     .string()
@@ -27,8 +27,8 @@ export const profileValidator = z.object({
     .max(10, 'Numero da casa muito grande.'),
   phoneNumber: z
     .string()
-    .min(8, 'Informe Telefone')
-    .max(10, 'Numero de telefone muito grande.'),
+    .min(2, 'Informe Telefone')
+    .max(20, 'Numero de telefone muito grande.'),
 });
 
 export type Profile = z.infer<typeof profileValidator>;

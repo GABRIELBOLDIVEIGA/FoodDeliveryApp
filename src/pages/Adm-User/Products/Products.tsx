@@ -2,20 +2,22 @@ import { useContext } from 'react';
 import Header from '../Header/Header';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import { Link } from 'react-router-dom';
-import { useGetAllProducts } from './queries/useQueries';
-import { Loader } from 'src/components/Loader/Loader';
-import { MessageError } from 'src/components/MessageError/MessageError';
+import { useProducts } from './queries/useQueries';
 import { Product } from './Product/Product';
-import { useQuery } from '@tanstack/react-query';
-import { Plus } from 'lucide-react';
+import { Loader2, Plus } from 'lucide-react';
+import InfiniteScroll from 'react-infinite-scroll-component';
+import { Input } from 'src/components/ui/Input/Input';
 
 export const Products = () => {
-  const { getAllProducts } = useGetAllProducts();
   const { t } = useContext(LanguageContext);
-  const { data: products, isLoading } = useQuery({
-    queryKey: ['getAllProducts'],
-    queryFn: getAllProducts,
-  });
+  const {
+    data,
+    fetchNextPage,
+    hasNextPage,
+    isFetching,
+    filter,
+    setFilter,
+  } = useProducts();
 
   return (
     <section>
@@ -25,18 +27,34 @@ export const Products = () => {
         </Link>
       </Header>
 
-      <section className="py-20 px-2 bg-background">
-        {!products && !isLoading && (
-          <MessageError translateKey="Products.messageError" />
-        )}
-        {isLoading && <Loader />}
-        {products && (
+      <section className="py-16 px-2 bg-background">
+        <Input
+          className="mb-4"
+          placeholder="search..."
+          value={filter}
+          onChange={(ev) => setFilter(ev.target.value)}
+        />
+
+        <InfiniteScroll
+          dataLength={data?.pages.length ?? 0}
+          hasMore={hasNextPage}
+          next={fetchNextPage}
+          loader={
+            isFetching && (
+              <div className="w-full flex justify-center pt-4 pb-20">
+                <Loader2 className="animate-spin" />
+              </div>
+            )
+          }
+        >
           <div className="flex flex-col gap-2">
-            {products?.map((product) => (
-              <Product key={product._id} product={product} />
-            ))}
+            {data?.pages.map((page) =>
+              page.map((product) => (
+                <Product key={product._id} product={product} />
+              ))
+            )}
           </div>
-        )}
+        </InfiniteScroll>
       </section>
     </section>
   );

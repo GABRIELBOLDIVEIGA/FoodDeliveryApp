@@ -21,7 +21,9 @@ import NewProduct from 'src/pages/Adm-User/Products/NewProduct/NewProduct';
 import SideDish from 'src/pages/Adm-User/SideDish/SideDish';
 import Users from 'src/pages/Adm-User/Users/Users';
 import InfosUser from 'src/pages/Adm-User/Users/InfosUser/InfosUser';
-import { LoadAc } from 'src/pages/LoadAc';
+// import { LoadAc } from 'src/pages/LoadAc';
+import { NewSideDish } from 'src/pages/Adm-User/SideDish/NewSideDish/NewSideDish';
+import { UpdateSideDish } from 'src/pages/Adm-User/SideDish/UpdateSideDish/UpdateSideDish';
 
 // export const routes = createBrowserRouter([
 //   {
@@ -155,6 +157,8 @@ export const Rotas = () => {
           <Route path="/adm/create-new-product" element={<NewProduct />} />
           <Route path="/adm/product/:id" element={<UpdateProduct />} />
           <Route path="/adm/sidedish" element={<SideDish />} />
+          <Route path="/adm/create-new-sideDish" element={<NewSideDish />} />
+          <Route path="/adm/sidedish/:id" element={<UpdateSideDish />} />
           <Route path="/adm/users" element={<Users />} />
           <Route path="/adm/user/:id" element={<InfosUser />} />
         </Route>

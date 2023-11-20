@@ -123,7 +123,7 @@ const UpdateCategory = () => {
         </AlertDialog>
       </Header>
 
-      <section className="pt-20 p-2">
+      <section className="py-20 p-2">
         <Card className="p-2 border-border">
           <label htmlFor="banner-img">
             <div

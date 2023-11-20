@@ -24,7 +24,7 @@ const NewCategory = () => {
     <section>
       <Header title="New Category" />
 
-      <div className="pt-20 p-2">
+      <div className="py-20 p-2">
         <Card className="border-border p-2">
           <Form {...form}>
             <form
