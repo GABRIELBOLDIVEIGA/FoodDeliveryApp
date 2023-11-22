@@ -1,21 +1,22 @@
 import { ChevronLeftCircle, Loader } from 'lucide-react';
 import { useContext, useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import {
   Product,
   productsSchema,
 } from 'src/validator/product/productValidator';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import CardProduct from 'src/components/CardProduct/CardProduct';
+import { useDeliveryInstance } from 'src/services/deliveryInstance';
 
 const Products = () => {
+  const { deliveryInstance } = useDeliveryInstance()
   const params = useParams<{ id: string }>();
   const [products, setProducts] = useState<Array<Product>>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstanceOLD
+    deliveryInstance
       .get(`/product/productsByCategory/${params.id}`)
       .then((res) => {
         const parse = productsSchema.safeParse(res.data);
@@ -23,6 +24,8 @@ const Products = () => {
       })
       .catch((err) => console.log(err))
       .finally(() => setLoading(false));
+      
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]);
 
   return (

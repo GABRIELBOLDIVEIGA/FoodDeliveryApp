@@ -3,18 +3,19 @@ import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import CardCategory from 'src/components/CardCategory/CardCategory';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
-import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
+import { useDeliveryInstance } from 'src/services/deliveryInstance';
 import {
   Category,
   categoriesSchema,
 } from 'src/validator/category/categoryValidator';
 
 const Categories = () => {
+  const { deliveryInstance } = useDeliveryInstance()
   const [categories, setCategories] = useState<Array<Category>>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstanceOLD
+    deliveryInstance
       .get('/category')
       .then((res) => {
         const parse = categoriesSchema.safeParse(res.data);

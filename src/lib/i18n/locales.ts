@@ -164,6 +164,21 @@ import {
   cardUserInfosEN
 } from '../../pages/Adm-User/Users/InfosUser/locale/locale'
 
+import {
+  SideDishCardPT,
+  SideDishCardEN
+} from "../../pages/Adm-User/SideDish/SideDishCard/locale/locale"
+
+import {
+  NewSideDishPT,
+  NewSideDishEN
+} from "../../pages/Adm-User/SideDish/NewSideDish/locale/locale"
+
+import {
+  UpdateSideDishPT,
+  UpdateSideDishEN
+} from "../../pages/Adm-User/SideDish/UpdateSideDish/locale/locale"
+
 export const localeEN = {
   ...themeEN,
   ...loginEN,
@@ -189,7 +204,10 @@ export const localeEN = {
   ...usersEN,
   ...cardUserEN,
   ...cardUserInfosEN,
-
+  ...SideDishCardEN,
+  ...NewSideDishEN,
+  ...UpdateSideDishEN,
+  
 };
 
 export const localePT = {
@@ -217,5 +235,7 @@ export const localePT = {
   ...usersPT,
   ...cardUserPT,
   ...cardUserInfosPT,
-
+  ...SideDishCardPT,
+  ...NewSideDishPT,
+  ...UpdateSideDishPT,
 };

@@ -1,0 +1,33 @@
+{
+  "UpdateSideDish": {
+    "title": "Update SideDish",
+    "avaliable": {
+      "label": "Avaliable"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Name"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description"
+    },
+    "price": {
+      "label": "Price",
+      "placeholder": "Price"
+    },
+    "alert":{
+      "delete": {
+        "title": "Delete this SideDish?",
+        "message": "When confirming this SideDish, it will be permanently deleted.",
+        "btnCancel": "Cancel",
+        "btnConfirm": "Delete"
+      },
+      "success": {
+        "message": "Update completed successfully!"
+      },
+      "btnConfirm": "OK"
+    },
+    "btnSubmit": "Save"
+  }
+}

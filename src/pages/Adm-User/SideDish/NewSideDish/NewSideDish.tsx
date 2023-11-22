@@ -100,7 +100,7 @@ export const NewSideDish = () => {
 
               <ButtonSubmit
                 loading={loading}
-                translateKey="NewProduct.btnSubmit"
+                translateKey="NewSideDish.btnSubmit"
               />
             </form>
           </Form>

@@ -1,0 +1,21 @@
+{
+  "NewSideDish": {
+    "title": "New SideDish",
+    "avaliable": {
+      "label": "Avaliable"
+    },
+    "name": {
+      "label": "Name",
+      "placeholder": "Name"
+    },
+    "description": {
+      "label": "Description",
+      "placeholder": "Description"
+    },
+    "price": {
+      "label": "Price",
+      "placeholder": "Price"
+    },
+    "btnSubmit": "Save"
+  }
+}

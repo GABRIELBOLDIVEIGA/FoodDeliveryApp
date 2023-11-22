@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
+import { useDeliveryInstance } from 'src/services/deliveryInstance';
 import {
   Product,
   productValidator,
@@ -8,19 +8,21 @@ import { LanguageContext } from 'src/context/language/LanguageContenxt';
 import imgError from 'src/assets/404FullHD.jpg';
 
 const DailyDeal = () => {
+  const { deliveryInstance } = useDeliveryInstance()
   const { t } = useContext(LanguageContext);
   const [product, setProduct] = useState<Product>();
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    deliveryInstanceOLD
-      .get('/product/product/query?page=1&limit=1')
+    deliveryInstance
+      .get('/product')
       .then((res) => {
         const parse = productValidator.safeParse(res.data[0]);
         setProduct(parse.success ? parse.data : undefined);
       })
       .catch((err) => console.log(err))
       .finally(() => {});
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

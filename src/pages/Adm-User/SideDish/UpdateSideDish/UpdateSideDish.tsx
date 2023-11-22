@@ -1,13 +1,39 @@
-import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger } from 'src/components/ui/AlertDialog/AlertDialog';
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from 'src/components/ui/AlertDialog/AlertDialog';
 import Header from '../../Header/Header';
 import { Trash2 } from 'lucide-react';
 import { useContext } from 'react';
 import { LanguageContext } from 'src/context/language/LanguageContenxt';
-import { useParams } from 'react-router-dom';
+import { Card } from 'src/components/ui/Card/Card';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from 'src/components/ui/Form/Form';
+import { Switch } from 'src/components/ui/Switch/Switch';
+import { Input } from 'src/components/ui/Input/Input';
+import ButtonSubmit from 'src/components/ButtonSubmit/ButtonSubmit';
+import { useUpdateSideDish } from './form/useUpdateSideDish';
+import { useNavigate } from 'react-router-dom';
 
 export const UpdateSideDish = () => {
   const { t } = useContext(LanguageContext);
-  const params = useParams<{ id: string }>();
+  const { form, submit, loading, resetAlert, message, error, deleteSideDish } =
+    useUpdateSideDish();
+  const navigate = useNavigate();
+
   return (
     <section>
       <Header translateKey="UpdateSideDish.title" type="back">
@@ -17,28 +43,27 @@ export const UpdateSideDish = () => {
           </AlertDialogTrigger>
           <AlertDialogContent className="w-[90%] rounded-lg border-border">
             <AlertDialogHeader>
-              <AlertDialogTitle>
-                {t('UpdateSideDish.alert.title')}
+              <AlertDialogTitle className="text-primary-foreground">
+                {t('UpdateSideDish.alert.delete.title')}
               </AlertDialogTitle>
               <AlertDialogDescription>
-                {t('UpdateSideDish.alert.message')}
+                {t('UpdateSideDish.alert.delete.message')}
               </AlertDialogDescription>
             </AlertDialogHeader>
             <AlertDialogFooter>
               <AlertDialogCancel className="text-secondary-foreground">
-                {t('UpdateSideDish.alert.btnCancel')}
+                {t('UpdateSideDish.alert.delete.btnCancel')}
               </AlertDialogCancel>
-              <AlertDialogAction
-                // onClick={() => deleteProduct(params.id ? params.id : '')}
-              >
-                {t('UpdateSideDish.alert.btnConfirm')}
+              <AlertDialogAction onClick={() => deleteSideDish()}>
+                {t('UpdateSideDish.alert.delete.btnConfirm')}
               </AlertDialogAction>
             </AlertDialogFooter>
           </AlertDialogContent>
         </AlertDialog>
       </Header>
-    <section className="py-20 px-2">
-    <Card className="border-border p-2">
+
+      <section className="py-20 px-2">
+        <Card className="border-border p-2">
           <Form {...form}>
             <form
               onSubmit={form.handleSubmit(submit)}
@@ -49,7 +74,7 @@ export const UpdateSideDish = () => {
                 name="avaliable"
                 render={({ field }) => (
                   <FormItem className="flex flex-row items-center justify-between rounded-lg py-2">
-                    <FormLabel>{t('NewSideDish.avaliable.label')}</FormLabel>
+                    <FormLabel>{t('UpdateSideDish.avaliable.label')}</FormLabel>
                     <FormControl>
                       <Switch
                         checked={field.value}
@@ -65,10 +90,10 @@ export const UpdateSideDish = () => {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('NewSideDish.name.label')}</FormLabel>
+                    <FormLabel>{t('UpdateSideDish.name.label')}</FormLabel>
                     <FormControl>
                       <Input
-                        placeholder={t('NewSideDish.name.placeholder')}
+                        placeholder={t('UpdateSideDish.name.placeholder')}
                         {...field}
                       />
                     </FormControl>
@@ -82,10 +107,14 @@ export const UpdateSideDish = () => {
                 name="description"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('NewSideDish.description.label')}</FormLabel>
+                    <FormLabel>
+                      {t('UpdateSideDish.description.label')}
+                    </FormLabel>
                     <FormControl>
                       <Input
-                        placeholder={t('NewSideDish.description.placeholder')}
+                        placeholder={t(
+                          'UpdateSideDish.description.placeholder'
+                        )}
                         {...field}
                       />
                     </FormControl>
@@ -99,11 +128,11 @@ export const UpdateSideDish = () => {
                 name="price"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>{t('NewSideDish.price.label')}</FormLabel>
+                    <FormLabel>{t('UpdateSideDish.price.label')}</FormLabel>
                     <FormControl>
                       <Input
                         type="number"
-                        placeholder={t('NewSideDish.price.placeholder')}
+                        placeholder={t('UpdateSideDish.price.placeholder')}
                         {...field}
                       />
                     </FormControl>
@@ -114,12 +143,31 @@ export const UpdateSideDish = () => {
 
               <ButtonSubmit
                 loading={loading}
-                translateKey="NewProduct.btnSubmit"
+                translateKey="UpdateSideDish.btnSubmit"
               />
             </form>
           </Form>
         </Card>
-    </section>
+      </section>
+
+      <AlertDialog open={error || message ? true : false}>
+        <AlertDialogContent className="w-[90%] rounded-lg border-border">
+          <AlertDialogHeader>
+            <AlertDialogDescription>
+              {error ? message : t(`${message}`)}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogAction
+              onClick={() => {
+                error ? resetAlert() : navigate(-1);
+              }}
+            >
+              {t('UpdateSideDish.alert.btnConfirm')}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </section>
   );
 };

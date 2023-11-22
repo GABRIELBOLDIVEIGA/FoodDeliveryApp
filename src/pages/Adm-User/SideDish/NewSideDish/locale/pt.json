@@ -1,0 +1,21 @@
+{
+  "NewSideDish": {
+    "title": "Novo Acompanhamento",
+    "avaliable": {
+      "label": "Disponivel"
+    },
+    "name": {
+      "label": "Nome",
+      "placeholder": "Nome"
+    },
+    "description": {
+      "label": "Descrição",
+      "placeholder": "Descrição"
+    },
+    "price": {
+      "label": "Preço",
+      "placeholder": "Preço"
+    },
+    "btnSubmit": "Salvar"
+  }
+}

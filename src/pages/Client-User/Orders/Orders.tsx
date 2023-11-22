@@ -2,7 +2,10 @@ import { useContext, useEffect, useState } from 'react';
 import Header from './OrdersHeader/OrdersHeader';
 import { deliveryInstanceOLD } from 'src/services/deliveryInstance';
 import { AuthContext } from 'src/context/auth/AuthContext';
-import { Order, orderValidator } from 'src/validator/orderUser/orderUserValidator';
+import {
+  Order,
+  orderValidator,
+} from 'src/validator/orderUser/orderUserValidator';
 import { Loader } from 'lucide-react';
 import OrderCard from 'src/components/Order/Order';
 
@@ -14,9 +17,8 @@ const Orders = () => {
     deliveryInstanceOLD
       .get(`/order/userOrders/${user?.userId}`)
       .then((res) => {
-        console.log(res.data)
         const parse = orderValidator.array().safeParse(res.data);
-        console.log(parse)
+
         setOrders(parse.success ? parse.data : undefined);
       })
       .catch((err) => {
@@ -37,10 +39,8 @@ const Orders = () => {
           </div>
         )}
 
-        <div className='flex flex-col gap-2'>
-          {orders?.map((order) => (
-            <OrderCard key={order._id} {...order} />
-          ))}
+        <div className="flex flex-col gap-2">
+          {orders?.map((order) => <OrderCard key={order._id} {...order} />)}
         </div>
       </div>
     </section>

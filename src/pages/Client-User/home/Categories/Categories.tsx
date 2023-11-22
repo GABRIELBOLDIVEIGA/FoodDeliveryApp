@@ -15,7 +15,7 @@ const Categories = () => {
 
   useEffect(() => {
     deliveryInstanceOLD
-      .get('/category/category/query?page=1&limit=3')
+      .get('/category?page=1&limit=3')
       .then((res) => {
         const categories = categoriesSchema.safeParse(res.data);
         setCategories(categories.success ? categories.data : undefined);

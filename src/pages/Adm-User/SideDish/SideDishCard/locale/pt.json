@@ -1,0 +1,8 @@
+{
+  "SideDishCard": {
+    "name": "Nome",
+    "description": "Descrição",
+    "avaliable": "Disponivel",
+    "price": "Preço"
+  }
+}
