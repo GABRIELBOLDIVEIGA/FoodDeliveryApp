@@ -1,8 +1,6 @@
 # React + TypeScript + Vite + Zod + Form
 
-```js
-  npx prettier . --write
-```
+
 
 ![tela de login](./public//preview//login.png)
 
