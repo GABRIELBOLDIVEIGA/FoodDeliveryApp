@@ -4,7 +4,7 @@ import { Input } from 'src/components/ui/Input/Input';
 import { Label } from 'src/components/ui/Label/Label';
 import useLogin from './form/useLogin';
 import { useContext, useEffect, useState } from 'react';
-import { Loader2 } from 'lucide-react';
+import { Copy, Loader2 } from 'lucide-react';
 import { AuthContext } from 'src/context/auth/AuthContext';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -111,14 +111,60 @@ const Login = () => {
 
         <div className="border-b-2 border-border pt-4">
           <h3 className="text-lg  font-bold">{t('login.adm')}</h3>
-          <p>E-mail: adm@email.com</p>
-          <p>{t('login.password')}: 123456</p>
+          <p className="flex justify-between">
+            E-mail: adm@email.com{' '}
+            <span>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigator.clipboard.writeText('adm@email.com')}
+              >
+                <Copy size={16} />
+              </Button>
+            </span>
+          </p>
+          <p className="flex justify-between">
+            {t('login.password')}: 123456{' '}
+            <span>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigator.clipboard.writeText('123456')}
+              >
+                <Copy size={16} />
+              </Button>
+            </span>
+          </p>
         </div>
 
         <div className="border-b-2 border-border pt-4">
           <h3 className="text-lg font-bold">{t('login.client')}</h3>
-          <p>Email: cliente@email.com</p>
-          <p>{t('login.password')}: 123456</p>
+          <p className="flex justify-between">
+            Email: cliente@email.com{' '}
+            <span>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() =>
+                  navigator.clipboard.writeText('cliente@email.com')
+                }
+              >
+                <Copy size={16} />
+              </Button>
+            </span>
+          </p>
+          <p className="flex justify-between">
+            {t('login.password')}: 123456{' '}
+            <span>
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => navigator.clipboard.writeText('123456')}
+              >
+                <Copy size={16} />
+              </Button>
+            </span>
+          </p>
         </div>
       </Card>
 
